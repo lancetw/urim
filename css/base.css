@@ -1,0 +1,397 @@
+@charset 'UTF-8';
+
+body {
+    padding-top: 60px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h3.book-title {
+    margin-bottom: 0;
+}
+
+h3.book-title-alt {
+    font-size: 16px;
+    margin-top: -16px;
+    margin-bottom: 12px;
+    margin-left: 3px;
+}
+
+#sidebar {
+    overflow: hidden;
+    height: 620px;
+}
+
+.sidebar-padding {
+    height: 500px;
+}
+
+.tab-pane {
+    overflow: auto;
+    height: 100%;
+}
+
+div.slogan {
+    display: inline-block;
+    color: white;
+    line-height: 40px;
+}
+
+.bs-docs-example {
+    position: relative;
+    margin: 15px 0px;
+    padding: 39px 19px 14px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 4px 4px 4px 4px;
+}
+
+.bs-docs-example::after {
+    content: "Message";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 0 7px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: whiteSmoke;
+    border: 1px solid #DDD;
+    color: #9DA0A4;
+    -webkit-border-radius: 4px 0 4px 0;
+    -moz-border-radius: 4px 0 4px 0;
+    border-radius: 4px 0 4px 0;
+}
+
+.bs-docs-separator {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hebrew {
+    direction: rtl;
+    list-style-type: none;
+}
+
+.english {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+}
+
+.chinese {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.japanese {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.the-message {
+    margin-top: -20px;
+    font-size: 42px;
+    line-height: 42px;
+    table-layout: fixed;
+    word-wrap: break-word;
+    word-break: normal;
+    text-justify:inter-ideograph;
+}
+
+.the-message em {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.the-message a {
+    color: #000;
+}
+
+.the-message a:hover {
+    color: #777;
+    text-decoration: none;
+}
+
+.the-message .popover {
+    direction: ltr;
+    font-size: 14px;
+    width: 300px;
+}
+
+.the-message .popover ul, .pop-content ul {
+    list-style-type: square;
+}
+
+.the-message .popover li.hebrew, .pop-content li.hebrew {
+    font-size: 28px;
+    line-height: 28px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.the-translation {
+    font-size: 18px;
+    line-height: 18px;
+    border: 0;
+
+    table-layout: fixed;
+    word-wrap: break-word;
+    word-break: normal;
+    text-justify:inter-ideograph;
+}
+
+.the-translation:hover {
+    background-color: #efefef;
+}
+
+.the-translation code {
+    float: right;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    font-weight: bold;
+    color: #aaa;
+    -webkit-border-radius: 4px 0 4px 0;
+    -moz-border-radius: 4px 0 4px 0;
+    border-radius: 4px 0 4px 0;
+}
+
+.pop-content {
+    margin-bottom: 7px;
+    padding: 7px 7px;
+    background-color: whiteSmoke;
+    color: #aaa;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.pop-content em {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.pop-content .top {
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: -20px;
+}
+
+.pop-content:hover {
+    background-color: #efefef;
+}
+
+.pop-content .title {
+    color: #777;
+    font-size: 26px;
+    line-height: 52px;
+    text-align: left;
+}
+
+.verse {
+    position: relative;
+    float: right;
+    margin-right: 7px;
+    margin-top: -20px;
+}
+
+.clickover {
+
+}
+
+.clickover .clickover-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 140px;
+    margin: 0 -12px;
+}
+
+.clickover li {
+    list-style-type: none;
+    margin: 3px -12px;
+}
+
+
+
+/* Large desktop */
+@media only screen and (min-width: 1200px) {}
+
+/* Portrait tablet to landscape and desktop */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+    body {
+        padding-top: 0;
+    }
+
+    .navbar form.navbar-search {
+        position: absolute;
+        top: 5px;
+        left: 240px;
+    }
+
+    #sidebar {
+        overflow: hidden;
+        height: 513px;
+    }
+
+    .tab-pane {
+        overflow: auto;
+        height: auto;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media only screen and (max-width: 767px) {
+    body {
+        padding-top: 0;
+    }
+
+    .navbar form.navbar-search {
+        position: absolute;
+        top: 5px;
+        left: 220px;
+    }
+
+    #sidebar {
+        height: 245px;
+        margin-bottom: 12px;
+    }
+
+    .tooltip {
+        display: none !important;
+    }
+
+    .tab-pane {
+        overflow: auto;
+        height: auto;
+    }
+}
+
+/* Landscape phones and down */
+@media only screen and (max-width: 480px) {
+    body {
+        padding-top: 60px;
+        overflow-x: auto !important;
+        overflow-y: auto !important;
+    }
+
+    .navbar form.navbar-search {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    #sidebar {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 225px;
+    }
+
+    .sidebar-padding {
+        height: 30px;
+    }
+
+    .navbar {
+        position: fixed;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .tab-pane {
+        overflow: auto;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 480px) and (orientation:portrait) {
+    body {
+        padding-top: 100px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    #sidebar {
+        height: 315px;
+        margin-bottom: 7px;
+    }
+
+    .sidebar-padding {
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 480px) and (orientation:landscape) {
+    body {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    #sidebar {
+        height: 245px;
+        margin-bottom: 12px;
+    }
+
+    .tab-pane {
+        overflow: auto;
+        height: auto !important;
+    }
+
+    .navbar form.navbar-search {
+        position: absolute;
+        top: 5px;
+        left: 240px;
+        width: auto;
+    }
+}
+
+/*--- ipad ---*/
+
+@media only screen and (device-width: 768px) {
+  /* For general iPad layouts */
+    .tab-pane {
+        overflow: auto;
+        height: auto;
+    }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+    body {
+        overflow: hidden;
+    }
+
+    .tab-pane {
+        overflow: auto;
+        height: 425px;
+    }
+
+    #sidebar {
+        height: 845px;
+        margin-bottom: 12px;
+    }
+
+    .the-message {
+        height: 104px;
+        overflow: auto;
+    }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+    body {
+        overflow: hidden;
+    }
+
+    .tab-pane {
+        overflow: auto;
+        height: 200px;
+    }
+
+    #sidebar {
+        height: 600px;
+        margin-bottom: 12px;
+    }
+}
