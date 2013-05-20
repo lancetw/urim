@@ -20,29 +20,37 @@ class Reading extends CI_Controller {
 		if (empty($_serial[2])) $_serial[2] = 1;
 		$data['info']['verse'] = $_serial[2];
 
+		$type= 'hebrew';
+		if ($data['info']['book'] > 39) {
+			$type = 'greek';
+		}
+
 		$data['info']['book_chinese'] = $this->bible->book_name($data['info']['book'], 'chinese');
 		$data['info']['book_hebrew'] = $this->bible->book_name($data['info']['book'], 'hebrew');
 		$data['info']['book_english'] = $this->bible->book_name($data['info']['book'], 'english');
 
-		$words_array = $this->bible->read_by_serial($_serial);
-		$data['word']['with_strongs'] = $this->bible->strongs_version($words_array);
+		$words_array = $this->bible->read_by_serial($_serial, true);
+		$data['word']['with_strongs'] = $words_array;
 		$data['word']['lang_type'] = 'hebrew';
 		$data['word']['translation']['en'] = array(
 			'cjb' => $this->bible->translation_by_serial_version($_serial, 'cjb'),
 			'kjv' => $this->bible->translation_by_serial_version($_serial, 'kjv')
 		);
-
 		$data['word']['translation']['zh-hant'] = array(
 			'cunp' => $this->bible->translation_by_serial_version($_serial, 'cunp'),
 		);
 
-		$data['lexicon'] = $this->bible->make_lexicon($words_array);
+		$data['lexicon'] = $this->bible->make_lexicon($words_array, $type);
 
 		$data['layout']['next'] = implode('.', $this->bible->next_serial($_serial));
 		$data['layout']['prev'] = implode('.', $this->bible->prev_serial($_serial));
+		$data['layout']['nextbook'] = implode('.', $this->bible->next_book_by_serial($_serial));
+		$data['layout']['prevbook'] = implode('.', $this->bible->prev_book_by_serial($_serial));
 
 		$data['layout']['bible']['tanakh'] = $this->bible->book_list('tanakh');
 		$data['layout']['bible']['torah'] = $this->bible->book_list('torah');
+		$data['layout']['type'] = $type;
+		$data['layout']['strongs_note'] = $type == 'hebrew' ? 'H' : 'G';
 
 		$this->load->view('reading_view', $data);
 	}

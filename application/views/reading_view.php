@@ -78,34 +78,49 @@
 
         <div id="content" class="span9">
 
-            <ul class="breadcrumb">
-                <li><a rel="clickover" href="#" data-original-title="Tanakh" data-content="" data-ref="clickover_place_tanakh">Tanakh</a> <span class="divider">/</span></li>
-                <li><a rel="clickover" href="#" data-original-title="Torah" data-content="" data-ref="clickover_place_torah">Torah</a> <span class="divider">/</span></li>
-                <li class="active"><?= $info['book_english'] ?></li>
-            </ul>
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li><a rel="clickover" href="#" data-original-title="Tanakh" data-content="" data-ref="clickover_place_tanakh">Tanakh</a></li>
+                        <li><a rel="clickover" href="#" data-original-title="Torah" data-content="" data-ref="clickover_place_torah">Torah</a></li>
+
+                    </ul>
+                </div>
+            </div>
 
             <ul class="pager">
+                <li class="previous previous2<? if (empty($layout['nextbook'])): ?> disabled<? endif; ?>">
+                    <? if (!empty($layout['nextbook'])): ?>
+                    <a href="<?= site_url('reading/' . $layout['nextbook']); ?>">下一卷</a>
+                    <? endif; ?>
+                </li>
                 <li class="previous<? if (empty($layout['next'])): ?> disabled<? endif; ?>">
                     <? if (!empty($layout['next'])): ?>
-                    <a href="<?= site_url('reading/' . $layout['next']); ?>">&larr; 下一節</a>
+                    <a href="<?= site_url('reading/' . $layout['next']); ?>">下一節</a>
+                    <? endif; ?>
+                </li>
+                <li class="next next2<? if (empty($layout['prevbook'])): ?> disabled<? endif; ?>">
+                    <? if (!empty($layout['prevbook'])): ?>
+                    <a href="<?= site_url('reading/' . $layout['prevbook']); ?>">上一卷</a>
                     <? endif; ?>
                 </li>
                 <li class="next<? if (empty($layout['prev'])): ?> disabled<? endif; ?>">
                     <? if (!empty($layout['prev'])): ?>
-                    <a href="<?= site_url('reading/' . $layout['prev']); ?>">上一節 &rarr;</a>
+                    <a href="<?= site_url('reading/' . $layout['prev']); ?>">上一節</a>
                     <? endif; ?>
                 </li>
+
             </ul>
 
             <a id="top"></a>
 
             <h3 class="book-title"><?= $info['book_chinese'] ?></h3>
-            <h3 class="book-title-alt"><?= $info['book_hebrew'] ?> - <?= $info['book_english'] ?></h3>
+            <h3 class="book-title-alt"><?= $info['book_hebrew'] ?><? if ($info['book_hebrew'] !== $info['book_english']): ?> - <?= $info['book_english']; ?><? endif; ?></h3>
             <p><span class="verse badge badge-inverse"><?= $info['chapter'] ?> : <?= $info['verse'] ?></span></p>
             <div class="bs-docs-example">
-                <p class="the-message lead <?= $word['lang_type'] ?>">
+                <p class="the-message lead <?= $layout['type'] ?>">
                     <? foreach ($word['with_strongs'] as $item): ?>
-                    <a href="#pop-content-h<?= $item['strongs'] ?>" data-ref="h<?= $item['strongs'] ?>" data-toggle="popover" data-placement="top" data-content="查無資料 :|" data-title="<?= $item['strongs'] ?>"><?= $item['word'] ?></a>
+                    <a href="#pop-content-<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" data-toggle="popover" data-placement="top" data-content="查無資料 :|" data-title="<?= $item['strongs'] ?>"><?= $item['word'] ?></a>
                     <? endforeach; ?>
                 </p>
             </div>
@@ -117,11 +132,11 @@
 
             <div class="tab-content">
                 <div class="tab-pane active" id="chinese">
-                    <pre class="the-translation chinese prettyprint"><code><a href="#" data-toggle="tooltip" title="新標點和合本">CUNP</a></code><?= $word['translation']['zh-hant']['cunp'] ?></pre>
+                    <pre class="the-translation chinese prettyprint"><code><a href="#" data-toggle="tooltip" title="新標點和合本">CUNP</a></code><sapn class="word"><?= $word['translation']['zh-hant']['cunp'] ?></sapn></pre>
                 </div>
                 <div class="tab-pane" id="english">
-                    <pre class="the-translation english prettyprint"><code><a href="#" data-toggle="tooltip" title="Complete Jewish Bible">CJB</a></code><?= $word['translation']['en']['cjb'] ?></pre>
-                    <pre class="the-translation english prettyprint"><code><a href="#" data-toggle="tooltip" title="King James Version">KJV</a></code><?= $word['translation']['en']['kjv'] ?></pre>
+                    <pre class="the-translation english prettyprint"><code><a href="#" data-toggle="tooltip" title="Complete Jewish Bible">CJB</a></code><sapn class="word"><?= $word['translation']['en']['cjb'] ?></sapn></pre>
+                    <pre class="the-translation english prettyprint"><code><a href="#" data-toggle="tooltip" title="King James Version">KJV</a></code><sapn class="word"><?= $word['translation']['en']['kjv'] ?></sapn></pre>
                 </div>
 
             </div>
@@ -134,11 +149,11 @@
             <div class="content">
                 <ul class="nav">
                     <? foreach ($lexicon as $item): ?>
-                    <li id="pop-content-h<?= $item['strongs'] ?>" class="pop-content">
+                    <li id="pop-content-<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" class="pop-content">
                         <ul>
                             <li class="top visible-phone"><a href="#top">TOP</a></li>
-                            <li class="title hebrew"><?= $item['word'] ?></li>
-                            <li><strong>Strong's H<?= $item['strongs'] ?></strong></li>
+                            <li class="title <?= $layout['type']; ?>"><?= $item['word'] ?></li>
+                            <li><strong>Strong's <?= $layout['strongs_note'] ?><?= $item['strongs'] ?></strong></li>
                             <li>音譯：<em><?= $item['sbl'] ?></em></li>
                             <li>字根：<?= $item['deriv'] ?></li>
                             <li>詞性：<?= $item['part_of_speech'] ?></li>
@@ -151,8 +166,9 @@
                 <div class="sidebar-padding"></div>
             </div>
 
-
         </div>
+
+        <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds.</p>
 
         <div class="clickover_place_torah" style="display:none">
             <div class="clickover-wrapper">

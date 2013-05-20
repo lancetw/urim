@@ -47,30 +47,32 @@ class Bible_model extends CI_Model {
         }
     }
 
-    function book_abbr_by_id($book_id)
+    function book_abbr_by_id($book_id, $flag=false)
     {
         if (!isset($book_id)) return;
 
         $tbl_name = 'book_english';
 
-        /* DB opreations */
-        $this->db->select('abbreviation_3')->from($tbl_name)->where('id', $book_id)->limit(1);
-        $query = $this->db->get();
+        if (!$flag) {
+            /* DB opreations */
+            $this->db->select('abbreviation_3')->from($tbl_name)->where('id', $book_id)->limit(1);
+            $query = $this->db->get();
 
-        foreach ($query->result() as $row) {
-            return strtolower($row->abbreviation_3);
-        }
+            foreach ($query->result() as $row) {
+                return strtolower($row->abbreviation_3);
+            }
+        } else {
+            /* DB opreations */
+            $this->db->select('alternate')->from($tbl_name)->where('id', $book_id)->limit(1);
+            $query = $this->db->get();
 
-        /* DB opreations */
-        $this->db->select('alternate')->from($tbl_name)->where('id', $book_id)->limit(1);
-        $query = $this->db->get();
-
-        foreach ($query->result() as $row) {
-            return strtolower($row->abbreviation_3);
+            foreach ($query->result() as $row) {
+                return strtolower($row->alternate);
+            }
         }
     }
 
-    function read_by_serial(array $serial)
+    function read_by_serial(array $serial, $with_strongs=false)
     {
         if (!isset($serial)) return;
 
@@ -81,12 +83,21 @@ class Bible_model extends CI_Model {
         $tbl_name = 'bible_original';
 
         /* DB opreations */
-        $this->db->select('word')->from($tbl_name)->where('book', $book)->where('chapter', $chapter)->where('verse', $verse);
+        $this->db->select('word, strongs')->from($tbl_name)->where('book', $book)->where('chapter', $chapter)->where('verse', $verse);
         $query = $this->db->get();
 
         $words_array = array();
         foreach ($query->result() as $row) {
-            $words_array[] = $row->word;
+
+            if ($with_strongs) {
+                $word = array();
+                $word['word'] =  $row->word;
+                $word['strongs'] =  $row->strongs;
+                $words_array[] = $word;
+            } else {
+                $word = $row->word;
+                $words_array[] = $word;
+            }
         }
 
         return $words_array;
@@ -122,20 +133,20 @@ class Bible_model extends CI_Model {
         }
 
         /* DB opreations */
-        $this->db->select($select_obj)->from($tbl_name)->where($where_book, $book, 'after')->where($where_chapter, $chapter)->where($where_verse, $verse)->limit(1);
+        $this->db->select($select_obj)->from($tbl_name)->where($where_book, $book)->where($where_chapter, $chapter)->where($where_verse, $verse)->limit(1);
         $query = $this->db->get();
         //print $this->db->last_query();
         foreach ($query->result() as $row) {
-            return $row->$select_obj;
+            return trim($row->$select_obj);
         }
 
-        $book = substr($serial[0], 0, 2);
+        $book = $this->bible->book_abbr_by_id($book, true);
 
-        $this->db->select($select_obj)->from($tbl_name)->like($where_book, $book, 'after')->where($where_chapter, $chapter)->where($where_verse, $verse)->limit(1);
+        $this->db->select($select_obj)->from($tbl_name)->where($where_book, $book)->where($where_chapter, $chapter)->where($where_verse, $verse)->limit(1);
         $query = $this->db->get();
         //print $this->db->last_query();
         foreach ($query->result() as $row) {
-            return $row->$select_obj;
+            return trim($row->$select_obj);
         }
 
     }
@@ -153,12 +164,15 @@ class Bible_model extends CI_Model {
         return $message;
     }
 
-    function strongs_number($word)
+    function strongs_number($word, $type='hebrew')
     {
-        $tbl_name = 'bible_original';
+        if (!isset($word)) return;
 
-        /* 手工修正...應該用移到 DB */
-        $problem = array(
+        /* 待修正資安問題 */
+        $tbl_name = 'lexicon_' . $type;
+
+        /* 手工修正...要移到資料庫嗎？ */
+        /*$problem = array(
             'לָהֶ֜ם' => '9001',
             'לָכֶ֜ם' => '9001',
             'לָכֶ֥ם' => '9001',
@@ -166,14 +180,14 @@ class Bible_model extends CI_Model {
             'בּ֥וֹ' => '9002'
         );
 
-        foreach ($problem as $key => $value) {
+        /*foreach ($problem as $key => $value) {
             if ($key === $word) {
                 return $value;
             }
-        }
+        }*/
 
         /* DB opreations */
-        $this->db->select('strongs')->from($tbl_name)->where('word', $word)->limit(1);
+        $this->db->select('strongs')->from($tbl_name)->where('base_word', $word)->limit(1);
         $query = $this->db->get();
 
         foreach ($query->result() as $row) {
@@ -181,15 +195,15 @@ class Bible_model extends CI_Model {
         }
     }
 
-    function strongs_version($words_array)
+    function strongs_version($words_array, $type='hebrew')
     {
         if (!isset($words_array)) return;
 
         $words_with_strongs = array();
 
         foreach ($words_array as $word) {
-            $item['strongs'] = $this->strongs_number($word);
-            $item['word'] = $word;
+            $item['strongs'] = $word['strongs'];
+            $item['word'] = $word['word'];
 
             $words_with_strongs[] = $item;
         }
@@ -201,6 +215,7 @@ class Bible_model extends CI_Model {
     {
         if (!isset($pos)) return;
 
+        /* 要移到資料庫嗎？ */
         $text = array(
             'v' => '動詞',
             'n' => '名詞',
@@ -212,9 +227,11 @@ class Bible_model extends CI_Model {
             'prt' => '分詞',
             'prep' => '介系詞',
             'conj' => '連接詞',
-            'n-pr-m' => '陽性專有名詞（人名）',
-            'n-pr-f' => '陰性專有名詞（人名）',
-            'n-pr' => '專有名詞（神名）'
+            'n-pr-m' => '陽性專有名詞',
+            'n-m n-pr-m' => '陽性名詞、陽性專有名詞',
+            'n-f n-pr-f' => '陰性名詞、陰性專有名詞',
+            'n-pr-f' => '陰性專有名詞',
+            'n-pr' => '專有名詞'
 
         );
 
@@ -224,13 +241,15 @@ class Bible_model extends CI_Model {
             return $pos;
     }
 
-    function part_of_speech($strongs, $language)
+    function part_of_speech($strongs, $type)
     {
         if (!isset($strongs)) return;
-        if (!isset($language)) return;
+        if (!isset($type)) return;
 
         /* 待修正資安問題 */
-        $tbl_name = 'lexicon_' . $language;
+        $tbl_name = 'lexicon_' . $type;
+
+        if ($type == 'greek') return;
 
         /* DB opreations */
         $this->db->select('part_of_speech')->from($tbl_name)->where('strongs', $strongs)->limit(1);
@@ -243,13 +262,13 @@ class Bible_model extends CI_Model {
     }
 
     /* 英文解釋 */
-    function usage_text($strongs, $language)
+    function usage_text($strongs, $type)
     {
         if (!isset($strongs)) return;
-        if (!isset($language)) return;
+        if (!isset($type)) return;
 
         /* 待修正資安問題 */
-        $tbl_name = 'lexicon_' . $language;
+        $tbl_name = 'lexicon_' . $type;
 
         /* DB opreations */
         $this->db->select('usage')->from($tbl_name)->where('strongs', $strongs)->limit(1);
@@ -260,13 +279,13 @@ class Bible_model extends CI_Model {
         }
     }
 
-    function lexicon_data($strongs, $language='hebrew')
+    function lexicon_data($strongs, $type='hebrew')
     {
         if (!isset($strongs)) return;
-        if (!isset($language)) return;
+        if (!isset($type)) return;
 
         /* 待修正資安問題 */
-        $tbl_name = 'lexicon_' . $language;
+        $tbl_name = 'lexicon_' . $type;
 
         /* DB opreations */
         $this->db->select('data')->from($tbl_name)->where('strongs', $strongs)->limit(1);
@@ -278,13 +297,13 @@ class Bible_model extends CI_Model {
         }
     }
 
-    function word_by_strongs($strongs, $language='hebrew')
+    function word_by_strongs($strongs, $type='hebrew')
     {
         if (!isset($strongs)) return;
-        if (!isset($language)) return;
+        if (!isset($type)) return;
 
         /* 待修正資安問題 */
-        $tbl_name = 'lexicon_' . $language;
+        $tbl_name = 'lexicon_' . $type;
 
         /* DB opreations */
         $this->db->select('base_word')->from($tbl_name)->where('strongs', $strongs)->limit(1);
@@ -296,21 +315,21 @@ class Bible_model extends CI_Model {
 
     }
 
-    function make_lexicon($words_array, $language='hebrew')
+    function make_lexicon($words_array, $type='hebrew')
     {
         if (!isset($words_array)) return;
 
         $lexicon_array = array();
 
         foreach ($words_array as $word) {
-            $strongs = $this->strongs_number($word);
-            $data = $this->lexicon_data($strongs, $language);
+            $strongs = $word['strongs'];
+            $data = $this->lexicon_data($strongs, $type);
             if (!empty($data)) {
-                $item['word'] = $this->word_by_strongs($strongs);
+                $item['word'] = $this->word_by_strongs($strongs, $type);
                 $item['strongs'] = $strongs;
-                $item['part_of_speech'] = $this->part_of_speech($strongs, $language);
+                $item['part_of_speech'] = $this->part_of_speech($strongs, $type);
                 $item['def'] = $data->def->short;
-                $item['deriv'] = $data->deriv;
+                $item['deriv'] = isset($data->deriv) ? $data->deriv : '';
                 $item['sbl'] = $data->pronun->sbl;
 
                 $lexicon_array[] = $item;
@@ -427,6 +446,64 @@ class Bible_model extends CI_Model {
         }
 
         /* 沒有上一節（到最前面了） */
+        return array();
+    }
+
+    function next_book_by_serial($serial)
+    {
+        if (!isset($serial)) return;
+
+        $next_serial = array();
+        $next_serial[0] = $this->bible->book_id_by_abbr($serial[0]);
+
+        $next_serial[0] += 1;
+
+        $tbl_name = 'bible_original';
+
+        /* 找看看下一本有無資料 */
+        /* DB opreations */
+        $this->db->select('verse')->from($tbl_name)->where('book', $next_serial[0])->limit(1);
+        $query = $this->db->get();
+
+        foreach ($query->result() as $row) {
+            if (isset($row->verse)) {
+                $next_serial[0] = $this->bible->book_abbr_by_id($next_serial[0]);
+                $next_serial[1] = 1;
+                $next_serial[2] = 1;
+                return $next_serial;
+            }
+        }
+
+        /* 沒有下一本（到最後面了） */
+        return array();
+    }
+
+    function prev_book_by_serial($serial)
+    {
+        if (!isset($serial)) return;
+
+        $next_serial = array();
+        $next_serial[0] = $this->bible->book_id_by_abbr($serial[0]);
+
+        $next_serial[0] -= 1;
+
+        $tbl_name = 'bible_original';
+
+        /* 找看看下一本有無資料 */
+        /* DB opreations */
+        $this->db->select('verse')->from($tbl_name)->where('book', $next_serial[0])->limit(1);
+        $query = $this->db->get();
+
+        foreach ($query->result() as $row) {
+            if (isset($row->verse)) {
+                $next_serial[0] = $this->bible->book_abbr_by_id($next_serial[0]);
+                $next_serial[1] = 1;
+                $next_serial[2] = 1;
+                return $next_serial;
+            }
+        }
+
+        /* 沒有下一本（到最後面了） */
         return array();
     }
 

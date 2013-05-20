@@ -3,6 +3,14 @@
 body {
     padding-top: 60px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+}
+
+p.footer {
+    clear: both;
+    font-size: 12px;
+    color: #ccc;
+    text-align: center;
 }
 
 h3.book-title {
@@ -66,8 +74,50 @@ div.slogan {
     margin-bottom: 0;
 }
 
+@font-face {
+    font-family: 'Ezra SIL SR';
+    src: url('../fonts/EzraSIL-SR/ezrasilsr-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/EzraSIL-SR/ezrasilsr-webfont.woff') format('woff'),
+         url('../fonts/EzraSIL-SR/ezrasilsr-webfont.ttf')  format('truetype'),
+         url('../fonts/EzraSIL-SR/ezrasilsr-webfont.svg#EzraSILSR') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .hebrew {
     direction: rtl;
+    font-family:'Ezra SIL SR', 'Taamey Frank CLM', 'Taamey David CLM', 'Keter YG', 'Keter Aram Sova', 'Ezra SIL', 'Cardo', serif;
+    text-align: right;
+    list-style-type: none;
+}
+
+@font-face {
+    font-family: 'GalatiaSILRegular';
+    src: url('../fonts/GalatiaSIL/GalSILR-webfont.eot');
+    src: url('../fonts/GalatiaSIL/GalSILR-webfont.eot?iefix') format('eot'),
+         url('../fonts/GalatiaSIL/GalSILR-webfont.woff') format('woff'),
+         url('../fonts/GalatiaSIL/GalSILR-webfont.ttf') format('truetype'),
+         url('../fonts/GalatiaSIL/GalSILR-webfont.svg#webfontDXp2HlVY') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GalatiaSILBold';
+    src: url('../fonts/GalatiaSIL/GalSILB-webfont.eot');
+    src: url('../fonts/GalatiaSIL/GalSILB-webfont.eot?iefix') format('eot'),
+         url('../fonts/GalatiaSIL/GalSILB-webfont.woff') format('woff'),
+         url('../fonts/GalatiaSIL/GalSILB-webfont.ttf') format('truetype'),
+         url('../fonts/GalatiaSIL/GalSILB-webfont.svg#webfontJEXBBlW4') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.greek {
+    font-family: 'GalatiaSILBold', serif;
+    text-align: left;
     list-style-type: none;
 }
 
@@ -87,7 +137,7 @@ div.slogan {
 .the-message {
     margin-top: -20px;
     font-size: 42px;
-    line-height: 42px;
+    line-height: 62px;
     table-layout: fixed;
     word-wrap: break-word;
     word-break: normal;
@@ -95,6 +145,7 @@ div.slogan {
 }
 
 .the-message em {
+    font-family: 'GalatiaSIL', serif;
     font-size: 20px;
     line-height: 28px;
 }
@@ -119,6 +170,13 @@ div.slogan {
 }
 
 .the-message .popover li.hebrew, .pop-content li.hebrew {
+    font-size: 28px;
+    line-height: 28px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.the-message .popover li.greek, .pop-content li.greek {
     font-size: 28px;
     line-height: 28px;
     margin-right: 10px;
@@ -157,6 +215,7 @@ div.slogan {
 }
 
 .pop-content {
+    font-family: serif;
     margin-bottom: 7px;
     padding: 7px 7px;
     background-color: whiteSmoke;
@@ -167,6 +226,7 @@ div.slogan {
 }
 
 .pop-content em {
+    font-family: 'GalatiaSIL', serif;
     font-size: 20px;
     line-height: 28px;
 }
@@ -186,7 +246,7 @@ div.slogan {
 .pop-content .title {
     color: #777;
     font-size: 26px;
-    line-height: 52px;
+    line-height: 26px;
     text-align: left;
 }
 
@@ -195,10 +255,6 @@ div.slogan {
     float: right;
     margin-right: 7px;
     margin-top: -20px;
-}
-
-.clickover {
-
 }
 
 .clickover .clickover-wrapper {
@@ -213,6 +269,21 @@ div.slogan {
     margin: 3px -12px;
 }
 
+li.previous > a {
+    border: none !important;
+}
+
+li.next > a {
+    border: none !important;
+}
+
+li.previous2 > a {
+    border: none !important;
+}
+
+li.next2 > a {
+    border: none !important;
+}
 
 
 /* Large desktop */
