@@ -84,9 +84,9 @@ $(function() {
         },
     });
 
-    $('[rel="fhl-note"]').click(function(e) {
+    $('[rel="fhl-note"]').live('click', function(e) {
         var fhl_note_id = $(this).attr('data-ref');
-        var type = 'hebrew';
+        var type = '';
         if ( fhl_note_id.charAt(0) == 'H' ) {
             type = 'hebrew';
         }
@@ -97,7 +97,7 @@ $(function() {
         var showmsg = noty({
             text: content,
             type: 'warning',
-            layout: 'center',
+            layout: 'bottomCenter',
             modal: false,
             callback: {
                 onShow: function() {},
@@ -109,6 +109,13 @@ $(function() {
                 }
             },
         });
+    });
+
+    $("#panel-nav").mmenu({
+        slidingSubmenus  : true,
+        addCounters: false,
+        closeOnClick     : true,
+        width: 100
     });
 
 });

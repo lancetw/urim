@@ -1,9 +1,30 @@
 @charset 'UTF-8';
 
 body {
+    background-color: #f9f9f9;
     padding-top: 60px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
+}
+
+html.mmenu-left.mmenu-opening #mmenu-blocker {
+    display: none;
+}
+
+.mmenu-opened > ul {
+    padding-top: 45px;
+}
+
+.mmenu-page {
+    margin-top: -30px;
+}
+
+.mmenu-page #sidebar {
+    margin-top: 30px;
+}
+
+.navbar .brand {
+    color: white;
 }
 
 .brand small {
@@ -172,10 +193,25 @@ div.slogan {
     direction: ltr;
     font-size: 14px;
     width: 300px;
+    max-height: 260px;
+    overflow-y: auto;
 }
 
-.the-message .popover .fhl-pop-link {
-    display: none;
+.the-message .popover .title {
+    color: #777;
+    margin-top: -25px;
+    font-size: 26px;
+    line-height: 26px;
+    text-align: left;
+    float: right;
+}
+
+.the-message .popover .fhl-pop-link img {
+    margin-top: -40px;
+}
+
+.the-message .popover ul {
+    margin-top: -30px;
 }
 
 .the-message .popover ul, .pop-content ul {
@@ -200,7 +236,7 @@ div.slogan {
     font-size: 18px;
     line-height: 18px;
     border: 0;
-
+    background-color: transparent;
     table-layout: fixed;
     word-wrap: break-word;
     word-break: normal;
@@ -231,7 +267,7 @@ div.slogan {
     font-family: serif;
     margin-bottom: 7px;
     padding: 7px 7px;
-    background-color: whiteSmoke;
+    background-color: transparent;
     color: #999;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -245,11 +281,13 @@ div.slogan {
 }
 
 .pop-content .top {
-    float: left;
-    text-align: left;
+    float: none;
+    color: transparent;
+    background-color: transparent;
+    text-align: center;
     font-size: 16px;
     font-weight: bold;
-    margin-left: -20px;
+    margin-left: 0;
 }
 
 .pop-content:hover {
@@ -258,10 +296,11 @@ div.slogan {
 
 .pop-content .title {
     color: #777;
-    padding-top: 5px;
+    margin-top: -15px;
     font-size: 26px;
     line-height: 26px;
     text-align: left;
+    float: right;
 }
 
 .verse {
@@ -275,24 +314,28 @@ div.slogan {
     padding: 12px;
     color: #aaa;
     border: none !important;
+    background-color: transparent;
 }
 
 .pager li.next > a {
     padding: 12px;
     color: #aaa;
     border: none !important;
+    background-color: transparent;
 }
 
 .pager li.previous2 > a {
     padding: 12px;
     color: #aaa;
     border: none !important;
+    background-color: transparent;
 }
 
 .pager li.next2 > a {
     padding: 12px;
     color: #aaa;
     border: none !important;
+    background-color: transparent;
 }
 
 .pager.page-nav {
@@ -330,6 +373,14 @@ ul.fhl-note li {
         padding-top: 0;
     }
 
+    .mmenu-opened > ul {
+        padding-top: 0;
+    }
+
+    .mmenu-page {
+        margin-top: 0;
+    }
+
     .navbar form.navbar-search {
         position: absolute;
         top: 5px;
@@ -345,12 +396,25 @@ ul.fhl-note li {
         overflow: auto;
         height: auto;
     }
+
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 /* Landscape phone to portrait tablet */
 @media only screen and (max-width: 767px) {
     body {
         padding-top: 0;
+    }
+
+    .mmenu-opened > ul {
+        padding-top: 0;
+    }
+
+    .mmenu-page {
+        margin-top: 0;
     }
 
     .navbar form.navbar-search {
@@ -380,6 +444,14 @@ ul.fhl-note li {
         padding-top: 60px;
         overflow-x: auto !important;
         overflow-y: auto !important;
+    }
+
+    .mmenu-opened > ul {
+        padding-top: 55px;
+    }
+
+    .mmenu-page {
+        margin-top: 0;
     }
 
     .navbar form.navbar-search {
@@ -418,6 +490,14 @@ ul.fhl-note li {
         padding-right: 30px;
     }
 
+    .mmenu-opened > ul {
+        padding-top: 90px;
+    }
+
+    .mmenu-page {
+        margin-top: 0;
+    }
+
     #sidebar {
         height: 315px;
         margin-bottom: 7px;
@@ -447,7 +527,7 @@ ul.fhl-note li {
     .navbar form.navbar-search {
         position: absolute;
         top: 5px;
-        left: 240px;
+        left: 260px;
         width: auto;
     }
 }
@@ -466,6 +546,14 @@ ul.fhl-note li {
   /* For portrait layouts only */
     body {
         overflow: hidden;
+    }
+
+    .mmenu-opened > ul {
+        padding-top: 55px;
+    }
+
+    .mmenu-page {
+        margin-top: 0;
     }
 
     .tab-pane {
@@ -489,6 +577,15 @@ ul.fhl-note li {
     body {
         overflow: hidden;
     }
+
+    .mmenu-opened > ul {
+        padding-top: 55px;
+    }
+
+    .mmenu-page {
+        margin-top: 0;
+    }
+
 
     .tab-pane {
         overflow: auto;
