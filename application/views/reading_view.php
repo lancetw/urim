@@ -10,7 +10,7 @@
         <link rel="apple-touch-icon" href="icon.png"/>
 
         <!-- twitter bootstrap stylesheet -->
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 
         <!-- we need jQuery -->
         <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -23,12 +23,14 @@
 
         <script type="text/javascript" src="<?= base_url('js/noty/jquery.noty.js'); ?>"></script>
         <script type="text/javascript" src="<?= base_url('js/noty/layouts/bottom.js'); ?>"></script>
+        <script type="text/javascript" src="<?= base_url('js/noty/layouts/center.js'); ?>"></script>
         <!-- You can add more layouts if you want -->
         <script type="text/javascript" src="<?= base_url('js/noty/themes/default.js'); ?>"></script>
 
         <script type="text/javascript" src="<?= base_url('js/ios-orientationchange-fix.js'); ?>"></script>
         <script type="text/javascript" src="<?= base_url('js/bootstrapx-clickover.js'); ?>"></script>
 
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
 
         <link href="<?= base_url('css/base.css'); ?>" rel="stylesheet">
         <script src="<?= base_url('js/base.js'); ?>"></script>
@@ -48,7 +50,7 @@
                 </a>
 
                 <!-- Be sure to leave the brand out there if you want it shown -->
-                <a class="brand" href="./">URIM</a>
+                <a class="brand" href="./">URIM<small>beta</small></a>
 
                 <div class="slogan hidden-desktop">
                     <span class="item">Bible Study Collection</span>
@@ -77,36 +79,127 @@
     <div class="row-fluid screen">
 
         <div id="content" class="span9">
-
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <ul class="nav">
-                        <li><a rel="clickover" href="#" data-original-title="Tanakh" data-content="" data-ref="clickover_place_tanakh">Tanakh</a></li>
-                        <li><a rel="clickover" href="#" data-original-title="Torah" data-content="" data-ref="clickover_place_torah">Torah</a></li>
-
+            <div class="bookshelf">
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        訓誨
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['torah'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        信息
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['prophets'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        著作
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['writings'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        福音
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['goodnews'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        傳記
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['acts'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        保羅書信
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['letters_paul_public'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        保羅私信
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        大公書信
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['letters_general'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-vertical">
+                    <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+                        啟示
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <? foreach ($layout['bible']['revelation'] as $item): ?>
+                        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                        <? endforeach; ?>
                     </ul>
                 </div>
             </div>
 
-            <ul class="pager">
+            <ul class="pager page-nav">
                 <li class="previous previous2<? if (empty($layout['nextbook'])): ?> disabled<? endif; ?>">
                     <? if (!empty($layout['nextbook'])): ?>
-                    <a href="<?= site_url('reading/' . $layout['nextbook']); ?>">下一卷</a>
+                    <a href="<?= site_url('reading/' . $layout['nextbook']); ?>"><i class="icon-chevron-sign-down icon-3x"></i></a>
                     <? endif; ?>
                 </li>
                 <li class="previous<? if (empty($layout['next'])): ?> disabled<? endif; ?>">
                     <? if (!empty($layout['next'])): ?>
-                    <a href="<?= site_url('reading/' . $layout['next']); ?>">下一節</a>
+                    <a href="<?= site_url('reading/' . $layout['next']); ?>"><i class="icon-chevron-sign-left icon-3x"></i></a>
                     <? endif; ?>
                 </li>
                 <li class="next next2<? if (empty($layout['prevbook'])): ?> disabled<? endif; ?>">
                     <? if (!empty($layout['prevbook'])): ?>
-                    <a href="<?= site_url('reading/' . $layout['prevbook']); ?>">上一卷</a>
+                    <a href="<?= site_url('reading/' . $layout['prevbook']); ?>"><i class="icon-chevron-sign-up icon-3x"></i></a>
                     <? endif; ?>
                 </li>
                 <li class="next<? if (empty($layout['prev'])): ?> disabled<? endif; ?>">
                     <? if (!empty($layout['prev'])): ?>
-                    <a href="<?= site_url('reading/' . $layout['prev']); ?>">上一節</a>
+                    <a href="<?= site_url('reading/' . $layout['prev']); ?>"><i class="icon-chevron-sign-right icon-3x"></i></a>
                     <? endif; ?>
                 </li>
 
@@ -114,8 +207,9 @@
 
             <a id="top"></a>
 
-            <h3 class="book-title"><?= $info['book_chinese'] ?></h3>
-            <h3 class="book-title-alt"><?= $info['book_hebrew'] ?><? if ($info['book_hebrew'] !== $info['book_english']): ?> - <?= $info['book_english']; ?><? endif; ?></h3>
+            <div class="page-header">
+                <h1 class="book-title"><?= $info['book_chinese'] ?> <small><?= $info['book_hebrew'] ?><? if ($info['book_hebrew'] !== $info['book_english']): ?> - <?= $info['book_english']; ?><? endif; ?></small></h1>
+            </div>
             <p><span class="verse badge badge-inverse"><?= $info['chapter'] ?> : <?= $info['verse'] ?></span></p>
             <div class="bs-docs-example">
                 <p class="the-message lead <?= $layout['type'] ?>">
@@ -153,11 +247,18 @@
                         <ul>
                             <li class="top visible-phone"><a href="#top">TOP</a></li>
                             <li class="title <?= $layout['type']; ?>"><?= $item['word'] ?></li>
-                            <li><strong>Strong's <?= $layout['strongs_note'] ?><?= $item['strongs'] ?></strong></li>
+                            <li class="strongs"><strong>Strong's <?= $layout['strongs_note'] ?><?= $item['strongs'] ?></strong></li>
                             <li>音譯：<em><?= $item['sbl'] ?></em></li>
                             <li>字根：<?= $item['deriv'] ?></li>
-                            <li>詞性：<?= $item['part_of_speech'] ?></li>
+                            <? if (isset($item['part_of_speech'])): ?><li>詞性：<?= $item['part_of_speech'] ?></li><? endif; ?>
                             <li>定義：<?= $item['def'] ?></li>
+                        </ul>
+                        <a class="fhl-pop-link" rel="fhl-note" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" href="#"><img alt="" src="<?= base_url('img/fhl.png');?>" /></a>
+                        <ul id="fhl-note-<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" class="fhl-note" style="display: none">
+                            <? foreach ($item['fhl'] as $txt): ?>
+                                <li><?= trim($txt) ?></li>
+                            <? endforeach; ?>
+                            </li>
                         </ul>
                     </li>
                     <? endforeach; ?>
@@ -165,31 +266,7 @@
 
                 <div class="sidebar-padding"></div>
             </div>
-
         </div>
-
-        <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds.</p>
-
-        <div class="clickover_place_torah" style="display:none">
-            <div class="clickover-wrapper">
-            <ul>
-                <? foreach ($layout['bible']['torah'] as $item): ?>
-                    <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
-                <? endforeach; ?>
-                </ul>
-            </div>
-        </div>
-
-        <div class="clickover_place_tanakh" style="display:none">
-            <div class="clickover-wrapper">
-                <ul>
-                <? foreach ($layout['bible']['tanakh'] as $item): ?>
-                    <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
-                <? endforeach; ?>
-                </ul>
-            </div>
-        </div>
-
     </div>
 </div>
 </body>

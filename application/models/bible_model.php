@@ -315,6 +315,40 @@ class Bible_model extends CI_Model {
 
     }
 
+    function lexicon_fhl($strongs, $type='hebrew')
+    {
+        if (!isset($strongs)) return;
+        if (!isset($type)) return;
+
+        $strongs = str_pad($strongs , 5, '0', STR_PAD_LEFT);
+
+        /* 待修正資安問題 */
+        $tbl_name = '';
+        if ($type === 'hebrew') {
+            $tbl_name = 'hfhl';
+            $where_obj = 'hsnum';
+        }
+        if ($type === 'greek') {
+            $tbl_name = 'gfhl';
+            $where_obj = 'gsnum';
+        }
+
+        /* DB opreations */
+        $this->db->select('txt')->from($tbl_name)->where($where_obj, $strongs)->limit(1);
+        $query = $this->db->get();
+
+        foreach ($query->result() as $row) {
+            $fhl = explode("\n\r", $row->txt);
+            unset($fhl[0]);
+            $result = array();
+            foreach ($fhl as $txt) {
+
+                $result[] = $txt;
+            }
+            return $result;
+        }
+    }
+
     function make_lexicon($words_array, $type='hebrew')
     {
         if (!isset($words_array)) return;
@@ -331,6 +365,7 @@ class Bible_model extends CI_Model {
                 $item['def'] = $data->def->short;
                 $item['deriv'] = isset($data->deriv) ? $data->deriv : '';
                 $item['sbl'] = $data->pronun->sbl;
+                $item['fhl'] = $this->lexicon_fhl($strongs, $type);
 
                 $lexicon_array[] = $item;
             }
@@ -511,22 +546,69 @@ class Bible_model extends CI_Model {
     {
         if (!isset($keyword)) return;
 
+        $type = 'range';
+        $num_list = array();
         $start = 1;
         $end = 66;
 
+        /* 有空換成 dict 或 資料庫 */
         if ($keyword === 'tanakh') {
             $end = 39;
         }
-
         if ($keyword === 'torah') {
             $end = 5;
         }
+        if ($keyword === 'goodnews') {
+            $start = 40;
+            $end = 43;
+        }
+        if ($keyword === 'acts') {
+            $start = 44;
+            $end = 44;
+        }
+        if ($keyword === 'letters') {
+            $start = 45;
+            $end = 65;
+        }
+        if ($keyword === 'letters_paul_public') {
+            $start = 45;
+            $end = 53;
+        }
+        if ($keyword === 'letters_paul_private') {
+            $start = 54;
+            $end = 57;
+        }
+        if ($keyword === 'letters_general') {
+            $start = 58;
+            $end = 65;
+        }
+        if ($keyword === 'revelation') {
+            $start = 66;
+            $end = 66;
+        }
+        if ($keyword === 'prophets') {
+            $type = 'pick';
+            $num_list = array(6,7,9,10,11,12,23,24,26,28,29,30,31,32,33,34,35,36,37,38,39);
+        }
+        if ($keyword === 'writings') {
+            $type = 'pick';
+            $num_list = array(19,20,18,22,8,25,21,17,27,15,16,13,14);
+        }
 
-        $tbl_name = 'book_english';
+        /* 待修復資安問題 */
+        $tbl_name = 'book_' . $language;
 
-        /* DB opreations */
-        $this->db->select('id, name');
-        $query = $this->db->get($tbl_name, $end, 0);
+        if ($type === 'range') {
+            /* DB opreations */
+            $this->db->select('id, name');
+            $query = $this->db->get($tbl_name, $end-$start+1, $start-1);
+        }
+        if ($type === 'pick') {
+            /* DB opreations */
+            $list = implode(",", $num_list);
+            $order = sprintf('FIELD(id, %s)', implode(",", $num_list));
+            $query = $this->db->query("SELECT `id`, `name` FROM `$tbl_name` WHERE `id` IN ($list) ORDER BY $order;");
+        }
 
         $book_list = array();
 

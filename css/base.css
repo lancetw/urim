@@ -6,6 +6,17 @@ body {
 
 }
 
+.brand small {
+    color: gold;
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+.bookshelf {
+    border-bottom: 1px solid #eee;
+    min-height: 30px;
+}
+
 p.footer {
     clear: both;
     font-size: 12px;
@@ -77,7 +88,6 @@ div.slogan {
 @font-face {
     font-family: 'Ezra SIL SR';
     src: url('../fonts/EzraSIL-SR/ezrasilsr-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/EzraSIL-SR/ezrasilsr-webfont.woff') format('woff'),
          url('../fonts/EzraSIL-SR/ezrasilsr-webfont.ttf')  format('truetype'),
          url('../fonts/EzraSIL-SR/ezrasilsr-webfont.svg#EzraSILSR') format('svg');
     font-weight: normal;
@@ -95,7 +105,6 @@ div.slogan {
     font-family: 'GalatiaSILRegular';
     src: url('../fonts/GalatiaSIL/GalSILR-webfont.eot');
     src: url('../fonts/GalatiaSIL/GalSILR-webfont.eot?iefix') format('eot'),
-         url('../fonts/GalatiaSIL/GalSILR-webfont.woff') format('woff'),
          url('../fonts/GalatiaSIL/GalSILR-webfont.ttf') format('truetype'),
          url('../fonts/GalatiaSIL/GalSILR-webfont.svg#webfontDXp2HlVY') format('svg');
     font-weight: normal;
@@ -135,7 +144,7 @@ div.slogan {
 }
 
 .the-message {
-    margin-top: -20px;
+    margin-top: -12px;
     font-size: 42px;
     line-height: 62px;
     table-layout: fixed;
@@ -155,7 +164,7 @@ div.slogan {
 }
 
 .the-message a:hover {
-    color: #777;
+    color: gold;
     text-decoration: none;
 }
 
@@ -163,6 +172,10 @@ div.slogan {
     direction: ltr;
     font-size: 14px;
     width: 300px;
+}
+
+.the-message .popover .fhl-pop-link {
+    display: none;
 }
 
 .the-message .popover ul, .pop-content ul {
@@ -219,7 +232,7 @@ div.slogan {
     margin-bottom: 7px;
     padding: 7px 7px;
     background-color: whiteSmoke;
-    color: #aaa;
+    color: #999;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -245,6 +258,7 @@ div.slogan {
 
 .pop-content .title {
     color: #777;
+    padding-top: 5px;
     font-size: 26px;
     line-height: 26px;
     text-align: left;
@@ -257,34 +271,54 @@ div.slogan {
     margin-top: -20px;
 }
 
-.clickover .clickover-wrapper {
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 140px;
-    margin: 0 -12px;
+.pager li.previous > a {
+    padding: 12px;
+    color: #aaa;
+    border: none !important;
 }
 
-.clickover li {
+.pager li.next > a {
+    padding: 12px;
+    color: #aaa;
+    border: none !important;
+}
+
+.pager li.previous2 > a {
+    padding: 12px;
+    color: #aaa;
+    border: none !important;
+}
+
+.pager li.next2 > a {
+    padding: 12px;
+    color: #aaa;
+    border: none !important;
+}
+
+.pager.page-nav {
+    margin-bottom: 0;
+}
+
+ul.fhl-note {
+    background-color: whiteSmoke;
+    color: #3366cc;
+    font-size: 11px;
+}
+
+ul.fhl-note li {
     list-style-type: none;
-    margin: 3px -12px;
 }
 
-li.previous > a {
-    border: none !important;
+.noty_message .ver {
+    font-size: 12px;
 }
 
-li.next > a {
-    border: none !important;
+.noty_message .title {
+    font-size: 24px;
+    line-height: 30px;
+    margin-top: 0;
+    text-align: right;
 }
-
-li.previous2 > a {
-    border: none !important;
-}
-
-li.next2 > a {
-    border: none !important;
-}
-
 
 /* Large desktop */
 @media only screen and (min-width: 1200px) {}
@@ -299,7 +333,7 @@ li.next2 > a {
     .navbar form.navbar-search {
         position: absolute;
         top: 5px;
-        left: 240px;
+        left: 260px;
     }
 
     #sidebar {
@@ -322,7 +356,7 @@ li.next2 > a {
     .navbar form.navbar-search {
         position: absolute;
         top: 5px;
-        left: 220px;
+        left: 240px;
     }
 
     #sidebar {

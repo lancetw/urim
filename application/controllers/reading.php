@@ -47,8 +47,18 @@ class Reading extends CI_Controller {
 		$data['layout']['nextbook'] = implode('.', $this->bible->next_book_by_serial($_serial));
 		$data['layout']['prevbook'] = implode('.', $this->bible->prev_book_by_serial($_serial));
 
-		$data['layout']['bible']['tanakh'] = $this->bible->book_list('tanakh');
-		$data['layout']['bible']['torah'] = $this->bible->book_list('torah');
+		$data['layout']['bible']['tanakh'] = $this->bible->book_list('tanakh', 'chinese');
+		$data['layout']['bible']['torah'] = $this->bible->book_list('torah', 'chinese');
+		$data['layout']['bible']['prophets'] = $this->bible->book_list('prophets', 'chinese');
+		$data['layout']['bible']['writings'] = $this->bible->book_list('writings', 'chinese');
+		$data['layout']['bible']['goodnews'] = $this->bible->book_list('goodnews', 'chinese');
+		$data['layout']['bible']['acts'] = $this->bible->book_list('acts', 'chinese');
+		$data['layout']['bible']['letters_paul_public'] = $this->bible->book_list('letters_paul_public', 'chinese');
+		$data['layout']['bible']['letters_paul_private'] = $this->bible->book_list('letters_paul_private', 'chinese');
+		$data['layout']['bible']['letters_general'] = $this->bible->book_list('letters_general', 'chinese');
+		$data['layout']['bible']['revelation'] = $this->bible->book_list('revelation', 'chinese');
+
+
 		$data['layout']['type'] = $type;
 		$data['layout']['strongs_note'] = $type == 'hebrew' ? 'H' : 'G';
 

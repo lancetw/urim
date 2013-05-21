@@ -34,7 +34,6 @@ $(function() {
 				timeout: 1500,
 				modal: true
 			});
-
 		});
 	} else {
 		$('code a').tooltip({
@@ -45,23 +44,25 @@ $(function() {
 	    });
 	}
 
-	$('.the-message a').popover({
-		html: true,
-		trigger: 'hover',
-        offset: 10,
-        placement: 'bottom',
-		content: function() {
-			var ref = $(this).attr('data-ref');
-			return $('#pop-content-' + ref).html();
-		},
-		template: '<div class="popover visible-desktop"><div class="arrow"></div><div class="popover-inner"><div class="popover-content"><p></p></div></div></div>'
-        //<h3 class="popover-title"></h3>
-        //Need to have this click check since the tooltip will not close on mobile
-    });
-
-	$('.the-message a').click(function (e) {
-	    $(this).popover('toggle');
-	});
+    if (!jQuery.browser.mobile && !isiPad) {
+    	$('.the-message a').clickover({
+    		html: true,
+            placement: 'bottom',
+    		content: function() {
+    			var ref = $(this).attr('data-ref');
+                var refid = '#pop-content-' + ref;
+    			return $(refid).html();
+    		},
+            onShown: function() {
+                var ref = this.options.ref;
+                var refid = '#pop-content-' + ref;
+                window.location = refid;
+            },
+    		template: '<div class="popover visible-desktop"><div class="arrow"></div><div class="popover-inner"><div class="popover-content"><p></p></div></div></div>'
+            //<h3 class="popover-title"></h3>
+            //Need to have this click check since the tooltip will not close on mobile
+        });
+    }
 
     $('#transTab a').click(function (e) {
 	    e.preventDefault();
@@ -81,6 +82,33 @@ $(function() {
             var ref = $(this).attr('data-ref');
             return $('.' + ref).html();
         },
+    });
+
+    $('[rel="fhl-note"]').click(function(e) {
+        var fhl_note_id = $(this).attr('data-ref');
+        var type = 'hebrew';
+        if ( fhl_note_id.charAt(0) == 'H' ) {
+            type = 'hebrew';
+        }
+        if ( fhl_note_id.charAt(0) == 'G' ) {
+            type = 'greek';
+        }
+        var content = '<div class="ver">字典由信望愛 CBOL 提供</div><div class="title ' + type + '">' + $('#pop-content-' + fhl_note_id + ' .title').html() + '</div><div class="strongs">' + $('#pop-content-' + fhl_note_id + ' .strongs').html() + '</div>' + $('#fhl-note-' + fhl_note_id).html();
+        var showmsg = noty({
+            text: content,
+            type: 'warning',
+            layout: 'center',
+            modal: false,
+            callback: {
+                onShow: function() {},
+                afterShow: function() {},
+                onClose: function() {},
+                afterClose: function() {
+                    var pop_content_id = '#pop-content-' + fhl_note_id;
+                    window.location = pop_content_id;
+                }
+            },
+        });
     });
 
 });
