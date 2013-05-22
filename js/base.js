@@ -43,10 +43,10 @@ fnDraw( oSettings );
 };
 $(nPaging).addClass('pagination pagination-right').append(
 '<ul>' +
-'<li class="prev disabled"><a href="#">&larr; ' + oLang.sFirst + '</a></li>' +
-'<li class="prev disabled"><a href="#">&larr; '+oLang.sPrevious+'</a></li>'+
-'<li class="next disabled"><a href="#">' + oLang.sNext + ' &rarr; </a></li>' +
-'<li class="next disabled"><a href="#">' + oLang.sLast + ' &rarr; </a></li>' +
+'<li class="prev disabled"><a href="#">' + oLang.sFirst + '</a></li>' +
+'<li class="prev disabled"><a href="#">'+oLang.sPrevious+'</a></li>'+
+'<li class="next disabled"><a href="#">' + oLang.sNext + '</a></li>' +
+'<li class="next disabled"><a href="#">' + oLang.sLast + '</a></li>' +
 '</ul>'
 );
 var els = $('a', nPaging);
@@ -266,7 +266,7 @@ $(function() {
     $('#strongs-results').dataTable( {
         "bAutoWidth": false,
         "bSort": false,
-        "sDom": "<'row'<'span9'p><'span4'l><'span9'f>r>t<'row'<'span6'i>>",
+        "sDom": "<'row'<'span9'f>'row'<'span12'p>r>t<'row'<'span8'i><'span4'l>>",
         "sPaginationType": "bootstrap",
         "oLanguage": {
             "sLengthMenu": "每頁顯示 _MENU_ 筆資料",
@@ -275,10 +275,10 @@ $(function() {
             "sInfoEmpty": "顯示 0 到 0 筆、共 0 筆資料",
             "sInfoFiltered": "(從 _MAX_ 筆資料中過濾)",
             "oPaginate": {
-                "sFirst": "第一頁",
-                "sLast": "最末頁",
-                "sNext": "下一頁",
-                "sPrevious": "上一頁"
+                "sFirst": "Α",
+                "sLast": "Ω",
+                "sNext": "》",
+                "sPrevious": "《"
             }
         }
     } );

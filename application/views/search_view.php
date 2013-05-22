@@ -82,12 +82,9 @@
 <body style="background-color: white;">
 <? $i = 1; ?>
 <div class="container-fluid">
+      <h1 class="span12 search-title <?= $info['type'] ?>"><?= $info['word'] ?> <small><?= $info['strongs'] ?></small></h1>
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="strongs-results">
-  <caption>
-    <span class="<?= $info['type'] ?>">
-    <?= $info['word'] ?>
-    </span>
-     <small><?= $info['strongs'] ?></small></caption>
+
   <thead>
     <tr>
       <th>No.</th>
@@ -114,7 +111,7 @@
     </td>
 
     <td>
-        <a href="<?= site_url('reading/' . $s['book_abbr'] . '.' . $s['chapter'] . '.' . $s['verse']) . '?strongs=' . $info['strongs'] ?>">
+        <a target="_blank" href="<?= site_url('reading/' . $s['book_abbr'] . '.' . $s['chapter'] . '.' . $s['verse']) . '?strongs=' . $info['strongs'] ?>">
             <?= $s['book_name_chinese'] ?> <?= $s['chapter'] ?>:<?= $s['verse'] ?>
         </a>
     </td>

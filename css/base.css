@@ -497,14 +497,6 @@ a.strongs-search {
 
 #strongs-results tbody td:nth-child(3) { min-width: 110px;};
 
-#strongs-results caption {
-    font-size: 24px;
-    line-height: 32px;
-}
-
-.fancybox-skin {
-    background-color: white;
-}
 
 div.dataTables_length label {
     float: left;

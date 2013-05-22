@@ -649,6 +649,15 @@ class Bible_model extends CI_Model {
         return $book_list;
     }
 
+    function multi_unique($array) {
+        foreach ($array as $k=>$na)
+            $new[$k] = serialize($na);
+        $uniq = array_unique($new);
+        foreach($uniq as $k=>$ser)
+            $new1[$k] = unserialize($ser);
+        return ($new1);
+    }
+
     function searchTextsByStrongs($strongs, $type='hebrew')
     {
         if (!isset($strongs)) return;
@@ -680,7 +689,11 @@ class Bible_model extends CI_Model {
             $text_serial[] = $text;
         }
 
-        return $text_serial;
+        if (!empty($text_serial)) {
+            return $this->multi_unique($text_serial);
+        } else {
+            return array();
+        }
     }
 
 }
