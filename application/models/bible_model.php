@@ -27,6 +27,31 @@ class Bible_model extends CI_Model {
         }
     }
 
+    function book_info($book, $chapter) {
+        if (!isset($book)) return;
+        $tbl_name = 'bible_original';
+
+        $book_info['book'] = $book;
+        $book_info['abbr'] = $this->bible->book_abbr_by_id($book);
+        $book_info['chapter'] = 0;
+        $book_info['verse'] = 0;
+
+        /* DB opreations */
+        $this->db->select_max('chapter')->from($tbl_name)->where('book', $book);
+        $query = $this->db->get();
+        $result = $query->row_array();
+        $book_info['chapter'] = $result['chapter'];
+
+        /* DB opreations */
+        $this->db->select_max('verse')->from($tbl_name)->where('book', $book)->where('chapter', $chapter);
+        $query = $this->db->get();
+        $result = $query->row_array();
+        $book_info['verse'] = $result['verse'];
+
+        return $book_info;
+
+    }
+
     function book_id_by_abbr($book_abbr)
     {
         if (!isset($book_abbr)) return;

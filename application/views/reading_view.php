@@ -70,8 +70,8 @@
                     </ul>
                 </div>
                 <div class="span4">
-                    <form class="navbar-search pull-left">
-                        <input type="text" class="input-block-level search-query" placeholder="Strong's number">
+                    <form method="post" accept-charset="utf-8" action="<?= site_url('search') ?>"  class="navbar-search pull-left"  id="strongsform" />
+                        <input name="strongs" type="text" class="input-block-level search-query" placeholder="Strong's number">
                     </form>
                 </div>
 
@@ -175,11 +175,11 @@
             <div class="page-header">
                 <h1 class="book-title"><?= $info['book_chinese'] ?> <small><?= $info['book_hebrew'] ?><? if ($info['book_hebrew'] !== $info['book_english']): ?> - <?= $info['book_english']; ?><? endif; ?></small></h1>
             </div>
-            <p><span class="verse badge badge-inverse"><?= $info['chapter'] ?> : <?= $info['verse'] ?></span></p>
+            <p><span class="verse badge badge-inverse"><a rel="clickover" data-title="選擇第幾章？" data-ref="chapter-panel" href="#"><?= $info['chapter'] ?></a> : <a rel="clickover" data-title="選擇第 <?= $info['chapter'] ?> 章第幾節？" data-ref="verse-panel" href="#"><?= $info['verse'] ?></a></span></p>
             <div class="bs-docs-example">
                 <p class="the-message lead <?= $layout['type'] ?>">
                     <? foreach ($word['with_strongs'] as $item): ?>
-                    <a href="#pop-content-<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" data-toggle="popover" data-placement="top" data-content="查無資料 :|" data-title="<?= $item['strongs'] ?>"><?= $item['word'] ?></a>
+                    <a href="#pop-content-<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" data-content="查無資料 :|" data-title="<?= $item['strongs'] ?>"><?= $item['word'] ?></a>
                     <? endforeach; ?>
                 </p>
             </div>
@@ -200,6 +200,22 @@
 
             </div>
 
+            <div class="chapter-panel">
+                <ul class="panel-list">
+                    <? for ($i = 1; $i <= $info['book_info']['chapter']; $i++): ?>
+                    <li><a href="<?= site_url('reading/' . $info['book_info']['abbr'] . '.' . $i . '.1'); ?>"><?= $i ?></a></li>
+                    <? endfor; ?>
+                </ul>
+            </div>
+
+            <div class="verse-panel">
+                <ul class="panel-list">
+                    <? for ($i = 1; $i <= $info['book_info']['verse']; $i++): ?>
+                    <li><a href="<?= site_url('reading/' . $info['book_info']['abbr'] . '.' . $info['chapter'] . '.' . $i); ?>"><?= $i ?></a></li>
+                    <? endfor; ?>
+                </ul>
+            </div>
+
         <hr class="bs-docs-separator">
 
         </div>
@@ -211,11 +227,11 @@
                     <li id="pop-content-<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" class="pop-content">
                         <div class="itools">
                             <a class="fhl-pop-link" rel="fhl-note" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" href="#"><img alt="" src="<?= base_url('img/fhl.png');?>" /></a>
-                            <a class="strongs-search" href="<?= site_url('search/' . $layout['strongs_note'] . $item['strongs']); ?>"><i class="icon icon-search"></i></a>
                         </div>
                         <ul>
                             <li class="title <?= $layout['type']; ?>"><?= $item['word'] ?></li>
-                            <li class="strongs"><strong>Strong's <?= $layout['strongs_note'] ?><?= $item['strongs'] ?></strong></li>
+                            <li class="strongs">
+<strong>Strong's <?= $layout['strongs_note'] ?><?= $item['strongs'] ?></strong><a class="strongs-search" href="<?= site_url('search/' . $layout['strongs_note'] . $item['strongs']); ?>"><i class="icon icon-search"></i></a></li>
                             <li>音譯：<em><?= $item['sbl'] ?></em></li>
                             <li>字根：<?= $item['deriv'] ?></li>
                             <? if (isset($item['part_of_speech'])): ?><li>詞性：<?= $item['part_of_speech'] ?></li><? endif; ?>

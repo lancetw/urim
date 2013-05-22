@@ -7,6 +7,7 @@ class Reading extends CI_Controller {
 		parent::__construct();
 
 		$this->load->helper('url');
+		$this->load->helper('form');
 		$this->load->model('Bible_model', 'bible', TRUE);
 	}
 
@@ -25,6 +26,7 @@ class Reading extends CI_Controller {
 			$type = 'greek';
 		}
 
+		$data['info']['book_info'] = $this->bible->book_info($data['info']['book'], $data['info']['chapter']);
 		$data['info']['book_chinese'] = $this->bible->book_name($data['info']['book'], 'chinese');
 		$data['info']['book_hebrew'] = $this->bible->book_name($data['info']['book'], 'hebrew');
 		$data['info']['book_english'] = $this->bible->book_name($data['info']['book'], 'english');

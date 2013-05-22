@@ -46,7 +46,7 @@ $(function() {
 			'placement': 'left'
 		}).click(function(e) {
 			e.preventDefault();
-	        $(this).tooltip('toggle');
+            $(this).tooltip('toggle');
 	    });
 	}
 
@@ -71,8 +71,8 @@ $(function() {
     }
 
     $('#transTab a').click(function (e) {
-	    e.preventDefault();
-	    $(this).tab('show');
+        e.preventDefault();
+        $(this).tab('show');
     });
 
     if (!jQuery.browser.mobile && !isiPad) {
@@ -81,9 +81,8 @@ $(function() {
 
     $('[rel="clickover"]').clickover({
         html: true,
-        width: 150,
         height: 'auto',
-        placement: 'bottom',
+        placement: 'left',
         content: function() {
             var ref = $(this).attr('data-ref');
             return $('.' + ref).html();
@@ -117,7 +116,7 @@ $(function() {
         });
     });
 
-    $("#panel-nav").mmenu({
+    $('#panel-nav').mmenu({
         slidingSubmenus: true,
         addCounters: false,
         closeOnClick: true,
@@ -125,7 +124,14 @@ $(function() {
     });
 
     var strongs = getParameterByName('strongs');
-    console.log($(".the-message a[data-ref='" + strongs + "']"));
     $(".the-message a[data-ref='" + strongs + "']").addClass('highlight');
+
+    $('#strongsform input').keypress(function(event){
+        if (event.keyCode == 13) {
+            $('#strongsform').attr('action', '/urim/search/' + $('#strongsform input').val());
+            window.location = $('#strongsform').attr('action') +'?'+ $('#strongsform input').val();
+        }
+    });
+
 
 });
