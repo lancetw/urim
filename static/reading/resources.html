@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+    <html lang="zh-hant">
+    <head>
+        <title>URIM</title>
+        <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="apple-touch-icon" href="icon.png"/>
+
+                <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <script src="../js/jquery-1.9.1.min.js"></script>
+        <script src="../js/jquery-migrate-1.2.1.min.js"></script>
+
+        <script src="../css/bootstrap/js/bootstrap.min.js"></script>
+
+        <link href="../js/jquery.nanoscroller.0.6.9/nanoscroller.css" rel="stylesheet">
+        <script src="../js/jquery.nanoscroller.0.6.9/jquery.nanoscroller.min.js"></script>
+
+        <script type="text/javascript" src="../js/noty/jquery.noty.js"></script>
+        <script type="text/javascript" src="../js/noty/layouts/bottom.js"></script>
+        <script type="text/javascript" src="../js/noty/layouts/bottomCenter.js"></script>
+        <!-- You can add more layouts if you want -->
+        <script type="text/javascript" src="../js/noty/themes/default.js"></script>
+
+        <script type="text/javascript" src="../js/ios-orientationchange-fix.js"></script>
+        <script type="text/javascript" src="../js/bootstrapx-clickover.js"></script>
+
+        <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+        <script type="text/javascript" src="../js/mmenu-1.2.3/jquery.mmenu.js"></script>
+        <link type="text/css" media="screen" rel="stylesheet" href="../js/mmenu-1.2.3/mmenu.css" />
+
+        <script type="text/javascript" src="../js/DataTables-1.9.4/media/js/jquery.dataTables.min.js"></script>
+        <link type="text/css" media="screen" rel="stylesheet" href="../js/DataTables-1.9.4/media/css/jquery.dataTables.css" />
+
+        <link href="../css/base.css" rel="stylesheet">
+        <script src="../js/base.js"></script>
+
+            </head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container-narrow">
+
+        <div class="navbar navbar-inverse navbar-fixed-top navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+
+                    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </a>
+
+                    <!-- Be sure to leave the brand out there if you want it shown -->
+                    <a class="brand" href="#panel-nav">URIM<small>beta</small></a>
+
+                    <div class="slogan hidden-desktop">
+                        <span class="item">聖經研讀工具集</span>
+                    </div>
+
+                    <!-- Everything you want hidden at 940px or less, place within here -->
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="http://localhost:8888/urim/reading.htm">閱讀</a></li>
+                            <li class="active"><a href="http://localhost:8888/urim/resources.htm">資源</a></li>
+                            <li><a href="http://localhost:8888/urim/about.htm">關於</a></li>
+                        </ul>
+                    </div>
+                    <div class="span4">
+                        <form method="post" accept-charset="utf-8" action="http://localhost:8888/urim/search.htm"  class="navbar-search pull-left"  id="strongsform" />
+                            <input name="strongs" type="text" class="input-block-level search-query" placeholder="Strong's number">
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    
+    <nav id="panel-nav">
+    <ul>
+        <li class="Label">希伯來聖經 (Tanakh)</li>
+        <li><a href="gen.1.1.html">訓誨（妥拉）</a>
+            <ul>
+                                <li><a href="gen.1.1.html">創世記 B'resheet</a></li>
+                                <li><a href="exo.1.1.html">出埃及記 Sh'mot</a></li>
+                                <li><a href="lev.1.1.html">利未記 Vayikra</a></li>
+                                <li><a href="num.1.1.html">民數記 B'midbar</a></li>
+                                <li><a href="deu.1.1.html">申命記 D'varim</a></li>
+                            </ul>
+        </li>
+        <li><a href="jos.1.1.html">信息</a>
+            <ul>
+                                <li><a href="jos.1.1.html">約書亞記 Y'hoshua</a></li>
+                                <li><a href="jug.1.1.html">士師記 Shof'tim</a></li>
+                                <li><a href="1sa.1.1.html">撒母耳記上 Sh'mu'el Alef</a></li>
+                                <li><a href="2sa.1.1.html">撒母耳記下 Sh'mu'el Bet</a></li>
+                                <li><a href="1ki.1.1.html">列王紀上 M'lakhim Alef</a></li>
+                                <li><a href="2ki.1.1.html">列王紀下 M'lakhim Bet</a></li>
+                                <li><a href="isa.1.1.html">以賽亞書 Yesha'yahu</a></li>
+                                <li><a href="jer.1.1.html">耶利米書 Yrimeyahu</a></li>
+                                <li><a href="eze.1.1.html">以西結書 Yechezk'el</a></li>
+                                <li><a href="hsa.1.1.html">何西阿書 Hoshea</a></li>
+                                <li><a href="joe.1.1.html">約珥書 Yo'el</a></li>
+                                <li><a href="amo.1.1.html">阿摩司書 'Amos</a></li>
+                                <li><a href="oba.1.1.html">俄巴底亞書 Ovadyah</a></li>
+                                <li><a href="jon.1.1.html">約拿書 Yonah</a></li>
+                                <li><a href="mic.1.1.html">彌迦書 Mikhah</a></li>
+                                <li><a href="nah.1.1.html">那鴻書 Nachum</a></li>
+                                <li><a href="hab.1.1.html">哈巴谷書 Havakuk</a></li>
+                                <li><a href="zep.1.1.html">西番雅書 Tz'fanyah</a></li>
+                                <li><a href="hag.1.1.html">哈該書 Hagai</a></li>
+                                <li><a href="zec.1.1.html">撒迦利亞書 Z'kharyah</a></li>
+                                <li><a href="mal.1.1.html">瑪拉基書 Mal'akhi</a></li>
+                            </ul>
+        </li>
+        <li><a href="psa.1.1.html">著作</a>
+            <ul>
+                                <li><a href="psa.1.1.html">詩篇 Tehillim</a></li>
+                                <li><a href="pro.1.1.html">箴言 Mishlei</a></li>
+                                <li><a href="job.1.1.html">約伯記 lyov</a></li>
+                                <li><a href="sgs.1.1.html">雅歌 Shir-HaShirim</a></li>
+                                <li><a href="rut.1.1.html">路得記 Rut</a></li>
+                                <li><a href="lam.1.1.html">耶利米哀歌 Eikhah</a></li>
+                                <li><a href="ecc.1.1.html">傳道書 Kohelet</a></li>
+                                <li><a href="est.1.1.html">以斯帖記 Ester</a></li>
+                                <li><a href="dan.1.1.html">但以理書 Dani'el</a></li>
+                                <li><a href="ezr.1.1.html">以斯拉記 'Ezra</a></li>
+                                <li><a href="neh.1.1.html">尼希米記 Nechemyah</a></li>
+                                <li><a href="1ch.1.1.html">歷代志上 Divrei-HaYamim Alef</a></li>
+                                <li><a href="2ch.1.1.html">歷代志下 Divrei-HaYamim Bet</a></li>
+                            </ul>
+        </li>
+        <li class="Label">新約聖經 (B'rit Hadashah)</li>
+        <li><a href="$layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
+            <ul>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">馬太福音 Mattityahu</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">馬可福音 Mark</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">路加福音 Luke</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">約翰福音 Yochanan</a></li>
+                            </ul>
+        </li>
+                <li><a href="act.1.1.html">使徒行傳 The Acts of the Emissaries of Yeshua the Messiah</a></li>
+                <li><a href="rom.1.1.html">保羅書信</a>
+            <ul>
+                                <li><a href="rom.1.1.html">羅馬書 Romans</a></li>
+                                <li><a href="1cr.1.1.html">哥林多前書 1 Corinthains</a></li>
+                                <li><a href="2cr.1.1.html">哥林多後書 2 Corinthains</a></li>
+                                <li><a href="gal.1.1.html">加拉太書 Galatians</a></li>
+                                <li><a href="eph.1.1.html">以弗所書 Ephesians</a></li>
+                                <li><a href="phl.1.1.html">腓利比書 Philippians</a></li>
+                                <li><a href="col.1.1.html">歌羅西書 Colossians</a></li>
+                                <li><a href="1th.1.1.html">帖撒羅尼迦前書 1 Thessalonians</a></li>
+                                <li><a href="2th.1.1.html">帖撒羅尼迦後書 2 Thessalonians</a></li>
+                            </ul>
+        </li>
+        <li><a href="1ti.1.1.html">保羅私信</a>
+            <ul>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">提摩太前書 1 Timothy</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">提摩太後書 2 Timothy</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">提多書 Titus</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">腓利門書 Philemon</a></li>
+                            </ul>
+        </li>
+        <li><a href="hbr.1.1.html">大公書信</a>
+            <ul>
+                                <li><a href="hbr.1.1.html">希伯來書 Messianic Jews</a></li>
+                                <li><a href="jam.1.1.html">雅各書 Ya'akov</a></li>
+                                <li><a href="1pe.1.1.html">彼得前書 1 Kefa</a></li>
+                                <li><a href="2pe.1.1.html">彼得後書 2 Kefa</a></li>
+                                <li><a href="1jo.1.1.html">約翰壹書 1 Yochanan</a></li>
+                                <li><a href="2jo.1.1.html">約翰貳書 2 Yochanan</a></li>
+                                <li><a href="3jo.1.1.html">約翰參書 3 Yochanan</a></li>
+                                <li><a href="jud.1.1.html">猶大書 Y'hudah</a></li>
+                            </ul>
+        </li>
+                <li><a href="rev.1.1.html">啟示錄 The Revelation of Yeshua the Messiah to Yochanan</a></li>
+        
+    </ul>
+    </nav>
+
+    
+          <div class="resources-header">
+            <h1 class="title">資源</h1>
+            <p class="lead">這地方的人賢於帖撒羅尼迦的人，甘心領受這道，天天考查聖經，要曉得這道是與不是。
+                                <a href="act.17.11.html">使徒行傳 17:11</a>
+                                 (新標點和合本)</p>
+
+          </div>
+
+          <hr>
+
+          <div class="row-fluid marketing">
+            <div class="span6">
+              <h4>信望愛信仰與聖經資源中心</h4>
+              <p><a href="http://bible.fhl.net">http://bible.fhl.net</a></p>
+
+              <h4>BibleForge</h4>
+              <p><a href="http://bibleforge.com">http://bibleforge.com</a></p>
+
+              <h4>耶大雅聖經工具</h4>
+              <p><a href="http://bibletool.konline.org">http://bibletool.konline.org</a></p>
+
+              <h4>猶差匯聚</h4>
+              <p><a href="http://jematrix.wordpress.com">http://jematrix.wordpress.com</a></p>
+
+              <h4>Weekly Parashah</h4>
+              <p><a href="http://www.torahresource.com/Parashot.html">http://www.torahresource.com/Parashot.html</a></p>
+
+            </div>
+
+            <div class="span6">
+              <h4>OursWeb.Net  我們的網站</h4>
+              <p><a href="http://www.oursweb.net">http://www.oursweb.net</a></p>
+
+              <h4>新漢語聖經</h4>
+              <p><a href="http://www.chinesebible.org.hk/onlinebible">http://www.chinesebible.org.hk/onlinebible</a></p>
+
+              <h4>Complete Jewish Bible</h4>
+              <p><a href="http://www.biblestudytools.com/cjb/genesis/1-1.html">http://www.biblestudytools.com/cjb/genesis/1-1.html</a></p>
+
+              <h4>妥拉的智慧</h4>
+              <p><a href="http://rock24sea.blogspot.tw">http://rock24sea.blogspot.tw</a></p>
+
+              <h4>基督教壹蘋果</h4>
+              <p><a href="https://www.facebook.com/groups/133255080104738">https://www.facebook.com/groups/133255080104738</a></p>
+            </div>
+          </div>
+
+          <hr>
+
+        <p class="footer">Developer: Hsin-lin Cheng aka lancetw, 2013 Summer &lt;lancetw@gmail.com&gt;</p>
+
+        </div>
+    </div> <!-- /container -->
+</body>
+
+<script>
+
+</script>
+</html>

@@ -13,7 +13,7 @@ class Search extends CI_Controller {
     public function index($strongs_with_prefix='H7225')
     {
         $type = '';
-        $number = substr($strongs_with_prefix, 1, strlen($strongs_with_prefix));
+        $number = (int)substr($strongs_with_prefix, 1, strlen($strongs_with_prefix));
         $prefix = substr_replace($strongs_with_prefix, '', 1);
         if (strtoupper($prefix) === 'H') {
             $type = 'hebrew';
@@ -23,9 +23,22 @@ class Search extends CI_Controller {
         }
         if ($type === '') return;
 
-        $data['info']['strongs'] = $strongs_with_prefix;
+        $data['info']['type'] = $type;
+        $data['info']['strongs'] = strtoupper($prefix) . $number;
         $data['info']['word'] = $this->bible->word_by_strongs($number, $type);
         $data['search'] = $this->bible->searchTextsByStrongs($number, $type);
+
+        /* 製作靜態版本（目前暫時無法自動處理路由問題） */
+
+        $this->load->helper('file');
+        $data['static'] = true;
+        $static_page = $this->load->view('search_view', $data, true);
+        $force_static = false;
+        $path = './static/search/' . $data['info']['strongs'] . '.html';
+        if (! write_file($path, $static_page)) {
+             echo 'Unable to write the file';
+        }
+        $data['static'] = false;
 
         $this->load->view('search_view', $data);
     }

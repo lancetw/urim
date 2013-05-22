@@ -67,15 +67,20 @@ class Reading extends CI_Controller {
 		$data['layout']['type'] = $type;
 		$data['layout']['strongs_note'] = $type == 'hebrew' ? 'H' : 'G';
 
-		/* 製作靜態版本 */
-		/*
+
+		/* 製作靜態版本（目前暫時無法自動處理路由問題） */
+
 		$this->load->helper('file');
+		$data['static'] = true;
 		$static_page = $this->load->view('reading_view', $data, true);
 		$force_static = false;
-		if (! write_file( . '.html', $force_static)) {
+		$path = './static/reading/' . $_serial[0] . '.' . $_serial[1] . '.' . $_serial[2] . '.html';
+		if (! write_file($path, $static_page)) {
 		     echo 'Unable to write the file';
 		}
-		*/
+		$data['static'] = false;
+
+
 		$this->load->view('reading_view', $data);
 	}
 

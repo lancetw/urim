@@ -9,13 +9,46 @@
 
         <link rel="apple-touch-icon" href="icon.png"/>
 
-        <!-- twitter bootstrap stylesheet -->
+        <? if ($static == true) : ?>
+        <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <script src="../js/jquery-1.9.1.min.js"></script>
+        <script src="../js/jquery-migrate-1.2.1.min.js"></script>
+
+        <script src="../css/bootstrap/js/bootstrap.min.js"></script>
+
+        <link href="../js/jquery.nanoscroller.0.6.9/nanoscroller.css" rel="stylesheet">
+        <script src="../js/jquery.nanoscroller.0.6.9/jquery.nanoscroller.min.js"></script>
+
+        <script type="text/javascript" src="../js/noty/jquery.noty.js"></script>
+        <script type="text/javascript" src="../js/noty/layouts/bottom.js"></script>
+        <script type="text/javascript" src="../js/noty/layouts/bottomCenter.js"></script>
+        <!-- You can add more layouts if you want -->
+        <script type="text/javascript" src="../js/noty/themes/default.js"></script>
+
+        <script type="text/javascript" src="../js/ios-orientationchange-fix.js"></script>
+        <script type="text/javascript" src="../js/bootstrapx-clickover.js"></script>
+
+        <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+        <script type="text/javascript" src="../js/mmenu-1.2.3/jquery.mmenu.js"></script>
+        <link type="text/css" media="screen" rel="stylesheet" href="../js/mmenu-1.2.3/mmenu.css" />
+
+        <script type="text/javascript" src="../js/DataTables-1.9.4/media/js/jquery.dataTables.min.js"></script>
+        <link type="text/css" media="screen" rel="stylesheet" href="../js/DataTables-1.9.4/media/css/jquery.dataTables.css" />
+
+        <link rel="stylesheet" href="../js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+        <script type="text/javascript" src="../js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
+
+        <link href="../css/base.css" rel="stylesheet">
+        <script src="../js/base.js"></script>
+
+        <? else: ?>
+
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 
-        <!-- we need jQuery -->
         <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <!-- we need tabs javascript plugin of twitter bootstrap -->
         <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
         <link href="<?= base_url('js/jquery.nanoscroller.0.6.9/nanoscroller.css'); ?>" rel="stylesheet">
@@ -35,8 +68,15 @@
         <script type="text/javascript" src="<?= base_url('js/mmenu-1.2.3/jquery.mmenu.js'); ?>"></script>
         <link type="text/css" media="screen" rel="stylesheet" href="<?= base_url('js/mmenu-1.2.3/mmenu.css'); ?>" />
 
+        <script type="text/javascript" src="<?= base_url('js/DataTables-1.9.4/media/js/jquery.dataTables.min.js'); ?>"></script>
+        <link type="text/css" media="screen" rel="stylesheet" href="<?= base_url('js/DataTables-1.9.4/media/css/jquery.dataTables.css'); ?>" />
+
+        <link rel="stylesheet" href="<?= base_url('js/fancybox/source/jquery.fancybox.css?v=2.1.4'); ?>" type="text/css" media="screen" />
+        <script type="text/javascript" src="<?= base_url('js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4'); ?>"></script>
+
         <link href="<?= base_url('css/base.css'); ?>" rel="stylesheet">
         <script src="<?= base_url('js/base.js'); ?>"></script>
+        <? endif; ?>
     </head>
 
 <body>
@@ -56,15 +96,33 @@
                 <a class="brand" href="#panel-nav">URIM<small>beta</small></a>
 
                 <div class="slogan hidden-desktop">
-                    <span class="item">Bible Study Collection</span>
+                    <span class="item">聖經研讀工具集</span>
                 </div>
 
                 <!-- Everything you want hidden at 940px or less, place within here -->
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li class="active"><a href="<?= site_url('reading'); ?>">閱讀</a></li>
-                        <li><a href="<?= site_url('resources'); ?>">資源</a></li>
-                        <li><a href="<?= site_url('about'); ?>">關於</a></li>
+                        <li class="active">
+                            <? if ($static == true) : ?>
+                            <a href="./gen.1.1.html">閱讀</a>
+                            <? else: ?>
+                            <a href="<?= site_url('reading'); ?>">閱讀</a>
+                            <? endif; ?>
+                        </li>
+                        <li>
+                            <? if ($static == true) : ?>
+                            <a href="./resources.html">資源</a>
+                            <? else: ?>
+                            <a href="<?= site_url('resources'); ?>">資源</a>
+                            <? endif; ?>
+                        </li>
+                        <li>
+                            <? if ($static == true) : ?>
+                            <a href="./about.html">關於</a>
+                            <? else: ?>
+                            <a href="<?= site_url('about'); ?>">關於</a>
+                            <? endif; ?>
+                        </li>
                     </ul>
                 </div>
                 <div class="span4">
@@ -76,6 +134,73 @@
             </div>
         </div>
     </div>
+
+    <? if ($static == true) : ?>
+
+    <nav id="panel-nav">
+    <ul>
+        <li class="Label">希伯來聖經 (Tanakh)</li>
+        <li><a href="<?= $layout['bible']['torah'][0]['abbr'] . '.1.1.html'; ?>">訓誨（妥拉）</a>
+            <ul>
+                <? foreach ($layout['bible']['torah'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= $layout['bible']['prophets'][0]['abbr'] . '.1.1.html'; ?>">信息</a>
+            <ul>
+                <? foreach ($layout['bible']['prophets'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= $layout['bible']['writings'][0]['abbr'] . '.1.1.html'; ?>">著作</a>
+            <ul>
+                <? foreach ($layout['bible']['writings'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li class="Label">新約聖經 (B'rit Hadashah)</li>
+        <li><a href="$layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
+            <ul>
+                <? foreach ($layout['bible']['goodnews'] as $item): ?>
+                <li><a href="$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <? foreach ($layout['bible']['acts'] as $item): ?>
+        <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+        <? endforeach; ?>
+        <li><a href="<?= $layout['bible']['letters_paul_public'][0]['abbr'] . '.1.1.html'; ?>">保羅書信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_paul_public'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1.html'; ?>">保羅私信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
+                <li><a href="$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= $layout['bible']['letters_general'][0]['abbr'] . '.1.1.html'; ?>">大公書信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_general'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <? foreach ($layout['bible']['revelation'] as $item): ?>
+        <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+        <? endforeach; ?>
+
+    </ul>
+    </nav>
+
+    <? else: ?>
 
     <nav id="panel-nav">
     <ul>
@@ -139,6 +264,8 @@
 
     </ul>
     </nav>
+
+    <? endif; ?>
 
     <div class="row-fluid screen">
 
@@ -223,12 +350,24 @@
                     <? foreach ($lexicon as $item): ?>
                     <li id="pop-content-<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" class="pop-content">
                         <div class="itools">
-                            <a class="fhl-pop-link" rel="fhl-note" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" href="#"><img alt="" src="<?= base_url('img/fhl.png');?>" /></a>
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" href="#">
+                                <? if ($static == true): ?>
+                                <img alt="" src="../img/fhl.png" />
+                                <? else: ?>
+                                <img alt="" src="<?= base_url('img/fhl.png');?>" />
+                                <? endif; ?>
+                            </a>
                         </div>
                         <ul>
                             <li class="title <?= $layout['type']; ?>"><?= $item['word'] ?></li>
                             <li class="strongs">
-<strong>Strong's <?= $layout['strongs_note'] ?><?= $item['strongs'] ?></strong><a class="strongs-search" href="<?= site_url('search/' . $layout['strongs_note'] . $item['strongs']); ?>"><i class="icon icon-search"></i></a></li>
+                                <strong>Strong's <?= $layout['strongs_note'] ?><?= $item['strongs'] ?></strong>
+                                <? if ($static == true): ?>
+                                <a data-fancybox-type="iframe"  class="various strongs-search" href="<?= '../search/' . $layout['strongs_note'] . $item['strongs'] . '.html'; ?>"><i class="icon icon-search"></i></a>
+                                <? else: ?>
+                                <a data-fancybox-type="iframe"  class="various strongs-search" href="<?= site_url('search/' . $layout['strongs_note'] . $item['strongs']); ?>"><i class="icon icon-search"></i></a>
+                                <? endif; ?>
+                            </li>
                             <li>音譯：<em><?= $item['sbl'] ?></em></li>
                             <li>字根：<?= $item['deriv'] ?></li>
                             <? if (isset($item['part_of_speech'])): ?><li>詞性：<?= $item['part_of_speech'] ?></li><? endif; ?>

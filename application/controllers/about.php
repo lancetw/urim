@@ -22,6 +22,18 @@ class About extends CI_Controller {
         $data['layout']['bible']['letters_general'] = $this->bible->book_list('letters_general', 'chinese', true);
         $data['layout']['bible']['revelation'] = $this->bible->book_list('revelation', 'chinese', true);
 
+        /* 製作靜態版本（目前暫時無法自動處理路由問題） */
+
+        $this->load->helper('file');
+        $data['static'] = true;
+        $static_page = $this->load->view('about_view', $data, true);
+        $force_static = false;
+        $path = './static/reading/about.html';
+        if (! write_file($path, $static_page)) {
+             echo 'Unable to write the file';
+        }
+        $data['static'] = false;
+
         $this->load->view('about_view', $data);
     }
 }
