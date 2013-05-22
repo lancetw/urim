@@ -30,6 +30,11 @@ class Reading extends CI_Controller {
 		$data['info']['book_english'] = $this->bible->book_name($data['info']['book'], 'english');
 
 		$words_array = $this->bible->read_by_serial($_serial, true);
+		if (empty($words_array)) {
+			$path = base_url();
+			header("location: $path");
+		}
+
 		$data['word']['with_strongs'] = $words_array;
 		$data['word']['lang_type'] = 'hebrew';
 		$data['word']['translation']['en'] = array(
@@ -47,21 +52,29 @@ class Reading extends CI_Controller {
 		$data['layout']['nextbook'] = implode('.', $this->bible->next_book_by_serial($_serial));
 		$data['layout']['prevbook'] = implode('.', $this->bible->prev_book_by_serial($_serial));
 
-		$data['layout']['bible']['tanakh'] = $this->bible->book_list('tanakh', 'chinese');
-		$data['layout']['bible']['torah'] = $this->bible->book_list('torah', 'chinese');
-		$data['layout']['bible']['prophets'] = $this->bible->book_list('prophets', 'chinese');
-		$data['layout']['bible']['writings'] = $this->bible->book_list('writings', 'chinese');
-		$data['layout']['bible']['goodnews'] = $this->bible->book_list('goodnews', 'chinese');
-		$data['layout']['bible']['acts'] = $this->bible->book_list('acts', 'chinese');
-		$data['layout']['bible']['letters_paul_public'] = $this->bible->book_list('letters_paul_public', 'chinese');
-		$data['layout']['bible']['letters_paul_private'] = $this->bible->book_list('letters_paul_private', 'chinese');
-		$data['layout']['bible']['letters_general'] = $this->bible->book_list('letters_general', 'chinese');
-		$data['layout']['bible']['revelation'] = $this->bible->book_list('revelation', 'chinese');
+		$data['layout']['bible']['torah'] = $this->bible->book_list('torah', 'chinese', true);
+		$data['layout']['bible']['prophets'] = $this->bible->book_list('prophets', 'chinese', true);
+		$data['layout']['bible']['writings'] = $this->bible->book_list('writings', 'chinese', true);
+		$data['layout']['bible']['goodnews'] = $this->bible->book_list('goodnews', 'chinese', true);
+		$data['layout']['bible']['acts'] = $this->bible->book_list('acts', 'chinese', true);
+		$data['layout']['bible']['letters_paul_public'] = $this->bible->book_list('letters_paul_public', 'chinese', true);
+		$data['layout']['bible']['letters_paul_private'] = $this->bible->book_list('letters_paul_private', 'chinese', true);
+		$data['layout']['bible']['letters_general'] = $this->bible->book_list('letters_general', 'chinese', true);
+		$data['layout']['bible']['revelation'] = $this->bible->book_list('revelation', 'chinese', true);
 
 
 		$data['layout']['type'] = $type;
 		$data['layout']['strongs_note'] = $type == 'hebrew' ? 'H' : 'G';
 
+		/* 製作靜態版本 */
+		/*
+		$this->load->helper('file');
+		$static_page = $this->load->view('reading_view', $data, true);
+		$force_static = false;
+		if (! write_file( . '.html', $force_static)) {
+		     echo 'Unable to write the file';
+		}
+		*/
 		$this->load->view('reading_view', $data);
 	}
 

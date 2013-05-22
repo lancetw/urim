@@ -21,6 +21,12 @@ function fm_optimizeInput(){
     })
 }
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
 $(function() {
 
@@ -112,10 +118,14 @@ $(function() {
     });
 
     $("#panel-nav").mmenu({
-        slidingSubmenus  : true,
+        slidingSubmenus: true,
         addCounters: false,
-        closeOnClick     : true,
-        width: 100
+        closeOnClick: true,
+        position: 'left'
     });
+
+    var strongs = getParameterByName('strongs');
+    console.log($(".the-message a[data-ref='" + strongs + "']"));
+    $(".the-message a[data-ref='" + strongs + "']").addClass('highlight');
 
 });

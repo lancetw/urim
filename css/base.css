@@ -184,6 +184,10 @@ div.slogan {
     color: #000;
 }
 
+.the-message a.highlight {
+    color: red;
+}
+
 .the-message a:hover {
     color: gold;
     text-decoration: none;
@@ -193,25 +197,25 @@ div.slogan {
     direction: ltr;
     font-size: 14px;
     width: 300px;
-    max-height: 260px;
+    max-height: 320px;
     overflow-y: auto;
 }
 
 .the-message .popover .title {
     color: #777;
-    margin-top: -25px;
+    margin-top: -30px;
     font-size: 26px;
     line-height: 26px;
     text-align: left;
     float: right;
 }
 
-.the-message .popover .fhl-pop-link img {
-    margin-top: -40px;
+.the-message .popover .itools {
+    margin-top: -20px;
 }
 
 .the-message .popover ul {
-    margin-top: -30px;
+    margin-top: -12px;
 }
 
 .the-message .popover ul, .pop-content ul {
@@ -352,8 +356,13 @@ ul.fhl-note li {
     list-style-type: none;
 }
 
+.noty_text {
+    text-align: left;
+}
+
 .noty_message .ver {
     font-size: 12px;
+    text-align: center;
 }
 
 .noty_message .title {
@@ -361,6 +370,20 @@ ul.fhl-note li {
     line-height: 30px;
     margin-top: 0;
     text-align: right;
+}
+
+.pop-content .itools {
+    position: relative;
+    display: inline-block;
+}
+
+.pop-content .itools a {
+    font-size: 16px;
+    color: #777;
+}
+
+.pop-content .itools img {
+    vertical-align: center;
 }
 
 /* Large desktop */

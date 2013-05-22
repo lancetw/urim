@@ -43,7 +43,7 @@
 <div class="container-fluid">
     <div class="navbar navbar-inverse navbar-fixed-top navbar-static-top">
         <div class="navbar-inner">
-            <div class="container">
+            <div class="container-fluid">
 
                 <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -63,15 +63,15 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active">
-                            <a href="<?= site_url('reading'); ?>">Reading</a>
+                            <a href="<?= site_url('reading'); ?>">閱讀</a>
                         </li>
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="<?= site_url('resources'); ?>">資源</a></li>
+                        <li><a href="<?= site_url('about'); ?>">關於</a></li>
                     </ul>
                 </div>
                 <div class="span4">
                     <form class="navbar-search pull-left">
-                        <input type="text" class="input-block-level search-query" placeholder="Search">
+                        <input type="text" class="input-block-level search-query" placeholder="Strong's number">
                     </form>
                 </div>
 
@@ -85,21 +85,21 @@
         <li><a href="<?= site_url('reading/' . $layout['bible']['torah'][0]['abbr'] . '.1.1'); ?>">訓誨</a>
             <ul>
                 <? foreach ($layout['bible']['torah'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
         <li><a href="<?= site_url('reading/' . $layout['bible']['prophets'][0]['abbr'] . '.1.1'); ?>">信息</a>
             <ul>
                 <? foreach ($layout['bible']['prophets'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
         <li><a href="<?= site_url('reading/' . $layout['bible']['writings'][0]['abbr'] . '.1.1'); ?>">著作</a>
             <ul>
                 <? foreach ($layout['bible']['writings'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
@@ -107,36 +107,36 @@
         <li><a href="<?= site_url('reading/' . $layout['bible']['goodnews'][0]['abbr'] . '.1.1'); ?>">福音</a>
             <ul>
                 <? foreach ($layout['bible']['goodnews'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
         <? foreach ($layout['bible']['acts'] as $item): ?>
-        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
         <? endforeach; ?>
         <li><a href="<?= site_url('reading/' . $layout['bible']['letters_paul_public'][0]['abbr'] . '.1.1'); ?>">保羅書信</a>
             <ul>
                 <? foreach ($layout['bible']['letters_paul_public'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
         <li><a href="<?= site_url('reading/' . $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1'); ?>">保羅私信</a>
             <ul>
                 <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
         <li><a href="<?= site_url('reading/' . $layout['bible']['letters_general'][0]['abbr'] . '.1.1'); ?>">大公書信</a>
             <ul>
                 <? foreach ($layout['bible']['letters_general'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
         <? foreach ($layout['bible']['revelation'] as $item): ?>
-        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?></a></li>
+        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
         <? endforeach; ?>
 
     </ul>
@@ -209,7 +209,10 @@
                 <ul class="nav">
                     <? foreach ($lexicon as $item): ?>
                     <li id="pop-content-<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" class="pop-content">
-                        <a class="fhl-pop-link" rel="fhl-note" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" href="#"><img alt="" src="<?= base_url('img/fhl.png');?>" /></a>
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="<?= $layout['strongs_note'] ?><?= $item['strongs'] ?>" href="#"><img alt="" src="<?= base_url('img/fhl.png');?>" /></a>
+                            <a class="strongs-search" href="<?= site_url('search/' . $layout['strongs_note'] . $item['strongs']); ?>"><i class="icon icon-search"></i></a>
+                        </div>
                         <ul>
                             <li class="title <?= $layout['type']; ?>"><?= $item['word'] ?></li>
                             <li class="strongs"><strong>Strong's <?= $layout['strongs_note'] ?><?= $item['strongs'] ?></strong></li>

@@ -1,5 +1,8 @@
 <?php
 
+define("PATH_EASYGALLERY", dirname(__FILE__));
+ini_set("memory_limit","256M");
+
 class Bible_model extends CI_Model {
 
     function __construct()
@@ -72,18 +75,22 @@ class Bible_model extends CI_Model {
         }
     }
 
-    function read_by_serial(array $serial, $with_strongs=false)
+    function read_by_serial(array $serial, $with_strongs=false, $abbr_to_id=true)
     {
         if (!isset($serial)) return;
 
-        $book = $this->bible->book_id_by_abbr($serial[0]);
+        if ($abbr_to_id) {
+            $book = $this->bible->book_id_by_abbr($serial[0]);
+        } else {
+            $book = $serial[0];
+        }
         $chapter = $serial[1];
         $verse = $serial[2];
 
         $tbl_name = 'bible_original';
 
         /* DB opreations */
-        $this->db->select('word, strongs')->from($tbl_name)->where('book', $book)->where('chapter', $chapter)->where('verse', $verse);
+        $this->db->select('word, strongs, morph')->from($tbl_name)->where('book', $book)->where('chapter', $chapter)->where('verse', $verse);
         $query = $this->db->get();
 
         $words_array = array();
@@ -93,6 +100,7 @@ class Bible_model extends CI_Model {
                 $word = array();
                 $word['word'] =  $row->word;
                 $word['strongs'] =  $row->strongs;
+                $word['morph'] = $row->morph;
                 $words_array[] = $word;
             } else {
                 $word = $row->word;
@@ -170,21 +178,6 @@ class Bible_model extends CI_Model {
 
         /* 待修正資安問題 */
         $tbl_name = 'lexicon_' . $type;
-
-        /* 手工修正...要移到資料庫嗎？ */
-        /*$problem = array(
-            'לָהֶ֜ם' => '9001',
-            'לָכֶ֜ם' => '9001',
-            'לָכֶ֥ם' => '9001',
-            'ב֖וֹ' => '9002',
-            'בּ֥וֹ' => '9002'
-        );
-
-        /*foreach ($problem as $key => $value) {
-            if ($key === $word) {
-                return $value;
-            }
-        }*/
 
         /* DB opreations */
         $this->db->select('strongs')->from($tbl_name)->where('base_word', $word)->limit(1);
@@ -361,7 +354,11 @@ class Bible_model extends CI_Model {
             if (!empty($data)) {
                 $item['word'] = $this->word_by_strongs($strongs, $type);
                 $item['strongs'] = $strongs;
-                $item['part_of_speech'] = $this->part_of_speech($strongs, $type);
+                if ($type == 'greek') {
+                    $item['part_of_speech'] = $word['morph'];
+                } else {
+                    $item['part_of_speech'] = $this->part_of_speech($strongs, $type);
+                }
                 $item['def'] = $data->def->short;
                 $item['deriv'] = isset($data->deriv) ? $data->deriv : '';
                 $item['sbl'] = $data->pronun->sbl;
@@ -542,7 +539,7 @@ class Bible_model extends CI_Model {
         return array();
     }
 
-    function book_list($keyword, $language='english')
+    function book_list($keyword, $language='english', $with_hebrew=false)
     {
         if (!isset($keyword)) return;
 
@@ -563,8 +560,8 @@ class Bible_model extends CI_Model {
             $end = 43;
         }
         if ($keyword === 'acts') {
-            $start = 44;
-            $end = 44;
+            $type = 'pick';
+            $num_list = array(44);
         }
         if ($keyword === 'letters') {
             $start = 45;
@@ -583,8 +580,8 @@ class Bible_model extends CI_Model {
             $end = 65;
         }
         if ($keyword === 'revelation') {
-            $start = 66;
-            $end = 66;
+            $type = 'pick';
+            $num_list = array(66);
         }
         if ($keyword === 'prophets') {
             $type = 'pick';
@@ -617,11 +614,48 @@ class Bible_model extends CI_Model {
             $book['name'] = $row->name;
             $book['id'] = $row->id;
             $book['abbr'] = $this->book_abbr_by_id($row->id);
+            if ($with_hebrew) {
+                $book['hebrew'] =$this->book_name($row->id, 'hebrew');
+            }
 
             $book_list[] = $book;
         }
 
         return $book_list;
+    }
+
+    function searchTextsByStrongs($strongs, $type='hebrew')
+    {
+        if (!isset($strongs)) return;
+
+        $tbl_name = 'bible_original';
+
+        if ($type === 'greek') {
+            $where = "book >= 40 AND book <= 66";
+        } else {
+            $where = "book >= 1 AND book <= 39";
+        }
+
+        /* DB opreations */
+        $this->db->select('strongs, word, book, chapter, verse')->from($tbl_name)->where('strongs', $strongs)->where($where);
+        $query = $this->db->get();
+
+        $text_serial = array();
+        foreach ($query->result() as $row) {
+            $text = array();
+            $text['strongs'] = $row->strongs;
+            $text['word'] = $row->word;
+            $text['book'] = $row->book;
+            $text['book_abbr'] = $this->book_abbr_by_id($row->book);
+            $text['book_name_chinese'] = $this->book_name($row->book, 'chinese');
+            $text['chapter'] = $row->chapter;
+            $text['verse'] = $row->verse;
+            $serial = array($text['book'], $text['chapter'], $text['verse']);
+            $text['text'] = $this->read_by_serial($serial, true, false);
+            $text_serial[] = $text;
+        }
+
+        return $text_serial;
     }
 
 }
