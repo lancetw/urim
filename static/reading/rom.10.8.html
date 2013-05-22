@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+    <html lang="zh-hant">
+    <head>
+        <title>URIM</title>
+        <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="apple-touch-icon" href="icon.png"/>
+
+                <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <script src="../js/jquery-1.9.1.min.js"></script>
+        <script src="../js/jquery-migrate-1.2.1.min.js"></script>
+
+        <script src="../css/bootstrap/js/bootstrap.min.js"></script>
+
+        <link href="../js/jquery.nanoscroller.0.6.9/nanoscroller.css" rel="stylesheet">
+        <script src="../js/jquery.nanoscroller.0.6.9/jquery.nanoscroller.min.js"></script>
+
+        <script type="text/javascript" src="../js/noty/jquery.noty.js"></script>
+        <script type="text/javascript" src="../js/noty/layouts/bottom.js"></script>
+        <script type="text/javascript" src="../js/noty/layouts/bottomCenter.js"></script>
+        <!-- You can add more layouts if you want -->
+        <script type="text/javascript" src="../js/noty/themes/default.js"></script>
+
+        <script type="text/javascript" src="../js/ios-orientationchange-fix.js"></script>
+        <script type="text/javascript" src="../js/bootstrapx-clickover.js"></script>
+
+        <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+        <script type="text/javascript" src="../js/mmenu-1.2.3/jquery.mmenu.js"></script>
+        <link type="text/css" media="screen" rel="stylesheet" href="../js/mmenu-1.2.3/mmenu.css" />
+
+        <link href="../css/base.css" rel="stylesheet">
+        <script src="../js/base.js"></script>
+
+            </head>
+
+<body>
+<div class="container-fluid">
+    <div class="navbar navbar-inverse navbar-fixed-top navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+
+                <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </a>
+
+                <!-- Be sure to leave the brand out there if you want it shown -->
+                <a class="brand" href="#panel-nav">URIM<small>beta</small></a>
+
+                <div class="slogan hidden-desktop">
+                    <span class="item">聖經研讀工具集</span>
+                </div>
+
+                <!-- Everything you want hidden at 940px or less, place within here -->
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="active">
+                                                        <a href="./gen.1.1.html">閱讀</a>
+                                                    </li>
+                        <li>
+                                                        <a href="./resources.html">資源</a>
+                                                    </li>
+                        <li>
+                                                        <a href="./about.html">關於</a>
+                                                    </li>
+                    </ul>
+                </div>
+                <div class="span4">
+                    <form method="post" accept-charset="utf-8" action="http://localhost:8888/urim/search.htm"  class="navbar-search pull-left"  id="strongsform" />
+                        <input name="strongs" type="text" class="input-block-level search-query" placeholder="Strong's number">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="panel-nav">
+    <ul>
+        <li class="Label">希伯來聖經 (Tanakh)</li>
+        <li><a href="gen.1.1.html">訓誨（妥拉）</a>
+            <ul>
+                                <li><a href="gen.1.1.html">創世記 B'resheet</a></li>
+                                <li><a href="exo.1.1.html">出埃及記 Sh'mot</a></li>
+                                <li><a href="lev.1.1.html">利未記 Vayikra</a></li>
+                                <li><a href="num.1.1.html">民數記 B'midbar</a></li>
+                                <li><a href="deu.1.1.html">申命記 D'varim</a></li>
+                            </ul>
+        </li>
+        <li><a href="jos.1.1.html">信息</a>
+            <ul>
+                                <li><a href="jos.1.1.html">約書亞記 Y'hoshua</a></li>
+                                <li><a href="jug.1.1.html">士師記 Shof'tim</a></li>
+                                <li><a href="1sa.1.1.html">撒母耳記上 Sh'mu'el Alef</a></li>
+                                <li><a href="2sa.1.1.html">撒母耳記下 Sh'mu'el Bet</a></li>
+                                <li><a href="1ki.1.1.html">列王紀上 M'lakhim Alef</a></li>
+                                <li><a href="2ki.1.1.html">列王紀下 M'lakhim Bet</a></li>
+                                <li><a href="isa.1.1.html">以賽亞書 Yesha'yahu</a></li>
+                                <li><a href="jer.1.1.html">耶利米書 Yrimeyahu</a></li>
+                                <li><a href="eze.1.1.html">以西結書 Yechezk'el</a></li>
+                                <li><a href="hsa.1.1.html">何西阿書 Hoshea</a></li>
+                                <li><a href="joe.1.1.html">約珥書 Yo'el</a></li>
+                                <li><a href="amo.1.1.html">阿摩司書 'Amos</a></li>
+                                <li><a href="oba.1.1.html">俄巴底亞書 Ovadyah</a></li>
+                                <li><a href="jon.1.1.html">約拿書 Yonah</a></li>
+                                <li><a href="mic.1.1.html">彌迦書 Mikhah</a></li>
+                                <li><a href="nah.1.1.html">那鴻書 Nachum</a></li>
+                                <li><a href="hab.1.1.html">哈巴谷書 Havakuk</a></li>
+                                <li><a href="zep.1.1.html">西番雅書 Tz'fanyah</a></li>
+                                <li><a href="hag.1.1.html">哈該書 Hagai</a></li>
+                                <li><a href="zec.1.1.html">撒迦利亞書 Z'kharyah</a></li>
+                                <li><a href="mal.1.1.html">瑪拉基書 Mal'akhi</a></li>
+                            </ul>
+        </li>
+        <li><a href="psa.1.1.html">著作</a>
+            <ul>
+                                <li><a href="psa.1.1.html">詩篇 Tehillim</a></li>
+                                <li><a href="pro.1.1.html">箴言 Mishlei</a></li>
+                                <li><a href="job.1.1.html">約伯記 lyov</a></li>
+                                <li><a href="sgs.1.1.html">雅歌 Shir-HaShirim</a></li>
+                                <li><a href="rut.1.1.html">路得記 Rut</a></li>
+                                <li><a href="lam.1.1.html">耶利米哀歌 Eikhah</a></li>
+                                <li><a href="ecc.1.1.html">傳道書 Kohelet</a></li>
+                                <li><a href="est.1.1.html">以斯帖記 Ester</a></li>
+                                <li><a href="dan.1.1.html">但以理書 Dani'el</a></li>
+                                <li><a href="ezr.1.1.html">以斯拉記 'Ezra</a></li>
+                                <li><a href="neh.1.1.html">尼希米記 Nechemyah</a></li>
+                                <li><a href="1ch.1.1.html">歷代志上 Divrei-HaYamim Alef</a></li>
+                                <li><a href="2ch.1.1.html">歷代志下 Divrei-HaYamim Bet</a></li>
+                            </ul>
+        </li>
+        <li class="Label">新約聖經 (B'rit Hadashah)</li>
+        <li><a href="$layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
+            <ul>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">馬太福音 Mattityahu</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">馬可福音 Mark</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">路加福音 Luke</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">約翰福音 Yochanan</a></li>
+                            </ul>
+        </li>
+                <li><a href="act.1.1.html">使徒行傳 The Acts of the Emissaries of Yeshua the Messiah</a></li>
+                <li><a href="rom.1.1.html">保羅書信</a>
+            <ul>
+                                <li><a href="rom.1.1.html">羅馬書 Romans</a></li>
+                                <li><a href="1cr.1.1.html">哥林多前書 1 Corinthains</a></li>
+                                <li><a href="2cr.1.1.html">哥林多後書 2 Corinthains</a></li>
+                                <li><a href="gal.1.1.html">加拉太書 Galatians</a></li>
+                                <li><a href="eph.1.1.html">以弗所書 Ephesians</a></li>
+                                <li><a href="phl.1.1.html">腓利比書 Philippians</a></li>
+                                <li><a href="col.1.1.html">歌羅西書 Colossians</a></li>
+                                <li><a href="1th.1.1.html">帖撒羅尼迦前書 1 Thessalonians</a></li>
+                                <li><a href="2th.1.1.html">帖撒羅尼迦後書 2 Thessalonians</a></li>
+                            </ul>
+        </li>
+        <li><a href="1ti.1.1.html">保羅私信</a>
+            <ul>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">提摩太前書 1 Timothy</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">提摩太後書 2 Timothy</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">提多書 Titus</a></li>
+                                <li><a href="$item['abbr'] . '.1.1.html'; ?>">腓利門書 Philemon</a></li>
+                            </ul>
+        </li>
+        <li><a href="hbr.1.1.html">大公書信</a>
+            <ul>
+                                <li><a href="hbr.1.1.html">希伯來書 Messianic Jews</a></li>
+                                <li><a href="jam.1.1.html">雅各書 Ya'akov</a></li>
+                                <li><a href="1pe.1.1.html">彼得前書 1 Kefa</a></li>
+                                <li><a href="2pe.1.1.html">彼得後書 2 Kefa</a></li>
+                                <li><a href="1jo.1.1.html">約翰壹書 1 Yochanan</a></li>
+                                <li><a href="2jo.1.1.html">約翰貳書 2 Yochanan</a></li>
+                                <li><a href="3jo.1.1.html">約翰參書 3 Yochanan</a></li>
+                                <li><a href="jud.1.1.html">猶大書 Y'hudah</a></li>
+                            </ul>
+        </li>
+                <li><a href="rev.1.1.html">啟示錄 The Revelation of Yeshua the Messiah to Yochanan</a></li>
+        
+    </ul>
+    </nav>
+
+    
+    <div class="row-fluid screen">
+
+        <div id="content" class="span9">
+
+            <ul class="pager page-nav">
+                <li class="previous previous2">
+                                        <a href="http://localhost:8888/urim/reading/1cr.1.1.htm"><i class="icon-chevron-sign-down icon-3x"></i></a>
+                                    </li>
+                <li class="previous">
+                                        <a href="http://localhost:8888/urim/reading/rom.10.9.htm"><i class="icon-chevron-sign-left icon-3x"></i></a>
+                                    </li>
+                <li class="next next2">
+                                        <a href="http://localhost:8888/urim/reading/act.1.1.htm"><i class="icon-chevron-sign-up icon-3x"></i></a>
+                                    </li>
+                <li class="next">
+                                        <a href="http://localhost:8888/urim/reading/rom.10.7.htm"><i class="icon-chevron-sign-right icon-3x"></i></a>
+                                    </li>
+
+            </ul>
+
+            <a id="top"></a>
+
+            <div class="page-header">
+                <h1 class="book-title">羅馬書 <small>Romans</small></h1>
+            </div>
+            <p><span class="verse badge badge-inverse"><a rel="clickover" data-title="選擇第幾章？" data-ref="chapter-panel" href="#">10</a> : <a rel="clickover" data-title="選擇第 10 章第幾節？" data-ref="verse-panel" href="#">8</a></span></p>
+            <div class="bs-docs-example">
+                <p class="the-message lead greek">
+                                        <a href="#pop-content-G235" data-ref="G235" data-content="查無資料 :|" data-title="235">ἀλλὰ</a>
+                                        <a href="#pop-content-G5101" data-ref="G5101" data-content="查無資料 :|" data-title="5101">τί</a>
+                                        <a href="#pop-content-G3004" data-ref="G3004" data-content="查無資料 :|" data-title="3004">λέγει</a>
+                                        <a href="#pop-content-G1451" data-ref="G1451" data-content="查無資料 :|" data-title="1451">Ἐγγύς</a>
+                                        <a href="#pop-content-G4675" data-ref="G4675" data-content="查無資料 :|" data-title="4675">σου</a>
+                                        <a href="#pop-content-G3588" data-ref="G3588" data-content="查無資料 :|" data-title="3588">τὸ</a>
+                                        <a href="#pop-content-G4487" data-ref="G4487" data-content="查無資料 :|" data-title="4487">ῥῆμά</a>
+                                        <a href="#pop-content-G2076" data-ref="G2076" data-content="查無資料 :|" data-title="2076">ἐστιν</a>
+                                        <a href="#pop-content-G1722" data-ref="G1722" data-content="查無資料 :|" data-title="1722">ἐν</a>
+                                        <a href="#pop-content-G3588" data-ref="G3588" data-content="查無資料 :|" data-title="3588">τῷ</a>
+                                        <a href="#pop-content-G4750" data-ref="G4750" data-content="查無資料 :|" data-title="4750">στόματί</a>
+                                        <a href="#pop-content-G4675" data-ref="G4675" data-content="查無資料 :|" data-title="4675">σου</a>
+                                        <a href="#pop-content-G2532" data-ref="G2532" data-content="查無資料 :|" data-title="2532">καὶ</a>
+                                        <a href="#pop-content-G1722" data-ref="G1722" data-content="查無資料 :|" data-title="1722">ἐν</a>
+                                        <a href="#pop-content-G3588" data-ref="G3588" data-content="查無資料 :|" data-title="3588">τῇ</a>
+                                        <a href="#pop-content-G2588" data-ref="G2588" data-content="查無資料 :|" data-title="2588">καρδίᾳ</a>
+                                        <a href="#pop-content-G4675" data-ref="G4675" data-content="查無資料 :|" data-title="4675">σου</a>
+                                        <a href="#pop-content-G5124" data-ref="G5124" data-content="查無資料 :|" data-title="5124">τοῦτ'</a>
+                                        <a href="#pop-content-G2076" data-ref="G2076" data-content="查無資料 :|" data-title="2076">ἔστιν</a>
+                                        <a href="#pop-content-G3588" data-ref="G3588" data-content="查無資料 :|" data-title="3588">τὸ</a>
+                                        <a href="#pop-content-G4487" data-ref="G4487" data-content="查無資料 :|" data-title="4487">ῥῆμα</a>
+                                        <a href="#pop-content-G3588" data-ref="G3588" data-content="查無資料 :|" data-title="3588">τῆς</a>
+                                        <a href="#pop-content-G4102" data-ref="G4102" data-content="查無資料 :|" data-title="4102">πίστεως</a>
+                                        <a href="#pop-content-G3739" data-ref="G3739" data-content="查無資料 :|" data-title="3739">ὃ</a>
+                                        <a href="#pop-content-G2784" data-ref="G2784" data-content="查無資料 :|" data-title="2784">κηρύσσομεν</a>
+                                    </p>
+            </div>
+
+            <ul class="nav nav-tabs" id="transTab">
+                <li class="active"><a href="#chinese">中文</a></li>
+                <li><a href="#english">English</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="chinese">
+                    <pre class="the-translation chinese prettyprint"><code><a href="#" data-toggle="tooltip" title="新標點和合本">CUNP</a></code><sapn class="word">他到底怎麼說呢？他說：這道離你不遠，正在你口裡，在你心裡─（就是我們所傳信主的道。）</sapn></pre>
+                </div>
+                <div class="tab-pane" id="english">
+                    <pre class="the-translation english prettyprint"><code><a href="#" data-toggle="tooltip" title="King James Version">KJV</a></code><sapn class="word">But what saith it? The word is nigh thee, euen in thy mouth, and in thy heart, that is the word of faith which we preach,</sapn></pre>
+                </div>
+
+            </div>
+
+            <div class="chapter-panel">
+                <ul class="panel-list">
+                                        <li><a href="http://localhost:8888/urim/reading/rom.1.1.htm">1</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.2.1.htm">2</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.3.1.htm">3</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.4.1.htm">4</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.5.1.htm">5</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.6.1.htm">6</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.7.1.htm">7</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.8.1.htm">8</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.9.1.htm">9</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.1.htm">10</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.11.1.htm">11</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.12.1.htm">12</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.13.1.htm">13</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.14.1.htm">14</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.15.1.htm">15</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.16.1.htm">16</a></li>
+                                    </ul>
+            </div>
+
+            <div class="verse-panel">
+                <ul class="panel-list">
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.1.htm">1</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.2.htm">2</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.3.htm">3</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.4.htm">4</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.5.htm">5</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.6.htm">6</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.7.htm">7</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.8.htm">8</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.9.htm">9</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.10.htm">10</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.11.htm">11</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.12.htm">12</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.13.htm">13</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.14.htm">14</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.15.htm">15</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.16.htm">16</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.17.htm">17</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.18.htm">18</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.19.htm">19</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.20.htm">20</a></li>
+                                        <li><a href="http://localhost:8888/urim/reading/rom.10.21.htm">21</a></li>
+                                    </ul>
+            </div>
+
+        <hr class="bs-docs-separator">
+
+        </div>
+
+         <div id="sidebar" class="span3 pull-left nano">
+            <div class="content">
+                <ul class="nav">
+                                        <li id="pop-content-G235" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G235" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ἀλλά</li>
+                            <li class="strongs">
+                                <strong>Strong's G235</strong>
+                                                                <a class="strongs-search" href="../search/G235.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>alla</em></li>
+                            <li>字根：neuter plural of G0243</li>
+                            <li>詞性：CONJ</li>                            <li>定義：properly, other things, i.e., (adverbially) contrariwise (in many relations)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G235" class="fhl-note" style="display: none">
+                                                            <li>243 的中性複數形; 連接詞</li>
+                                                            <li>AV - but 573, yea 15, yet 11, nevertheless 10, howbeit 9, nay 4,
+     therefore 3, save 2, not tr 2, misc 8; 637</li>
+                                                            <li>1) (否定句之後) 但是, 然而, 雖然
+ 1a) 引進對比
+ 1b) 同一句子中,字與字的對比
+2) (事情或問題的另一面) 但是, 然而
+3) (需要考量的額外事情) 但是
+4) 其他的方法/額外的考量
+ 4a) 然而, 當然, 至少
+ 4b) 反倒
+5) (與祈使語氣共用加強命令) 現在就</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G5101" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G5101" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">τίς</li>
+                            <li class="strongs">
+                                <strong>Strong's G5101</strong>
+                                                                <a class="strongs-search" href="../search/G5101.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>tis</em></li>
+                            <li>字根：probably emphatic of G5100</li>
+                            <li>詞性：I-ASN</li>                            <li>定義：an interrogative pronoun, who, which or what (in direct or indirect questions)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G5101" class="fhl-note" style="display: none">
+                                                            <li>可能是 5100 的強調型; 代名詞</li>
+                                                            <li>AV - what 260, who 102, why 67, whom 25, which 17, misc 67; 538</li>
+                                                            <li>1) 誰, 哪一個, 什麼, 為什麼, 如何 (#太7:14;路12:49|)</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G3004" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G3004" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">λέγω</li>
+                            <li class="strongs">
+                                <strong>Strong's G3004</strong>
+                                                                <a class="strongs-search" href="../search/G3004.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>legō</em></li>
+                            <li>字根：a primary verb</li>
+                            <li>詞性：V-PAI-3S</li>                            <li>定義：properly, to "lay" forth, i.e., (figuratively) relate (in words (usually of systematic or set discourse; whereas G2036 and G5346 generally refer to an individual expression or speech respectively; while G4483 is properly to break silence merely, and G2980 means an extended or random harangue)); by implication, to mean</li>
+                        </ul>
+
+                        <ul id="fhl-note-G3004" class="fhl-note" style="display: none">
+                                                            <li>字根字; TDNT - 4:69,505; 動詞</li>
+                                                            <li>AV - say 1184, speak 61, call 48, tell 33, misc 17; 1343</li>
+                                                            <li>1) (以口頭或書面表達) 說, 告訴, 表述
+2) (以具體的方式表達) 說
+  2a) 問
+  2b) 回答
+  2c) 命令, 勉勵, 勸告, 引導
+  2d) 斷言, 保證
+  2e) 主張, 宣布, 聲稱
+3) 告知, 通知
+4) 稱呼, 叫名字</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G1451" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G1451" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ἐγγύς</li>
+                            <li class="strongs">
+                                <strong>Strong's G1451</strong>
+                                                                <a class="strongs-search" href="../search/G1451.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>engys</em></li>
+                            <li>字根：from a primary verb ἄγχω (to squeeze or throttle; akin to the base of G0043)</li>
+                            <li>詞性：ADV</li>                            <li>定義：near (literally or figuratively, of place or time)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G1451" class="fhl-note" style="display: none">
+                                                            <li>源於字根型的動詞 agcho (緊壓 或 抑制;近似於 43 的字源); TDNT - 2:330,194; 副詞</li>
+                                                            <li>AV - nigh 13, at hand 6, nigh at hand 4, near 4, from 1, nigh unto 1,
+     ready 1; 30</li>
+                                                            <li>1) (空間上的) 靠近
+2) (時間上的) 臨近
+3) (經驗與事件) 近於</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G4675" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G4675" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">σοῦ</li>
+                            <li class="strongs">
+                                <strong>Strong's G4675</strong>
+                                                                <a class="strongs-search" href="../search/G4675.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>sou</em></li>
+                            <li>字根：genitive case of G4771</li>
+                            <li>詞性：P-2GS</li>                            <li>定義：of thee, thy</li>
+                        </ul>
+
+                        <ul id="fhl-note-G4675" class="fhl-note" style="display: none">
+                                                            <li>4771 "你"的單數所有格; 人稱代名詞</li>
+                                                            <li>AV - thy 358, thee 76, thine 50, thine own 7, thou 6, not tr 1; 498</li>
+                                                            <li>1) 你的</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G3588" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G3588" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ὁ</li>
+                            <li class="strongs">
+                                <strong>Strong's G3588</strong>
+                                                                <a class="strongs-search" href="../search/G3588.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>ho</em></li>
+                            <li>字根：the definite article</li>
+                            <li>詞性：T-NSN</li>                            <li>定義：the (sometimes to be supplied, at others omitted, in English idiom)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G3588" class="fhl-note" style="display: none">
+                                                            <li>定冠詞</li>
+                                                            <li>欽定本 - which 413, who 79, the things 11, the son 8, misc 32; 543</li>
+                                                            <li>1) 這, 那, 
+2) 他, 她, 它</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G4487" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G4487" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ῥῆμα</li>
+                            <li class="strongs">
+                                <strong>Strong's G4487</strong>
+                                                                <a class="strongs-search" href="../search/G4487.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>rhēma</em></li>
+                            <li>字根：from G4483</li>
+                            <li>詞性：N-NSN</li>                            <li>定義：an utterance (individually, collectively or specially),; by implication, a matter or topic (especially of narration, command or dispute); with a negative naught whatever</li>
+                        </ul>
+
+                        <ul id="fhl-note-G4487" class="fhl-note" style="display: none">
+                                                            <li>源自4483; TDNT - 4:69,505; 中性名詞</li>
+                                                            <li>欽定本- word 56, saying 9, thing 3, no thing + 3756 1, not tr 1; 70</li>
+                                                            <li>1) 話語, 言詞, 表達, 敘述
+ 1a) 預言
+ 1b) 命令, 指示
+ 1c) 演說, 講道, 宣講
+2) (可以談論的事件) 事情, 物件, 事物, 事件</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G2076" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G2076" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ἐστί</li>
+                            <li class="strongs">
+                                <strong>Strong's G2076</strong>
+                                                                <a class="strongs-search" href="../search/G2076.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>esti</em></li>
+                            <li>字根：third person singular present indicative of G1510</li>
+                            <li>詞性：V-PXI-3S</li>                            <li>定義：he (she or it) is; also (with neuter plural) they are</li>
+                        </ul>
+
+                        <ul id="fhl-note-G2076" class="fhl-note" style="display: none">
+                                                            <li>1510 的第三人稱單數現在式直說語氣; 動詞</li>
+                                                            <li>AV - is 752, are 51, was 29, be 25, have 11, not tr 15, misc 27,
+     vr is 1; 910</li>
+                                                            <li>1) "to be"(是)的第三人稱單數</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G1722" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G1722" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ἐν</li>
+                            <li class="strongs">
+                                <strong>Strong's G1722</strong>
+                                                                <a class="strongs-search" href="../search/G1722.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>en</em></li>
+                            <li>字根：a primary preposition denoting (fixed) position (in place, time or state), and (by implication) instrumentality (medially or constructively), i.e. a relation of rest (intermediate between G1519 and G1537)</li>
+                            <li>詞性：PREP</li>                            <li>定義："in," at, (up-)on, by, etc</li>
+                        </ul>
+
+                        <ul id="fhl-note-G1722" class="fhl-note" style="display: none">
+                                                            <li>原型介系詞, 表(固定的) 位置 (在某個地點, 時間, 或狀態),
+和 (隱喻) 憑藉用法 (中間的或結構性的), 亦即：與其餘的一種關係
+ (介於1519 和1537之間); TDNT - 2:537,233; 介系詞</li>
+                                                            <li>欽定本- in 1874, by 141, with 134, among 117, at 112, on 46,
+     through 37, misc 321; 2782</li>
+                                                            <li>1) 接間接受格:
+   在...裡，藉著, 靠 (#太12:24|), 用, 在...之上, 在... 附近, 
+   旁邊, 在...前, 在...當中, 在...裡面, 進入(=eis), 向...(罕用), 
+   穿 (#太11:8|) , 指著 (#太23:16|), 奉 (#太23:39|)
+2) en tw 接不定詞:
+   在...期間, 當...時 (#太11:24|), 按時 (#太21:41|)</li>
+                                                            <li>Wigram's 出現次數： 2798 not 2782.</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G3588" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G3588" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ὁ</li>
+                            <li class="strongs">
+                                <strong>Strong's G3588</strong>
+                                                                <a class="strongs-search" href="../search/G3588.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>ho</em></li>
+                            <li>字根：the definite article</li>
+                            <li>詞性：T-DSN</li>                            <li>定義：the (sometimes to be supplied, at others omitted, in English idiom)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G3588" class="fhl-note" style="display: none">
+                                                            <li>定冠詞</li>
+                                                            <li>欽定本 - which 413, who 79, the things 11, the son 8, misc 32; 543</li>
+                                                            <li>1) 這, 那, 
+2) 他, 她, 它</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G4750" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G4750" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">στόμα</li>
+                            <li class="strongs">
+                                <strong>Strong's G4750</strong>
+                                                                <a class="strongs-search" href="../search/G4750.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>stoma</em></li>
+                            <li>字根：probably strengthened from a presumed derivative of the base of G5114</li>
+                            <li>詞性：N-DSN</li>                            <li>定義：the mouth (as if a gash in the face); by implication, language (and its relations); figuratively, an opening (in the earth); specially, the front or edge (of a weapon)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G4750" class="fhl-note" style="display: none">
+                                                            <li>可能是 5114 字根衍生字的加強型; TDNT - 7:692,1089; 中性名詞</li>
+                                                            <li>AV - mouth 73, face 4, edge 2; 79</li>
+                                                            <li>1) 口
+ 1a) 人的
+ 1b) 神的
+ 1c) 動物的
+2) 口, 以及口中發出的 
+3) 邊緣 (#路 21:24; 來 11:34|)</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G4675" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G4675" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">σοῦ</li>
+                            <li class="strongs">
+                                <strong>Strong's G4675</strong>
+                                                                <a class="strongs-search" href="../search/G4675.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>sou</em></li>
+                            <li>字根：genitive case of G4771</li>
+                            <li>詞性：P-2GS</li>                            <li>定義：of thee, thy</li>
+                        </ul>
+
+                        <ul id="fhl-note-G4675" class="fhl-note" style="display: none">
+                                                            <li>4771 "你"的單數所有格; 人稱代名詞</li>
+                                                            <li>AV - thy 358, thee 76, thine 50, thine own 7, thou 6, not tr 1; 498</li>
+                                                            <li>1) 你的</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G2532" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G2532" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">καί</li>
+                            <li class="strongs">
+                                <strong>Strong's G2532</strong>
+                                                                <a class="strongs-search" href="../search/G2532.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>kai</em></li>
+                            <li>字根：apparently, a primary particle, having a copulative and sometimes also a cumulative force</li>
+                            <li>詞性：CONJ</li>                            <li>定義：and, also, even, so then, too, etc.; often used in connection (or composition) with other particles or small words</li>
+                        </ul>
+
+                        <ul id="fhl-note-G2532" class="fhl-note" style="display: none">
+                                                            <li>顯然是一個基本質詞/語助詞, 有連繫(或有時是連續)的作用; 連接詞</li>
+                                                            <li>AV - and 8182, also 515, even 108, both 43, then 20, so 18,
+     likewise 13, not tr. 354, misc 46, vr and 1; 9280</li>
+                                                            <li>1) 和, 並且, 即使, 事實上, 但是, 也, 甚至於,</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G1722" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G1722" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ἐν</li>
+                            <li class="strongs">
+                                <strong>Strong's G1722</strong>
+                                                                <a class="strongs-search" href="../search/G1722.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>en</em></li>
+                            <li>字根：a primary preposition denoting (fixed) position (in place, time or state), and (by implication) instrumentality (medially or constructively), i.e. a relation of rest (intermediate between G1519 and G1537)</li>
+                            <li>詞性：PREP</li>                            <li>定義："in," at, (up-)on, by, etc</li>
+                        </ul>
+
+                        <ul id="fhl-note-G1722" class="fhl-note" style="display: none">
+                                                            <li>原型介系詞, 表(固定的) 位置 (在某個地點, 時間, 或狀態),
+和 (隱喻) 憑藉用法 (中間的或結構性的), 亦即：與其餘的一種關係
+ (介於1519 和1537之間); TDNT - 2:537,233; 介系詞</li>
+                                                            <li>欽定本- in 1874, by 141, with 134, among 117, at 112, on 46,
+     through 37, misc 321; 2782</li>
+                                                            <li>1) 接間接受格:
+   在...裡，藉著, 靠 (#太12:24|), 用, 在...之上, 在... 附近, 
+   旁邊, 在...前, 在...當中, 在...裡面, 進入(=eis), 向...(罕用), 
+   穿 (#太11:8|) , 指著 (#太23:16|), 奉 (#太23:39|)
+2) en tw 接不定詞:
+   在...期間, 當...時 (#太11:24|), 按時 (#太21:41|)</li>
+                                                            <li>Wigram's 出現次數： 2798 not 2782.</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G3588" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G3588" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ὁ</li>
+                            <li class="strongs">
+                                <strong>Strong's G3588</strong>
+                                                                <a class="strongs-search" href="../search/G3588.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>ho</em></li>
+                            <li>字根：the definite article</li>
+                            <li>詞性：T-DSF</li>                            <li>定義：the (sometimes to be supplied, at others omitted, in English idiom)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G3588" class="fhl-note" style="display: none">
+                                                            <li>定冠詞</li>
+                                                            <li>欽定本 - which 413, who 79, the things 11, the son 8, misc 32; 543</li>
+                                                            <li>1) 這, 那, 
+2) 他, 她, 它</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G2588" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G2588" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">καρδία</li>
+                            <li class="strongs">
+                                <strong>Strong's G2588</strong>
+                                                                <a class="strongs-search" href="../search/G2588.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>kardia</em></li>
+                            <li>字根：prolonged from a primary κάρ (Latin <latin>cor</latin>, "heart")</li>
+                            <li>詞性：N-DSF</li>                            <li>定義：the heart, i.e., (figuratively) the thoughts or feelings (mind); also (by analogy) the middle</li>
+                        </ul>
+
+                        <ul id="fhl-note-G2588" class="fhl-note" style="display: none">
+                                                            <li>基本字 kar (拉丁文, cor, "心") 的擴充型; TDNT - 3:605,415; 陰性名詞</li>
+                                                            <li>欽定本- heart 159, broken hearted + 4937 1; 160</li>
+                                                            <li>1) 心
+ 1a) 動物身體的器官;血液循環的中心, 因此被看做
+       是物質肉體生命的活動中心位置。
+ 1b) 內在命的中心與源頭。
+  1b1) 神與基督對人類內在生命的全然感知
+  1b2) 內在的感知
+  1b3) 意志與決心
+  1b4) 道德生命的決定
+  1b5) 情感, 願望, 渴望
+  1b6) 愛
+  1b7) 性情
+  1b8) 神以及祂的能力居留之處</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G4675" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G4675" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">σοῦ</li>
+                            <li class="strongs">
+                                <strong>Strong's G4675</strong>
+                                                                <a class="strongs-search" href="../search/G4675.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>sou</em></li>
+                            <li>字根：genitive case of G4771</li>
+                            <li>詞性：P-2GS</li>                            <li>定義：of thee, thy</li>
+                        </ul>
+
+                        <ul id="fhl-note-G4675" class="fhl-note" style="display: none">
+                                                            <li>4771 "你"的單數所有格; 人稱代名詞</li>
+                                                            <li>AV - thy 358, thee 76, thine 50, thine own 7, thou 6, not tr 1; 498</li>
+                                                            <li>1) 你的</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G5124" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G5124" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">τοῦτο</li>
+                            <li class="strongs">
+                                <strong>Strong's G5124</strong>
+                                                                <a class="strongs-search" href="../search/G5124.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>touto</em></li>
+                            <li>字根：neuter singular nominative or accusative case of G3778</li>
+                            <li>詞性：D-NSN</li>                            <li>定義：that thing</li>
+                        </ul>
+
+                        <ul id="fhl-note-G5124" class="fhl-note" style="display: none">
+                                                            <li>3778 的中性單數主格或受格; 代名詞</li>
+                                                            <li>AV - this 199, therefore + 1223 44, that 25, for this cause + 1223 14,
+     wherefore + 1223 7, it 5, not tr 1, misc 25; 320</li>
+                                                            <li>1) 那個 (事物), 這(事物)</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G2076" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G2076" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ἐστί</li>
+                            <li class="strongs">
+                                <strong>Strong's G2076</strong>
+                                                                <a class="strongs-search" href="../search/G2076.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>esti</em></li>
+                            <li>字根：third person singular present indicative of G1510</li>
+                            <li>詞性：V-PXI-3S</li>                            <li>定義：he (she or it) is; also (with neuter plural) they are</li>
+                        </ul>
+
+                        <ul id="fhl-note-G2076" class="fhl-note" style="display: none">
+                                                            <li>1510 的第三人稱單數現在式直說語氣; 動詞</li>
+                                                            <li>AV - is 752, are 51, was 29, be 25, have 11, not tr 15, misc 27,
+     vr is 1; 910</li>
+                                                            <li>1) "to be"(是)的第三人稱單數</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G3588" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G3588" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ὁ</li>
+                            <li class="strongs">
+                                <strong>Strong's G3588</strong>
+                                                                <a class="strongs-search" href="../search/G3588.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>ho</em></li>
+                            <li>字根：the definite article</li>
+                            <li>詞性：T-NSN</li>                            <li>定義：the (sometimes to be supplied, at others omitted, in English idiom)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G3588" class="fhl-note" style="display: none">
+                                                            <li>定冠詞</li>
+                                                            <li>欽定本 - which 413, who 79, the things 11, the son 8, misc 32; 543</li>
+                                                            <li>1) 這, 那, 
+2) 他, 她, 它</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G4487" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G4487" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ῥῆμα</li>
+                            <li class="strongs">
+                                <strong>Strong's G4487</strong>
+                                                                <a class="strongs-search" href="../search/G4487.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>rhēma</em></li>
+                            <li>字根：from G4483</li>
+                            <li>詞性：N-NSN</li>                            <li>定義：an utterance (individually, collectively or specially),; by implication, a matter or topic (especially of narration, command or dispute); with a negative naught whatever</li>
+                        </ul>
+
+                        <ul id="fhl-note-G4487" class="fhl-note" style="display: none">
+                                                            <li>源自4483; TDNT - 4:69,505; 中性名詞</li>
+                                                            <li>欽定本- word 56, saying 9, thing 3, no thing + 3756 1, not tr 1; 70</li>
+                                                            <li>1) 話語, 言詞, 表達, 敘述
+ 1a) 預言
+ 1b) 命令, 指示
+ 1c) 演說, 講道, 宣講
+2) (可以談論的事件) 事情, 物件, 事物, 事件</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G3588" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G3588" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ὁ</li>
+                            <li class="strongs">
+                                <strong>Strong's G3588</strong>
+                                                                <a class="strongs-search" href="../search/G3588.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>ho</em></li>
+                            <li>字根：the definite article</li>
+                            <li>詞性：T-GSF</li>                            <li>定義：the (sometimes to be supplied, at others omitted, in English idiom)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G3588" class="fhl-note" style="display: none">
+                                                            <li>定冠詞</li>
+                                                            <li>欽定本 - which 413, who 79, the things 11, the son 8, misc 32; 543</li>
+                                                            <li>1) 這, 那, 
+2) 他, 她, 它</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G4102" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G4102" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">πίστις</li>
+                            <li class="strongs">
+                                <strong>Strong's G4102</strong>
+                                                                <a class="strongs-search" href="../search/G4102.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>pistis</em></li>
+                            <li>字根：from G3982</li>
+                            <li>詞性：N-GSF</li>                            <li>定義：persuasion, i.e., credence; moral conviction (of religious truth, or the truthfulness of God or a religious teacher), especially reliance upon Christ for salvation; abstractly, constancy in such profession; by extension, the system of religious (Gospel) truth itself</li>
+                        </ul>
+
+                        <ul id="fhl-note-G4102" class="fhl-note" style="display: none">
+                                                            <li>源自3982; TDNT - 6:174,849; 陰性名詞</li>
+                                                            <li>欽定本- faith 239, assurance 1, believe + 1537 1, belief 1,
+        them that believe 1, fidelity 1; 244</li>
+                                                            <li>1) 對任何真理的堅信, 相信; 在新約裡是針對人與神的關係
+   以及屬神的事的堅信和相信，一般都包含著信靠的觀念，
+   以及由相信而生的神聖火熱，並加入其中
+   
+   1a) 與神有關
+       1a1) 堅信神的存在，以及神是萬有的創造者和統治者，
+            是藉著基督的永恆救恩的供應者和贈與者
+            
+   1b) 與基督有關
+       1b1) 一種強烈的和欣然接受的堅信或相信耶穌就是那一位彌賽亞，
+            我們藉著祂在神的國度裡得到永恆的救恩
+   
+   1c) 基督教的信仰
+   
+   1d) 對神或基督的那種信靠(或是信心), 是從對神和基督的信心所發出的</li>
+                                                            <li>2) 忠貞, 忠實
+   
+   2a) 能讓人信靠的個性</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G3739" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G3739" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">ὅς</li>
+                            <li class="strongs">
+                                <strong>Strong's G3739</strong>
+                                                                <a class="strongs-search" href="../search/G3739.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>hos</em></li>
+                            <li>字根：probably a primary word (or perhaps a form of the article G3588)</li>
+                            <li>詞性：R-ASN</li>                            <li>定義：the relatively (sometimes demonstrative) pronoun, who, which, what, that</li>
+                        </ul>
+
+                        <ul id="fhl-note-G3739" class="fhl-note" style="display: none">
+                                                            <li>可能是一個字根型的字 (或是冠詞 3588 之類的); 代名詞</li>
+                                                            <li>AV - which 395, whom 262, that 129, who 84, whose 53, what 42,
+     that which 20, whereof 13, misc 430; 1393</li>
+                                                            <li>1) ...的那一位, ..的那一個, 什麼, 那個..</li>
+                                                            <li>2) 這一個</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                        <li id="pop-content-G2784" class="pop-content">
+                        <div class="itools">
+                            <a class="fhl-pop-link" rel="fhl-note" data-ref="G2784" href="#">
+                                                                <img alt="" src="../img/fhl.png" />
+                                                            </a>
+                        </div>
+                        <ul>
+                            <li class="title greek">κηρύσσω</li>
+                            <li class="strongs">
+                                <strong>Strong's G2784</strong>
+                                                                <a class="strongs-search" href="../search/G2784.html"><i class="icon icon-search"></i></a>
+                                                            </li>
+                            <li>音譯：<em>kēryssō</em></li>
+                            <li>字根：of uncertain affinity</li>
+                            <li>詞性：V-PAI-1P</li>                            <li>定義：to herald (as a public crier), especially divine truth (the gospel)</li>
+                        </ul>
+
+                        <ul id="fhl-note-G2784" class="fhl-note" style="display: none">
+                                                            <li>字源不詳; TDNT - 3:697,430; 動詞</li>
+                                                            <li>AV - preach 51, publish 5, proclaim 2, preached + 2258 2,
+     preacher 1; 61</li>
+                                                            <li>1) 正式公告 #啟 5:2|  
+2) 大聲宣讀
+ 2a) 公開提說, 講到
+ 2b) 宣講神的訊息</li>
+                                                        </li>
+                        </ul>
+                        <a class="top visible-phone" href="#top">TOP</a>
+                    </li>
+                                    </ul>
+
+                <div class="sidebar-padding"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+    <script>
+
+    </script>
+    </html>
