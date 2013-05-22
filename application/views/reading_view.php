@@ -62,9 +62,7 @@
                 <!-- Everything you want hidden at 940px or less, place within here -->
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li class="active">
-                            <a href="<?= site_url('reading'); ?>">閱讀</a>
-                        </li>
+                        <li class="active"><a href="<?= site_url('reading'); ?>">閱讀</a></li>
                         <li><a href="<?= site_url('resources'); ?>">資源</a></li>
                         <li><a href="<?= site_url('about'); ?>">關於</a></li>
                     </ul>
@@ -82,7 +80,7 @@
     <nav id="panel-nav">
     <ul>
         <li class="Label">希伯來聖經 (Tanakh)</li>
-        <li><a href="<?= site_url('reading/' . $layout['bible']['torah'][0]['abbr'] . '.1.1'); ?>">訓誨</a>
+        <li><a href="<?= site_url('reading/' . $layout['bible']['torah'][0]['abbr'] . '.1.1'); ?>">訓誨（妥拉）</a>
             <ul>
                 <? foreach ($layout['bible']['torah'] as $item): ?>
                 <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
@@ -194,7 +192,6 @@
                     <pre class="the-translation chinese prettyprint"><code><a href="#" data-toggle="tooltip" title="新標點和合本">CUNP</a></code><sapn class="word"><?= $word['translation']['zh-hant']['cunp'] ?></sapn></pre>
                 </div>
                 <div class="tab-pane" id="english">
-                    <pre class="the-translation english prettyprint"><code><a href="#" data-toggle="tooltip" title="Complete Jewish Bible">CJB</a></code><sapn class="word"><?= $word['translation']['en']['cjb'] ?></sapn></pre>
                     <pre class="the-translation english prettyprint"><code><a href="#" data-toggle="tooltip" title="King James Version">KJV</a></code><sapn class="word"><?= $word['translation']['en']['kjv'] ?></sapn></pre>
                 </div>
 

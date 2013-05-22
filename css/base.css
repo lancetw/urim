@@ -7,6 +7,47 @@ body {
 
 }
 
+.container-narrow {
+    margin: 0 auto;
+    max-width: 700px;
+    }
+.container-narrow > hr {
+
+}
+
+.resources-header {
+    margin: 60px 0;
+    text-align: center;
+}
+.resources-header h1 {
+    font-size: 54px;
+    line-height: 1;
+}
+
+.about-header {
+    margin: 60px 0;
+    text-align: center;
+}
+.about-header h1 {
+    font-size: 72px;
+    line-height: 1;
+}
+.about-header .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.marketing {
+
+}
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+.hero-unit {
+    margin-top: 30px;
+}
+
 html.mmenu-left.mmenu-opening #mmenu-blocker {
     display: none;
 }
@@ -31,11 +72,6 @@ html.mmenu-left.mmenu-opening #mmenu-blocker {
     color: gold;
     padding-left: 5px;
     font-size: 12px;
-}
-
-.bookshelf {
-    border-bottom: 1px solid #eee;
-    min-height: 30px;
 }
 
 p.footer {
@@ -575,6 +611,11 @@ a.strongs-search {
         padding-top: 100px;
         padding-left: 30px;
         padding-right: 30px;
+    }
+
+    .about-header {
+        margin: 0;
+        text-align: center;
     }
 
     .mmenu-opened > ul {

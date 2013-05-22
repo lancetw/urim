@@ -40,7 +40,6 @@ class Reading extends CI_Controller {
 		$data['word']['with_strongs'] = $words_array;
 		$data['word']['lang_type'] = 'hebrew';
 		$data['word']['translation']['en'] = array(
-			'cjb' => $this->bible->translation_by_serial_version($_serial, 'cjb'),
 			'kjv' => $this->bible->translation_by_serial_version($_serial, 'kjv')
 		);
 		$data['word']['translation']['zh-hant'] = array(
