@@ -37,6 +37,12 @@
         <script type="text/javascript" src="../js/DataTables-1.9.4/media/js/jquery.dataTables.min.js"></script>
         <link type="text/css" media="screen" rel="stylesheet" href="../js/DataTables-1.9.4/media/css/jquery.dataTables.css" />
 
+        <link rel="stylesheet" href="../js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+        <script type="text/javascript" src="../js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
+
+        <link rel="stylesheet" href="../js/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+        <script src="../js/nivo-slider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
         <link href="../css/base.css" rel="stylesheet">
         <script src="../js/base.js"></script>
 
@@ -71,6 +77,9 @@
         <link rel="stylesheet" href="<?= base_url('js/fancybox/source/jquery.fancybox.css?v=2.1.4'); ?>" type="text/css" media="screen" />
         <script type="text/javascript" src="<?= base_url('js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4'); ?>"></script>
 
+        <link rel="stylesheet" href="<?= base_url('js/nivo-slider/nivo-slider.css'); ?>" type="text/css" media="screen" />
+        <script src="<?= base_url('js/nivo-slider/jquery.nivo.slider.pack.js'); ?>" type="text/javascript"></script>
+
         <link href="<?= base_url('css/base.css'); ?>" rel="stylesheet">
         <script src="<?= base_url('js/base.js'); ?>"></script>
         <? endif; ?>
@@ -101,9 +110,27 @@
                     <!-- Everything you want hidden at 940px or less, place within here -->
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a href="<?= site_url('reading'); ?>">閱讀</a></li>
-                            <li class="active"><a href="<?= site_url('resources'); ?>">資源</a></li>
-                            <li><a href="<?= site_url('about'); ?>">關於</a></li>
+                            <li>
+                                <? if ($static == true) : ?>
+                                <a href="./gen.1.1.html">閱讀</a>
+                                <? else: ?>
+                                <a href="<?= site_url('reading'); ?>">閱讀</a>
+                                <? endif; ?>
+                            </li>
+                            <li class="active">
+                                <? if ($static == true) : ?>
+                                <a href="./resources.html">資源</a>
+                                <? else: ?>
+                                <a href="<?= site_url('resources'); ?>">資源</a>
+                                <? endif; ?>
+                            </li>
+                            <li>
+                                <? if ($static == true) : ?>
+                                <a href="./about.html">關於</a>
+                                <? else: ?>
+                                <a href="<?= site_url('about'); ?>">關於</a>
+                                <? endif; ?>
+                            </li>
                         </ul>
                     </div>
                     <div class="span4">
@@ -143,10 +170,10 @@
             </ul>
         </li>
         <li class="Label">新約聖經 (B'rit Hadashah)</li>
-        <li><a href="$layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
+        <li><a href="<?= $layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
             <ul>
                 <? foreach ($layout['bible']['goodnews'] as $item): ?>
-                <li><a href="$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
@@ -163,7 +190,7 @@
         <li><a href="<?= $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1.html'; ?>">保羅私信</a>
             <ul>
                 <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
-                <li><a href="$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>

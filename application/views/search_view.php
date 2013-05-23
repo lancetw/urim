@@ -74,6 +74,9 @@
         <link rel="stylesheet" href="<?= base_url('js/fancybox/source/jquery.fancybox.css?v=2.1.4'); ?>" type="text/css" media="screen" />
         <script type="text/javascript" src="<?= base_url('js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4'); ?>"></script>
 
+        <link rel="stylesheet" href="<?= base_url('js/nivo-slider/nivo-slider.css'); ?>" type="text/css" media="screen" />
+        <script src="<?= base_url('js/nivo-slider/jquery.nivo.slider.pack.js'); ?>" type="text/javascript"></script>
+
         <link href="<?= base_url('css/base.css'); ?>" rel="stylesheet">
         <script src="<?= base_url('js/base.js'); ?>"></script>
         <? endif; ?>
@@ -111,7 +114,11 @@
     </td>
 
     <td>
+        <? if ($static == true) : ?>
+        <a target="_blank" href="<?= '../reading/' . $s['book_abbr'] . '.' . $s['chapter'] . '.' . $s['verse'] . '.html?strongs=' . $info['strongs'] ?>">
+        <? else: ?>
         <a target="_blank" href="<?= site_url('reading/' . $s['book_abbr'] . '.' . $s['chapter'] . '.' . $s['verse']) . '?strongs=' . $info['strongs'] ?>">
+        <? endif; ?>
             <?= $s['book_name_chinese'] ?> <?= $s['chapter'] ?>:<?= $s['verse'] ?>
         </a>
     </td>

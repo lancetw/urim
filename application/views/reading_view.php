@@ -40,6 +40,9 @@
         <link rel="stylesheet" href="../js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
         <script type="text/javascript" src="../js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
 
+        <link rel="stylesheet" href="../js/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+        <script src="../js/nivo-slider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
         <link href="../css/base.css" rel="stylesheet">
         <script src="../js/base.js"></script>
 
@@ -162,10 +165,10 @@
             </ul>
         </li>
         <li class="Label">新約聖經 (B'rit Hadashah)</li>
-        <li><a href="$layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
+        <li><a href="<?= $layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
             <ul>
                 <? foreach ($layout['bible']['goodnews'] as $item): ?>
-                <li><a href="$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
@@ -182,7 +185,7 @@
         <li><a href="<?= $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1.html'; ?>">保羅私信</a>
             <ul>
                 <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
-                <li><a href="$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>

@@ -295,3 +295,36 @@ $(function() {
         closeEffect : 'none'
     });
 });
+
+
+$(window).load(function() {
+    $('#slider').nivoSlider({
+        effect: 'fold',
+        pauseTime: 5000,
+        animSpeed: 1500,
+        directionNav: false,
+        controlNav: false,
+        afterLoad: (function() {
+
+           //round top left corner and bottom left corner of first slice
+            $('.nivo-slice').first().css({
+              '-webkit-border-bottom-left-radius': '9px',
+              '-webkit-border-top-left-radius': '9px',
+              '-moz-border-radius-bottomleft': '9px',
+              '-moz-border-radius-topleft': '9px',
+              'border-bottom-left-radius': '9px',
+              'border-top-left-radius': '9px'
+            });
+
+           //round top right corner and bottom right corner of lastslice
+            $('.nivo-slice').last().css({
+              '-webkit-border-bottom-right-radius': '9px',
+              '-webkit-border-top-right-radius': '9px',
+              '-moz-border-radius-bottomright': '9px',
+              '-moz-border-radius-topright': '9px',
+              'border-bottom-right-radius': '9px',
+              'border-top-right-radius': '9px'
+            });
+        })
+    });
+});

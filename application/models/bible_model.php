@@ -396,6 +396,53 @@ class Bible_model extends CI_Model {
         return $lexicon_array;
     }
 
+    function all_lexicon($type='hebrew')
+    {
+        if (!isset($type)) return;
+
+        /* 待修正資安問題 */
+        $tbl_name = 'lexicon_' . $type;
+
+        /* DB opreations */
+        $this->db->select('strongs')->from($tbl_name);
+        $query = $this->db->get();
+
+        $result = array();
+        foreach ($query->result() as $row) {
+            $result[] = $row->strongs;
+        }
+
+        return $result;
+    }
+
+    function bible_chapter_numbers($book)
+    {
+        if (!isset($book)) return;
+
+        $tbl_name = 'bible_original';
+
+        /* DB opreations */
+        $this->db->select_max('chapter')->from($tbl_name)->where('book', $book);
+        $query = $this->db->get();
+        $result = $query->row_array();
+        return $result['chapter'];
+    }
+
+    function bible_verse_numbers($book, $chapter)
+    {
+        if (!isset($book)) return;
+        if (!isset($chapter)) return;
+
+        $tbl_name = 'bible_original';
+
+        /* DB opreations */
+        $this->db->select_max('verse')->from($tbl_name)->where('book', $book)->where('chapter', $chapter);
+        $query = $this->db->get();
+        $result = $query->row_array();
+
+        return $result['verse'];
+    }
+
     function next_serial($serial)
     {
         if (!isset($serial)) return;

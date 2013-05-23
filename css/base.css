@@ -546,6 +546,28 @@ table.dataTable th:active {
     outline: none;
 }
 
+.nivoSlider {
+    position:relative;
+    background:url(images/loading.gif) no-repeat 50% 50%;
+}
+.nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+
+}
+.nivoSlider a {
+    border:0;
+    display:block;
+}
+
+.nivoSlider,.nivoSlider img {
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+
+}
 
 /* Large desktop */
 @media only screen and (min-width: 1200px) {}

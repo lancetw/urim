@@ -37,8 +37,11 @@
         <script type="text/javascript" src="../js/DataTables-1.9.4/media/js/jquery.dataTables.min.js"></script>
         <link type="text/css" media="screen" rel="stylesheet" href="../js/DataTables-1.9.4/media/css/jquery.dataTables.css" />
 
-        <link rel="stylesheet" href="..js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+        <link rel="stylesheet" href="../js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
         <script type="text/javascript" src="../js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
+
+        <link rel="stylesheet" href="../js/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+        <script src="../js/nivo-slider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
 
         <link href="../css/base.css" rel="stylesheet">
         <script src="../js/base.js"></script>
@@ -74,6 +77,9 @@
         <link rel="stylesheet" href="<?= base_url('js/fancybox/source/jquery.fancybox.css?v=2.1.4'); ?>" type="text/css" media="screen" />
         <script type="text/javascript" src="<?= base_url('js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4'); ?>"></script>
 
+        <link rel="stylesheet" href="<?= base_url('js/nivo-slider/nivo-slider.css'); ?>" type="text/css" media="screen" />
+        <script src="<?= base_url('js/nivo-slider/jquery.nivo.slider.pack.js'); ?>" type="text/javascript"></script>
+
         <link href="<?= base_url('css/base.css'); ?>" rel="stylesheet">
         <script src="<?= base_url('js/base.js'); ?>"></script>
         <? endif; ?>
@@ -104,13 +110,35 @@
                     <!-- Everything you want hidden at 940px or less, place within here -->
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a href="<?= site_url('reading'); ?>">閱讀</a></li>
-                            <li><a href="<?= site_url('resources'); ?>">資源</a></li>
-                            <li class="active"><a href="<?= site_url('about'); ?>">關於</a></li>
+                            <li>
+                                <? if ($static == true) : ?>
+                                <a href="./gen.1.1.html">閱讀</a>
+                                <? else: ?>
+                                <a href="<?= site_url('reading'); ?>">閱讀</a>
+                                <? endif; ?>
+                            </li>
+                            <li>
+                                <? if ($static == true) : ?>
+                                <a href="./resources.html">資源</a>
+                                <? else: ?>
+                                <a href="<?= site_url('resources'); ?>">資源</a>
+                                <? endif; ?>
+                            </li>
+                            <li class="active">
+                                <? if ($static == true) : ?>
+                                <a href="./about.html">關於</a>
+                                <? else: ?>
+                                <a href="<?= site_url('about'); ?>">關於</a>
+                                <? endif; ?>
+                            </li>
                         </ul>
                     </div>
                     <div class="span4">
+                        <? if ($static == true) : ?>
+                        <form method="post" accept-charset="utf-8" action="../search" class="navbar-search pull-left"  id="strongsform" />
+                        <? else: ?>
                         <form method="post" accept-charset="utf-8" action="<?= site_url('search') ?>"  class="navbar-search pull-left"  id="strongsform" />
+                        <? endif ?>
                             <input name="strongs" type="text" class="input-block-level search-query" placeholder="Strong's number">
                         </form>
                     </div>
@@ -146,10 +174,10 @@
             </ul>
         </li>
         <li class="Label">新約聖經 (B'rit Hadashah)</li>
-        <li><a href="$layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
+        <li><a href="<?= $layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
             <ul>
                 <? foreach ($layout['bible']['goodnews'] as $item): ?>
-                <li><a href="$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
@@ -166,7 +194,7 @@
         <li><a href="<?= $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1.html'; ?>">保羅私信</a>
             <ul>
                 <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
-                <li><a href="$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
                 <? endforeach; ?>
             </ul>
         </li>
@@ -261,13 +289,25 @@
                 <a href="<?= site_url('reading/rom.10.8') ?>">羅馬書 10:8</a>
                 <? endif; ?>
              (新漢語譯本)</p>
-            <a class="btn btn-large btn-success" href="<?= site_url('reading') ?>">開始閱讀</a>
-            <p class="clearfix"></p>
             <? if ($static == true) : ?>
-            <img class="img-polaroid img-rounded" alt="" src="../img/demo.png" />
+            <a class="btn btn-large btn-success" href="gen.1.1.html">開始閱讀</a>
             <? else: ?>
-            <img class="img-polaroid img-rounded" alt="" src="<?= base_url('img/demo.png') ?>" />
+            <a class="btn btn-large btn-success" href="<?= site_url('reading') ?>">開始閱讀</a>
             <? endif; ?>
+            <p class="clearfix"></p>
+            <div class="slider-wrapper">
+                <div id="slider" class="nivoSlider">
+                <? if ($static == true) : ?>
+                <img alt="" src="../img/demo.png" />
+                <img alt="" src="../img/demo2.png" />
+                <img alt="" src="../img/demo3.png" />
+                <? else: ?>
+                <img alt="" src="<?= base_url('img/demo.png') ?>" />
+                <img alt="" src="<?= base_url('img/demo2.png') ?>" />
+                <img alt="" src="<?= base_url('img/demo3.png') ?>" />
+                <? endif; ?>
+                </div>
+            </div>
           </div>
 
           <hr>
@@ -299,7 +339,7 @@
 
               <h4>捐款</h4>
               <p>
-                若您喜歡本程式，請考慮小額捐款！
+                若您喜歡本程式，請考慮小額捐款。
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_donations">
                 <input type="hidden" name="business" value="lancetw@gmail.com">
