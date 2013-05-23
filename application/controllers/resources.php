@@ -29,7 +29,7 @@ class Resources extends CI_Controller {
         $data['static'] = true;
         $static_page = $this->load->view('resources_view', $data, true);
         $force_static = false;
-        $path = '../static/reading/resources.html';
+        $path = './static/reading/resources.html';
         if (! write_file($path, $static_page)) {
              echo 'Unable to write the file';
         }

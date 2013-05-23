@@ -28,7 +28,7 @@ class About extends CI_Controller {
         $data['static'] = true;
         $static_page = $this->load->view('about_view', $data, true);
         $force_static = false;
-        $path = '../static/reading/about.html';
+        $path = './static/reading/about.html';
         if (! write_file($path, $static_page)) {
              echo 'Unable to write the file';
         }

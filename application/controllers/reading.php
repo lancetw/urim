@@ -74,7 +74,7 @@ class Reading extends CI_Controller {
 		$data['static'] = true;
 		$static_page = $this->load->view('reading_view', $data, true);
 		$force_static = false;
-		$path = '../static/reading/' . $_serial[0] . '.' . $_serial[1] . '.' . $_serial[2] . '.html';
+		$path = './static/reading/' . $_serial[0] . '.' . $_serial[1] . '.' . $_serial[2] . '.html';
 		if (! write_file($path, $static_page)) {
 		     echo 'Unable to write the file';
 		}
