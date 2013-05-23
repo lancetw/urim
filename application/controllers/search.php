@@ -34,7 +34,7 @@ class Search extends CI_Controller {
         $data['static'] = true;
         $static_page = $this->load->view('search_view', $data, true);
         $force_static = false;
-        $path = './static/search/' . $data['info']['strongs'] . '.html';
+        $path = '../static/search/' . $data['info']['strongs'] . '.html';
         if (! write_file($path, $static_page)) {
              echo 'Unable to write the file';
         }
