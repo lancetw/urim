@@ -274,6 +274,34 @@
 
         <div id="content" class="span9">
 
+            <? if ($static == true) : ?>
+
+            <ul class="pager page-nav">
+                <li class="previous previous2<? if (empty($layout['nextbook'])): ?> disabled<? endif; ?>">
+                    <? if (!empty($layout['nextbook'])): ?>
+                    <a href="<?= $layout['nextbook'] ?>.html"><i class="icon-chevron-sign-down icon-3x"></i></a>
+                    <? endif; ?>
+                </li>
+                <li class="previous<? if (empty($layout['next'])): ?> disabled<? endif; ?>">
+                    <? if (!empty($layout['next'])): ?>
+                    <a href="<?= $layout['next'] ?>.html"><i class="icon-chevron-sign-left icon-3x"></i></a>
+                    <? endif; ?>
+                </li>
+                <li class="next next2<? if (empty($layout['prevbook'])): ?> disabled<? endif; ?>">
+                    <? if (!empty($layout['prevbook'])): ?>
+                    <a href="<?= $layout['prevbook'] ?>.html"><i class="icon-chevron-sign-up icon-3x"></i></a>
+                    <? endif; ?>
+                </li>
+                <li class="next<? if (empty($layout['prev'])): ?> disabled<? endif; ?>">
+                    <? if (!empty($layout['prev'])): ?>
+                    <a href="<?= $layout['prev'] ?>.html"><i class="icon-chevron-sign-right icon-3x"></i></a>
+                    <? endif; ?>
+                </li>
+
+            </ul>
+
+            <? else: ?>
+
             <ul class="pager page-nav">
                 <li class="previous previous2<? if (empty($layout['nextbook'])): ?> disabled<? endif; ?>">
                     <? if (!empty($layout['nextbook'])): ?>
@@ -297,6 +325,8 @@
                 </li>
 
             </ul>
+
+            <? endif ?>
 
             <a id="top"></a>
 
@@ -330,7 +360,13 @@
             <div class="chapter-panel">
                 <ul class="panel-list">
                     <? for ($i = 1; $i <= $info['book_info']['chapter']; $i++): ?>
-                    <li><a href="<?= site_url('reading/' . $info['book_info']['abbr'] . '.' . $i . '.1'); ?>"><?= $i ?></a></li>
+                    <li>
+                        <? if ($static == true) : ?>
+                        <a href="<?= $info['book_info']['abbr'] . '.' . $i . '.1.html' ?>"><?= $i ?></a>
+                        <? else: ?>
+                        <a href="<?= site_url('reading/' . $info['book_info']['abbr'] . '.' . $i . '.1'); ?>"><?= $i ?></a>
+                        <? endif; ?>
+                    </li>
                     <? endfor; ?>
                 </ul>
             </div>
@@ -338,7 +374,13 @@
             <div class="verse-panel">
                 <ul class="panel-list">
                     <? for ($i = 1; $i <= $info['book_info']['verse']; $i++): ?>
-                    <li><a href="<?= site_url('reading/' . $info['book_info']['abbr'] . '.' . $info['chapter'] . '.' . $i); ?>"><?= $i ?></a></li>
+                    <li>
+                        <? if ($static == true) : ?>
+                        <a href="<?= $info['book_info']['abbr'] . '.' . $info['chapter'] . '.' . $i . '.html' ?>"><?= $i ?></a>
+                        <? else: ?>
+                        <a href="<?= site_url('reading/' . $info['book_info']['abbr'] . '.' . $info['chapter'] . '.' . $i); ?>"><?= $i ?></a>
+                        <? endif; ?>
+                    </li>
                     <? endfor; ?>
                 </ul>
             </div>
