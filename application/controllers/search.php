@@ -26,12 +26,22 @@ class Search extends CI_Controller {
         $data['info']['type'] = $type;
         $data['info']['strongs'] = strtoupper($prefix) . $number;
         $data['info']['word'] = $this->bible->word_by_strongs($number, $type);
-        $data['search'] = $this->bible->searchTextsByStrongs($number, $type);
+        $searchTexts = $this->bible->searchTextsByStrongsJSON($number, $type);
 
-        /* 製作靜態版本（目前暫時無法自動處理路由問題） */
+        /* 製作 json */
 
         $this->load->helper('file');
         $data['static'] = true;
+
+        $static_page = $searchTexts;
+        $force_static = false;
+        $path = './static/search/' . $data['info']['strongs'] . '.json';
+        if (! write_file($path, $static_page)) {
+             echo 'Unable to write the file';
+        }
+
+        /* 製作靜態版本 */
+
         $static_page = $this->load->view('search_view', $data, true);
         $force_static = false;
         $path = './static/search/' . $data['info']['strongs'] . '.html';

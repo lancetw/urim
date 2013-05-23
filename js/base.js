@@ -256,14 +256,30 @@ $(function() {
     var strongs = getParameterByName('strongs');
     $(".the-message a[data-ref='" + strongs + "']").addClass('highlight');
 
-    $('#strongsform input').keypress(function(event){
-        if (event.keyCode == 13) {
-            $('#strongsform').attr('action', '/urim/search/' + $('#strongsform input').val());
-            window.location = $('#strongsform').attr('action') +'?'+ $('#strongsform input').val();
+    $('#strongsform input').keypress(function(e){
+        if (e.keyCode == 13) {
+            e.preventDefault();
+
+            $.fancybox({
+                type: 'iframe',
+                href: './search/' + $('#strongsform input').val() + '.html',
+                maxWidth    : 800,
+                maxHeight   : 600,
+                fitToView   : true,
+                width       : '100%',
+                height      : '100%',
+                autoSize    : false,
+                closeClick  : true,
+                openEffect  : 'none',
+                closeEffect : 'none'
+            });
+
         }
     });
 
     $('#strongs-results').dataTable( {
+        "bProcessing": true,
+        "sAjaxSource": '../static/search/' + $('.strongs').text() + '.json',
         "bAutoWidth": false,
         "bSort": false,
         "sDom": "<'row'<'span9'f>'row'<'span12'p>r>t<'row'<'span8'i><'span4'l>>",

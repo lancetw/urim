@@ -303,6 +303,9 @@
               <h4>猶差匯聚</h4>
               <p><a href="http://jematrix.wordpress.com">http://jematrix.wordpress.com</a></p>
 
+              <h4>Torah Readings</h4>
+              <p><a href="http://www.hebcal.com/sedrot">http://www.hebcal.com/sedrot</a></p>
+
               <h4>Weekly Parashah</h4>
               <p><a href="http://www.torahresource.com/Parashot.html">http://www.torahresource.com/Parashot.html</a></p>
 
@@ -323,6 +326,10 @@
 
               <h4>基督教壹蘋果</h4>
               <p><a href="https://www.facebook.com/groups/133255080104738">https://www.facebook.com/groups/133255080104738</a></p>
+
+              <h4>Restoring the Jewishness of the Gospel</h4>
+              <p><a href="http://www.amazon.com/Restoring-Jewishness-Gospel-Christians-Condensed/dp/1880226669/">http://www.amazon.com/Restoring-Jewishness-Gospel-Christians-Condensed/dp/1880226669/</a></p>
+
             </div>
           </div>
 

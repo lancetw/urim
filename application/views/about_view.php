@@ -318,7 +318,7 @@
               <p>不是只有神學院學生、傳道、牧師才需要研讀聖經原文，您也可以！</p>
 
               <h4>自由、免費</h4>
-              <p>免費使用，自由閱讀，經文與字典使用公有領域資料，資料來源：<a href="https://github.com/bibleforge/BibleForgeDB">BibleForgeDB</a>、<a href="http://bible.fhl.net/public/">信望愛公開資料</a></p>
+              <p>完全免費！自由閱讀經文與字典，使用公有領域資料，資料來源：<a href="https://github.com/bibleforge/BibleForgeDB">BibleForgeDB</a>、<a href="http://bible.fhl.net/public/">信望愛公開資料</a></p>
 
               <h4>跨平台</h4>
               <p>支援 Safari、<a href="http://moztw.org/firefox">Firefox</a>、<a href="http://www.google.com/intl/zh-TW/chrome">Chrome</a> 等先進網頁瀏覽器。</p>
@@ -332,14 +332,14 @@
               <p>以最簡易的方式顯示聖經原文，人人都可以查考原文。</p>
 
               <h4>即時</h4>
-              <p>即時查詢希伯來原文、希臘原文、編號與解釋，甚至可以離線查詢！</p>
+              <p>即時查詢希伯來原文、希臘原文、編號與解釋，甚至可以離線查詢！您可以<a href="https://github.com/lancetw/lancetw.github.io/tree/master/urim">在此下載</a>所有的頁面。</p>
 
               <h4>便利</h4>
               <p>您可以隨時隨地閱讀與查詢，以支援各式平板、智慧型手機為開發目標。</p>
 
-              <h4>捐款</h4>
+              <h4>贊助</h4>
               <p>
-                若您喜歡本程式，請考慮小額捐款。
+                若您喜歡本服務，請考慮小額捐款贊助。
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_donations">
                 <input type="hidden" name="business" value="lancetw@gmail.com">

@@ -37,6 +37,9 @@
         <script type="text/javascript" src="../js/DataTables-1.9.4/media/js/jquery.dataTables.min.js"></script>
         <link type="text/css" media="screen" rel="stylesheet" href="../js/DataTables-1.9.4/media/css/jquery.dataTables.css" />
 
+        <link rel="stylesheet" href="../js/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+        <script src="../js/nivo-slider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
         <link rel="stylesheet" href="../js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
         <script type="text/javascript" src="../js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
 
@@ -85,7 +88,7 @@
 <body style="background-color: white;">
 <? $i = 1; ?>
 <div class="container-fluid">
-      <h1 class="span12 search-title <?= $info['type'] ?>"><?= $info['word'] ?> <small><?= $info['strongs'] ?></small></h1>
+      <h1 class="span12 search-title <?= $info['type'] ?>"><?= $info['word'] ?> <small class="strongs"><?= $info['strongs'] ?></small></h1>
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="strongs-results">
 
   <thead>
@@ -96,38 +99,6 @@
     </tr>
   </thead>
   <tbody>
-
-    <? foreach ($search as $s): ?>
-
-    <tr>
-    <td><?= $i++ ?></td>
-    <td class="<?= $info['type'] ?>">
-
-        <? foreach ($s['text'] as $word): ?>
-        <? if ($word['word'] == $s['word']): ?>
-            <span style="color: red;"><?= $word['word'] ?></span>
-        <? else: ?>
-            <?= $word['word'] ?>
-        <? endif; ?>
-        <? endforeach; ?>
-
-    </td>
-
-    <td>
-        <? if ($static == true) : ?>
-        <a target="_blank" href="<?= '../reading/' . $s['book_abbr'] . '.' . $s['chapter'] . '.' . $s['verse'] . '.html?strongs=' . $info['strongs'] ?>">
-        <? else: ?>
-        <a target="_blank" href="<?= site_url('reading/' . $s['book_abbr'] . '.' . $s['chapter'] . '.' . $s['verse']) . '?strongs=' . $info['strongs'] ?>">
-        <? endif; ?>
-            <?= $s['book_name_chinese'] ?> <?= $s['chapter'] ?>:<?= $s['verse'] ?>
-        </a>
-    </td>
-    </tr>
-
-    <? endforeach; ?>
-
-
-
   </tbody>
 </table>
 </div>

@@ -698,22 +698,24 @@ class Bible_model extends CI_Model {
 
     function multi_unique($array) {
         foreach ($array as $k=>$na)
-            $new[$k] = serialize($na);
+            $new[] = serialize($na);
         $uniq = array_unique($new);
         foreach($uniq as $k=>$ser)
-            $new1[$k] = unserialize($ser);
+            $new1[] = unserialize($ser);
         return ($new1);
     }
 
-    function searchTextsByStrongs($strongs, $type='hebrew')
+    function searchTextsByStrongsJSON($strongs, $type='hebrew')
     {
         if (!isset($strongs)) return;
 
         $tbl_name = 'bible_original';
 
         if ($type === 'greek') {
+            $prefix = 'G';
             $where = "book >= 40 AND book <= 66";
         } else {
+            $prefix = 'H';
             $where = "book >= 1 AND book <= 39";
         }
 
@@ -721,9 +723,11 @@ class Bible_model extends CI_Model {
         $this->db->select('strongs, word, book, chapter, verse')->from($tbl_name)->where('strongs', $strongs)->where($where);
         $query = $this->db->get();
 
+        $i = 1;
         $text_serial = array();
         foreach ($query->result() as $row) {
-            $text = array();
+            $w = array();
+
             $text['strongs'] = $row->strongs;
             $text['word'] = $row->word;
             $text['book'] = $row->book;
@@ -733,13 +737,30 @@ class Bible_model extends CI_Model {
             $text['verse'] = $row->verse;
             $serial = array($text['book'], $text['chapter'], $text['verse']);
             $text['text'] = $this->read_by_serial($serial, true, false);
-            $text_serial[] = $text;
+
+            $title = '<a target="_blank" href="../reading/' . $text['book_abbr'] . '.' . $text['chapter'] . '.' . $text['verse'] . '.html?strongs=' . $prefix . $text['strongs'] . '">' . $text['book_name_chinese'] . ' ' . $text['chapter'] . ':' . $text['verse'] . '</a>';
+            $orginText = '';
+            foreach ($text['text'] as $k) {
+                if ($k['strongs'] === $text['strongs']) {
+                    $orginText .= '<span class="highlight" data-ref="' . $prefix . $k['strongs'] . '">' . $k['word'] . '</span> ';
+                } else {
+                    $orginText .= '<span data-ref="' . $prefix . $k['strongs'] . '">' . $k['word'] . '</span> ';
+                }
+            }
+
+            $w[0] = strval($i++);
+            $w[1] = '<span class="' . $type . '">' . $orginText . '</span>';
+            $w[2] = $title;
+
+            $text_serial[] = $w;
         }
 
         if (!empty($text_serial)) {
-            return $this->multi_unique($text_serial);
+            $data["aaData"] = $this->multi_unique($text_serial);
+            $result = $data;
+            return json_encode($result, JSON_PRETTY_PRINT);
         } else {
-            return array();
+            return '';
         }
     }
 

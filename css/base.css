@@ -484,14 +484,20 @@ a.strongs-search {
 }
 
 #strongs-results {
-    width: 780px;
+    width: 100%;
 }
 
-#strongs-results tbody td.hebrew {
+#strongs-results tbody span.highlight {
+    color: red;
+}
+
+#strongs-results tbody span.hebrew {
+    display: block;
     text-align: right;
 }
 
-#strongs-results tbody td.greek {
+#strongs-results tbody span.greek {
+    display: block;
     text-align: left;
 }
 
@@ -687,6 +693,9 @@ table.dataTable th:active {
         overflow: auto;
         height: auto;
     }
+
+    .search-title  { margin-top: -100px };
+    #strongs-results tbody td:nth-child(3) { min-width: none;};
 }
 
 @media only screen and (max-width: 480px) and (orientation:portrait) {
@@ -741,6 +750,7 @@ table.dataTable th:active {
         left: 260px;
         width: auto;
     }
+
 }
 
 /*--- ipad ---*/
@@ -807,4 +817,5 @@ table.dataTable th:active {
         height: 600px;
         margin-bottom: 12px;
     }
+
 }
