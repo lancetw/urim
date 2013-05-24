@@ -1,10 +1,6 @@
-
 img/.DS_Store
-
 .DS_Store
-
 application/.DS_Store
-
 js/.DS_Store
-
-static/*
+static/reading/*
+static/search/*
