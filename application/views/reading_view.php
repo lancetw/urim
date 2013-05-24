@@ -132,7 +132,11 @@
                     </ul>
                 </div>
                 <div class="span4">
+                    <? if ($static == true) : ?>
+                    <form method="post" accept-charset="utf-8" action="../search" class="navbar-search pull-left"  id="strongsform" />
+                    <? else: ?>
                     <form method="post" accept-charset="utf-8" action="<?= site_url('search') ?>"  class="navbar-search pull-left"  id="strongsform" />
+                    <? endif ?>
                         <input name="strongs" type="text" class="input-block-level search-query" placeholder="Strong's number">
                     </form>
                 </div>
