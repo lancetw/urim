@@ -20,6 +20,7 @@ class Make extends CI_Controller {
         $lexicon_greek = $this->bible->all_lexicon('greek');
         $bible_books = 66;
 
+        /*
         foreach ($lexicon_hebrew as $strongs) {
             $url = site_url('search/H' . $strongs . '.html');
             $ch = curl_init($url);
@@ -33,6 +34,7 @@ class Make extends CI_Controller {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             curl_exec($ch);
         }
+        */
 
         for ($i = 1; $i <= $bible_books; $i++) {
           $chpaters = $this->bible->bible_chapter_numbers($i);
