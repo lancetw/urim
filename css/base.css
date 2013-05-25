@@ -12,6 +12,16 @@ body {
     max-width: 700px;
 }
 
+h1.book-title small {
+    cursor: help;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .resources-header {
     margin: 60px 0;
     text-align: center;
