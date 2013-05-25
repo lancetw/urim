@@ -304,6 +304,9 @@
               <h4>耶大雅聖經工具</h4>
               <p><a href="http://bibletool.konline.org">http://bibletool.konline.org</a></p>
 
+              <h4>新約經文鑑別學</h4>
+              <p><a href="https://shop.campus.org.tw/ProductDetails.aspx?productID=000417587">https://shop.campus.org.tw/ProductDetails.aspx?productID=000417587</a></p>
+
               <h4>探索耶穌真貌--認識那位被希臘化了的耶穌</h4>
               <p><a href="https://shop.campus.org.tw/ProductDetails.aspx?productID=000466813">https://shop.campus.org.tw/ProductDetails.aspx?productID=000466813</a></p>
 
@@ -330,6 +333,9 @@
 
               <h4>Complete Jewish Bible</h4>
               <p><a href="http://www.biblegateway.com/passage/?search=Genesis%201&version=CJB">http://www.biblegateway.com/passage/?search=Genesis%201&version=CJB</a></p>
+
+              <h4>新約背景文獻選輯</h4>
+              <p><a href="https://shop.campus.org.tw/ProductDetails.aspx?productID=000243889">https://shop.campus.org.tw/ProductDetails.aspx?productID=000243889</a></p>
 
               <h4>妥拉的智慧</h4>
               <p><a href="http://rock24sea.blogspot.tw">http://rock24sea.blogspot.tw</a></p>
