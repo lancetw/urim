@@ -507,30 +507,30 @@ class Bible_model extends CI_Model {
     {
         if (!isset($serial)) return;
 
-        $next_serial = array();
-        $next_serial[0] = $this->bible->book_id_by_abbr($serial[0]);
-        $next_serial[1] = $serial[1];
-        $next_serial[2] = $serial[2];
-
-        $next_serial[2] -= 1;
+        $prev_serial = array();
+        $prev_serial[0] = $this->bible->book_id_by_abbr($serial[0]);
+        $prev_serial[1] = $serial[1];
+        $prev_serial[2] = $serial[2];
 
         $tbl_name = 'bible_original';
 
-        /* 找看看上一節有無資料 */
+        $prev_serial[2] -= 1;
+
+        /* 先直接找看看上一節有無資料 */
         /* DB opreations */
-        $this->db->select('verse')->from($tbl_name)->where('book', $next_serial[0])->where('chapter', $next_serial[1])->where('verse', $next_serial[2])->limit(1);
+        $this->db->select('verse')->from($tbl_name)->where('book', $prev_serial[0])->where('chapter', $prev_serial[1])->where('verse', $prev_serial[2])->limit(1);
         $query = $this->db->get();
 
         foreach ($query->result() as $row) {
             if (isset($row->verse)) {
-                $next_serial[0] = $this->bible->book_abbr_by_id($next_serial[0]);
-                return $next_serial;
+                $prev_serial[0] = $this->bible->book_abbr_by_id($prev_serial[0]);
+                return $prev_serial;
             }
         }
 
-        $next_serial[2] = $serial[2];
+        $prev_serial[2] = $serial[2];
         /* 取得本節 id */
-        $this->db->select('id')->from($tbl_name)->where('book', $next_serial[0])->where('chapter', $next_serial[1])->where('verse', $next_serial[2])->limit(1);
+        $this->db->select('id')->from($tbl_name)->where('book', $prev_serial[0])->where('chapter', $prev_serial[1])->where('verse', $prev_serial[2])->limit(1);
         $query = $this->db->get();
 
         $id = 0;
@@ -540,16 +540,22 @@ class Bible_model extends CI_Model {
 
         $id -= 1;
         /* 改直接取得上一段的章節 */
-        /* DB opreations */
-        $this->db->select('book, chapter, verse')->from($tbl_name)->where('id', $id)->limit(1);
-        $query = $this->db->get();
+        do {
+            /* DB opreations */
+            $this->db->select('book, chapter, verse')->from($tbl_name)->where('id', $id)->limit(1);
+            $query = $this->db->get();
 
-        foreach ($query->result() as $row) {
-            $next_serial[0] = $this->bible->book_abbr_by_id($row->book);
-            $next_serial[1] = $row->chapter;
-            $next_serial[2] = $row->verse;
-            return $next_serial;
-        }
+            foreach ($query->result() as $row) {
+                $prev_serial[0] = $this->bible->book_abbr_by_id($row->book);
+                $prev_serial[1] = $row->chapter;
+                $prev_serial[2] = $row->verse;
+
+                if ($prev_serial[2] != 255) {
+                    return $prev_serial;
+                }
+            }
+            $id -= 1;
+        } while ($prev_serial[2] == 255);
 
         /* 沒有上一節（到最前面了） */
         return array();
