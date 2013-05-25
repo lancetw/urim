@@ -174,13 +174,13 @@ function stripVowels(rawString)
 $(function() {
 
     $('.book-title small').toggle(function() {
-        $str = $('.the-message').html();
+        $str = $('.the-message a').html();
         $backupVowels = $str;
         $noVowels = stripVowels($str);
-        $('.the-message').html($noVowels);
+        $('.the-message a').html($noVowels);
 
     }, function() {
-        $('.the-message').html($backupVowels);
+        $('.the-message a').html($backupVowels);
     });
 
 	if (jQuery.browser.mobile) {
