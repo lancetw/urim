@@ -367,12 +367,13 @@ class Bible_model extends CI_Model {
         }
     }
 
-    function make_lexicon($words_array, $type='hebrew')
+    function make_lexicon($words_array, $serial, $type='hebrew')
     {
         if (!isset($words_array)) return;
 
         $lexicon_array = array();
 
+        $wid = 1;
         foreach ($words_array as $word) {
             $strongs = $word['strongs'];
             $data = $this->lexicon_data($strongs, $type);
@@ -388,6 +389,7 @@ class Bible_model extends CI_Model {
                 $item['deriv'] = isset($data->deriv) ? $data->deriv : '';
                 $item['sbl'] = $data->pronun->sbl;
                 $item['fhl'] = $this->lexicon_fhl($strongs, $type);
+                //$item['wform'] = $this->wform($wid++, $serial, $type);
 
                 $lexicon_array[] = $item;
             }
@@ -763,5 +765,126 @@ class Bible_model extends CI_Model {
             return '';
         }
     }
+
+    /* 目前取得的資料不完整，不使用 */
+    function wform($wid, $serial, $type='hebrew')
+    {
+        if (!isset($wid)) return;
+        if (!isset($serial)) return;
+
+        /* 待修正資安問題 */
+        if ($type === 'hebrew') {
+            $tbl_name = 'lparsing';
+        }
+        if ($type === 'greek') {
+            $tbl_name = 'fhlwhparsing';
+        }
+
+        $serial[0] = $this->bible->book_id_by_abbr($serial[0]);
+        $serial[0] = $this->bible->book_abbr_by_id($serial[0], true);
+
+        /* DB opreations */
+        $this->db->select('wform')->from($tbl_name)->where('engs', $serial[0])->where('chap', $serial[1])->where('sec', $serial[2])->where('wid', strval($wid))->limit(1);
+        $query = $this->db->get();
+
+        $result = $query->row_array();
+        if (!isset($result['wform'])) {
+            return '無';
+        }
+        $text = $result['wform'];
+
+        /* 轉換 COBSHebrew 為 Unicode */
+
+        $ctable = array(
+            '`' => '׃',
+            'p' => 'פ',
+            's' => 'ס',
+            '"G' => 'גָּ',
+            '<' => 'גֶּ',
+            '>G' => 'גְּ',
+            '?G' => 'גֱּ',
+            ':G' => 'גַּ',
+            'EG' => 'גֵּ',
+            'IG' => 'גִּ',
+            'OG' => 'גֹּ',
+            'UG' => 'גֻּ',
+            '\G' => 'גֳּ',
+            '}G' => 'גֲּ',
+            "'B" => 'בָּ',
+            ',B' => 'בֶּ',
+            '.B' => 'בְּ',
+            '/B' => 'בֱּ',
+            ';B' => 'בַּ',
+            'eB' => 'בֵּ',
+            'iB' => 'בִּ',
+            'oB' => 'בֹּ',
+            'uB' => 'בֻּ',
+            '|B' => 'בֳּ',
+            ']B' => 'בֲּ',
+            'oR' => 'רֹּ',
+            '!' => 'ן',
+            'A' => 'וֹ',
+            'G' => 'גּ',
+            'N' => 'נּ',
+            'W' => 'וּ',
+            'Y' => 'יּ',
+            'Z' => 'זּ',
+            'g' => 'ג',
+            'n' => 'נ',
+            'w' => 'ו',
+            'y' => 'י',
+            'z' => 'ז',
+            'D' => 'דּ',
+            'R' => 'רּ',
+            'd' => 'ד',
+            'r' => 'ר',
+            '#' => 'ץ',
+            '$' => 'ך',
+            '%' => 'ךְ',
+            '&' => 'ךּ',
+            '@' => 'ף',
+            '^' => 'ךָ',
+            'B' => 'בּ',
+            'C' => 'צּ',
+            'F' => 'שּׂ',
+            'H' => 'הּ',
+            'J' => 'טּ',
+            'K' => 'כּ',
+            'L' => 'לּ',
+            'M' => 'מּ',
+            'P' => 'פּ',
+            'Q' => 'קּ',
+            'S' => 'סּ',
+            'T' => 'תּ',
+            'V' => 'שּׁ',
+            'X' => 'ש',
+            '[' => 'ע',
+            'a' => 'א',
+            'b' => 'ב',
+            'c' => 'צ',
+            'f' => 'שׂ',
+            'h' => 'ה',
+            'j' => 'ט',
+            'k' => 'כ',
+            'l' => 'ל',
+            'm' => 'מ',
+            'p' => 'פ',
+            'q' => 'ק',
+            's' => 'ס',
+            't' => 'ת',
+            'v' => 'שׁ',
+            'x' => 'ח',
+            '~' => 'ם'
+
+        );
+
+        foreach ($ctable as $k => $v) {
+            $text = str_replace($k, $v, $text);
+        }
+
+        return $text;
+    }
+
+
 
 }

@@ -340,6 +340,10 @@
 
           <hr>
 
+          <div class="alert alert-info">請注意，本服務提供的新約希臘文只是某個抄本，並未經過 <a href="http://www.chioulaoshi.org/EXG/textual.html">新約經文鑑別學 (Textual Criticism)</a> 的處理，希望未來能提供此類資訊。</div>
+
+          <hr>
+
           <div class="row-fluid marketing">
             <div class="span6">
               <h4>這是給神學院學生用的？</h4>

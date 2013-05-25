@@ -12,6 +12,8 @@ class Make extends CI_Controller {
 
     public function index()
     {
+        $this->benchmark->mark('code_start');
+
         $url = '';
 
         $lexicon_hebrew = $this->bible->all_lexicon('hebrew');
@@ -45,6 +47,10 @@ class Make extends CI_Controller {
             }
           }
         }
+
+        $this->benchmark->mark('code_end');
+
+        echo $this->benchmark->elapsed_time('code_start', 'code_end');
 
         echo 'Done!';
     }
