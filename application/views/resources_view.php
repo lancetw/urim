@@ -304,6 +304,9 @@
               <h4>耶大雅聖經工具</h4>
               <p><a href="http://bibletool.konline.org">http://bibletool.konline.org</a></p>
 
+              <h4>和合本修訂版</h4>
+              <p><a href="https://www.youversion.com/zh-TW/bible/139/jhn.1.rcuv">https://www.youversion.com/zh-TW/bible/139/jhn.1.rcuv</a></p>
+
               <h4>新約經文鑑別學</h4>
               <p><a href="https://shop.campus.org.tw/ProductDetails.aspx?productID=000417587">https://shop.campus.org.tw/ProductDetails.aspx?productID=000417587</a></p>
 
@@ -339,6 +342,9 @@
 
               <h4>妥拉的智慧</h4>
               <p><a href="http://rock24sea.blogspot.tw">http://rock24sea.blogspot.tw</a></p>
+
+              <h4>聖經與版權法律簡介</h4>
+              <p><a href="http://copyright-law-hk.blogspot.hk/2012/10/1.html">http://copyright-law-hk.blogspot.hk/2012/10/1.html</a></p>
 
               <h4>基督教壹蘋果</h4>
               <p><a href="https://www.facebook.com/groups/133255080104738">https://www.facebook.com/groups/133255080104738</a></p>
