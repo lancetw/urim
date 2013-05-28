@@ -207,7 +207,7 @@ $(function() {
         });
     }
 
-    if (!jQuery.browser.mobile && !isiPad) {
+    if (!jQuery.browser.mobile) {
         $('.the-message a').clickover({
             html: true,
             placement: 'bottom',
