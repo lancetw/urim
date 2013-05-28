@@ -787,11 +787,11 @@ table.dataTable th:active {
     }
 
     .mmenu-opened > ul {
-        margin-top: -10px;
+        margin-top: 45px;
     }
 
     .mmenu-page {
-        margin-top: 0;
+        margin-top: 35px;
     }
 
     .tab-pane {
@@ -805,8 +805,14 @@ table.dataTable th:active {
     }
 
     .the-message {
-        height: 104px;
+        height: auto;
         overflow: auto;
+    }
+
+    .navbar {
+        position: fixed;
+        padding-left: 0;
+        padding-right: -;
     }
 }
 
@@ -821,9 +827,8 @@ table.dataTable th:active {
     }
 
     .mmenu-page {
-        margin-top: -20px;
+        margin-top: -30px;
     }
-
 
     .tab-pane {
         overflow: auto;

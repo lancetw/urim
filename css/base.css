@@ -805,7 +805,7 @@ table.dataTable th:active {
     }
 
     .the-message {
-        height: 104px;
+        height: auto;
         overflow: auto;
     }
 
