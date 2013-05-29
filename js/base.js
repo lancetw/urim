@@ -221,7 +221,7 @@ $(function() {
                 var refid = '#pop-content-' + ref;
                 window.location = refid;
             },
-    		template: '<div class="popover visible-desktop"><div class="arrow"></div><div class="popover-inner"><div class="popover-content"><p></p></div></div></div>'
+    		template: '<div class="popover"><div class="arrow"></div><div class="popover-inner"><div class="popover-content"><p></p></div></div></div>'
             //<h3 class="popover-title"></h3>
             //Need to have this click check since the tooltip will not close on mobile
         });
@@ -306,14 +306,15 @@ $(function() {
 
     $('#strongs-results').dataTable( {
         "bProcessing": true,
-        "sAjaxSource": '../static/search/' + $('.strongs').text() + '.json',
+        "sAjaxSource": '../search/' + $('.strongs').text() + '.json',
         "bAutoWidth": false,
         "bSort": false,
         "sDom": "<'row'<'span9'f>'row'<'span12'p>r>t<'row'<'span8'i><'span4'l>>",
         "sPaginationType": "bootstrap",
         "oLanguage": {
+            "sProcessing": "資料載入中，請耐心等待",
             "sLengthMenu": "每頁顯示 _MENU_ 筆資料",
-            "sZeroRecords": "甚麼都找不到 >_<",
+            "sZeroRecords": "",
             "sInfo": "顯示 _START_ 到 _END_ 共 _TOTAL_ 筆資料",
             "sInfoEmpty": "顯示 0 到 0 筆、共 0 筆資料",
             "sInfoFiltered": "(從 _MAX_ 筆資料中過濾)",
@@ -373,9 +374,23 @@ $(window).load(function() {
 });
 
 window.onload = function(){
+
+    /* 隱藏網址列 */
     setTimeout(function(){
         window.scrollTo(0, 1);
     }, 100);
+
+    /* 避免連結開新頁 */
+    var a=document.getElementsByTagName("a");
+    for(var i=0;i<a.length;i++)
+    {
+        a[i].onclick=function()
+        {
+            window.location=this.getAttribute("href");
+            return false
+        }
+    }
+
 }
 
 
