@@ -181,11 +181,11 @@ $(function() {
 
     /* 避免連結開新頁 */
     if (("standalone" in window.navigator) && window.navigator.standalone) {
-        // For iOS Apps
-        $('a').on('click', function(e){
+        $('body').on('click', 'a', function(e){
             e.preventDefault();
             var new_location = $(this).attr('href');
-            if (new_location != undefined && new_location.substr(0, 1) != '#' && $(this).attr('data-method') == undefined){
+            //if (new_location != undefined && new_location.substr(0, 1) != '#' && $(this).attr('data-method') == undefined){
+            if (new_location != undefined && $(this).attr('data-method') == undefined){
               window.location = new_location;
             }
         });
