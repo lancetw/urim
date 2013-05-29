@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html lang="zh-hant">
     <head>
-        <title>URIM</title>
+        <title><?= $info['book_chinese'] ?> <?= $info['chapter'] ?> : <?= $info['verse'] ?> | URIM 聖經研讀工具集</title>
         <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
