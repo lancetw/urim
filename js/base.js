@@ -180,23 +180,16 @@ function stripVowels(rawString)
 $(function() {
 
     /* 避免連結開新頁 */
-    $( document ).on("click","a",function( event ){
-           if($( event.target ).attr( "href" )){
-
-           var str    = $( event.target ).attr( "href" );
-           var patt   = /^#/g;
-           var match  = str.match(patt);
-
-          // Stop the default behavior of the browser,ie to change the URL of the page.
-
-            event.preventDefault();
-
-          // Manually change the location of the page to stay in "Standalone" mode
-          //  and change the URL at the same time.
-
-            location.href = $( event.target ).attr( "href" );
-        }
-    });
+    if (("standalone" in window.navigator) && window.navigator.standalone) {
+        // For iOS Apps
+        $('a').on('click', function(e){
+            e.preventDefault();
+            var new_location = $(this).attr('href');
+            if (new_location != undefined && new_location.substr(0, 1) != '#' && $(this).attr('data-method') == undefined){
+              window.location = new_location;
+            }
+        });
+    }
 
     $('.book-title small').toggle(function() {
         $('.the-message a').each(function(i) {
