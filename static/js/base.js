@@ -141,6 +141,12 @@ if ( $.fn.DataTable.TableTools ) {
     } );
 }
 
+/* 隱藏網址列 */
+window.onload = function(){
+    setTimeout(function(){
+        window.scrollTo(0, 1);
+    }, 100);
+}
 
 function fm_optimizeInput(){
     $("input[placeholder],textarea[placeholder]").each(function(){
@@ -172,6 +178,25 @@ function stripVowels(rawString)
 }
 
 $(function() {
+
+    /* 避免連結開新頁 */
+    $( document ).on("click","a",function( event ){
+           if($( event.target ).attr( "href" )){
+
+           var str    = $( event.target ).attr( "href" );
+           var patt   = /^#/g;
+           var match  = str.match(patt);
+
+          // Stop the default behavior of the browser,ie to change the URL of the page.
+
+            event.preventDefault();
+
+          // Manually change the location of the page to stay in "Standalone" mode
+          //  and change the URL at the same time.
+
+            location.href = $( event.target ).attr( "href" );
+        }
+    });
 
     $('.book-title small').toggle(function() {
         $('.the-message a').each(function(i) {
@@ -220,6 +245,7 @@ $(function() {
                 var ref = this.options.ref;
                 var refid = '#pop-content-' + ref;
                 window.location = refid;
+                $('body').scrollTop(0);
             },
             template: '<div class="popover"><div class="arrow"></div><div class="popover-inner"><div class="popover-content"><p></p></div></div></div>'
             //<h3 class="popover-title"></h3>
@@ -246,7 +272,7 @@ $(function() {
         },
     });
 
-    $('[rel="fhl-note"]').live('click', function(e) {
+    $('body').on('click', '[rel="fhl-note"]', function(e) {
         var fhl_note_id = $(this).attr('data-ref');
         var type = '';
         if ( fhl_note_id.charAt(0) == 'H' ) {
@@ -372,29 +398,6 @@ $(window).load(function() {
         })
     });
 });
-
-window.onload = function(){
-
-    /* 隱藏網址列 */
-    setTimeout(function(){
-        window.scrollTo(0, 1);
-    }, 100);
-
-    /* 避免連結開新頁 */
-    var a=document.getElementsByTagName("a");
-    for(var i=0;i<a.length;i++)
-    {
-        a[i].onclick=function()
-        {
-            window.location=this.getAttribute("href");
-            return false
-        }
-    }
-
-}
-
-
-
 
 
 
