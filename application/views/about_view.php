@@ -4,6 +4,7 @@
         <title>URIM</title>
         <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">
         <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
