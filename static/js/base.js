@@ -285,8 +285,12 @@ $(function() {
                 afterShow: function() {},
                 onClose: function() {},
                 afterClose: function() {
-                    var pop_content_id = '#pop-content-' + fhl_note_id;
-                    window.location = pop_content_id;
+                    if (!jQuery.browser.mobile) {
+                        $('body').scrollTop(0);
+                    } else {
+                        var pop_content_id = '#pop-content-' + fhl_note_id;
+                        window.location = pop_content_id;
+                    }
                 }
             },
         });
