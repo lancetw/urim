@@ -2,16 +2,23 @@
     <html lang="zh-hant">
     <head>
         <title>資源 | URIM 聖經研讀工具集</title>
-        <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+        <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">
+        <meta name="description" content="即時查詢希伯來原文、希臘原文、編號與解釋" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta property="og:title" content="URIM 聖經研讀工具集">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://lancetw.github.io/urim">
         <? if ($static == true) : ?>
+        <meta property="og:image" content="../img/apple-touch-icon-144x144.png">
+        <link rel="image_src" href="../img/apple-touch-icon-144x144.png" / >
         <link rel="apple-touch-icon" sizes="144x144" href="../img/apple-touch-icon-144x144.png">
         <link rel="apple-touch-icon-precomposed" href="../img/apple-touch-icon-144x144.png"/>
         <? else: ?>
+        <meta property="og:image" content="<?= base_url('img/apple-touch-icon-144x144.png'); ?>">
+        <link rel="image_src" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>" / >
         <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>">
         <link rel="apple-touch-icon-precomposed" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>"/>
         <? endif; ?>
