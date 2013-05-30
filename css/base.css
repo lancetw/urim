@@ -7,6 +7,16 @@ body {
 
 }
 
+.mmenu.mmenu-horizontal {
+    display: none;
+    visibility: hidden;
+}
+
+.mmenu.mmenu-horizontal.mmenu-opened {
+    display: block;
+    visibility: visible;
+}
+
 .container-narrow {
     margin: 0 auto;
     max-width: 700px;
