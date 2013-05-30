@@ -185,7 +185,7 @@ $(function() {
             e.preventDefault();
             var new_location = $(this).attr('href');
             //if (new_location != undefined && new_location.substr(0, 1) != '#' && $(this).attr('data-method') == undefined){
-            if (new_location != undefined && $(this).attr('data-method') == undefined){
+            if (new_location != undefined && $(this).attr('data-fancybox-type') == undefined){
               window.location = new_location;
             }
         });
