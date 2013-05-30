@@ -10,8 +10,10 @@
 
         <? if ($static == true) : ?>
         <link rel="apple-touch-icon" sizes="144x144" href="../img/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon-precomposed" href="../img/apple-touch-icon-144x144.png"/>
         <? else: ?>
         <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>">
+        <link rel="apple-touch-icon-precomposed" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>"/>
         <? endif; ?>
 
         <? if ($static == true) : ?>
