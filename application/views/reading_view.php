@@ -2,15 +2,15 @@
     <html lang="zh-hant">
     <head>
         <title><?= $info['book_chinese'] ?> <?= $info['chapter'] ?> : <?= $info['verse'] ?> | URIM 聖經研讀工具集</title>
+        <meta property="og:title" content="URIM 聖經研讀工具集">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://lancetw.github.io/urim/<?= $info['book_abbr'] ?>.<?= $info['chapter'] ?>.<?= $info['verse'] ?>.html">
         <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">
         <meta name="description" content="即時查詢希伯來原文、希臘原文、編號與解釋" />
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <meta property="og:title" content="URIM 聖經研讀工具集">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="http://lancetw.github.io/urim">
         <? if ($static == true) : ?>
         <meta property="og:image" content="../img/apple-touch-icon-144x144.png">
         <link rel="image_src" href="../img/apple-touch-icon-144x144.png" / >
@@ -160,138 +160,6 @@
             </div>
         </div>
     </div>
-
-    <? if ($static == true) : ?>
-
-    <nav id="panel-nav">
-    <ul>
-        <li class="Label">希伯來聖經 (Tanakh)</li>
-        <li><a href="<?= $layout['bible']['torah'][0]['abbr'] . '.1.1.html'; ?>">訓誨（妥拉）</a>
-            <ul>
-                <? foreach ($layout['bible']['torah'] as $item): ?>
-                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li><a href="<?= $layout['bible']['prophets'][0]['abbr'] . '.1.1.html'; ?>">信息</a>
-            <ul>
-                <? foreach ($layout['bible']['prophets'] as $item): ?>
-                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li><a href="<?= $layout['bible']['writings'][0]['abbr'] . '.1.1.html'; ?>">著作</a>
-            <ul>
-                <? foreach ($layout['bible']['writings'] as $item): ?>
-                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li class="Label">新約聖經 (B'rit Hadashah)</li>
-        <li><a href="<?= $layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
-            <ul>
-                <? foreach ($layout['bible']['goodnews'] as $item): ?>
-                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <? foreach ($layout['bible']['acts'] as $item): ?>
-        <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-        <? endforeach; ?>
-        <li><a href="<?= $layout['bible']['letters_paul_public'][0]['abbr'] . '.1.1.html'; ?>">保羅書信</a>
-            <ul>
-                <? foreach ($layout['bible']['letters_paul_public'] as $item): ?>
-                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li><a href="<?= $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1.html'; ?>">保羅私信</a>
-            <ul>
-                <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
-                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li><a href="<?= $layout['bible']['letters_general'][0]['abbr'] . '.1.1.html'; ?>">大公書信</a>
-            <ul>
-                <? foreach ($layout['bible']['letters_general'] as $item): ?>
-                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <? foreach ($layout['bible']['revelation'] as $item): ?>
-        <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-        <? endforeach; ?>
-
-    </ul>
-    </nav>
-
-    <? else: ?>
-
-    <nav id="panel-nav">
-    <ul>
-        <li class="Label">希伯來聖經 (Tanakh)</li>
-        <li><a href="<?= site_url('reading/' . $layout['bible']['torah'][0]['abbr'] . '.1.1'); ?>">訓誨（妥拉）</a>
-            <ul>
-                <? foreach ($layout['bible']['torah'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li><a href="<?= site_url('reading/' . $layout['bible']['prophets'][0]['abbr'] . '.1.1'); ?>">信息</a>
-            <ul>
-                <? foreach ($layout['bible']['prophets'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li><a href="<?= site_url('reading/' . $layout['bible']['writings'][0]['abbr'] . '.1.1'); ?>">著作</a>
-            <ul>
-                <? foreach ($layout['bible']['writings'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li class="Label">新約聖經 (B'rit Hadashah)</li>
-        <li><a href="<?= site_url('reading/' . $layout['bible']['goodnews'][0]['abbr'] . '.1.1'); ?>">福音</a>
-            <ul>
-                <? foreach ($layout['bible']['goodnews'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <? foreach ($layout['bible']['acts'] as $item): ?>
-        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-        <? endforeach; ?>
-        <li><a href="<?= site_url('reading/' . $layout['bible']['letters_paul_public'][0]['abbr'] . '.1.1'); ?>">保羅書信</a>
-            <ul>
-                <? foreach ($layout['bible']['letters_paul_public'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li><a href="<?= site_url('reading/' . $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1'); ?>">保羅私信</a>
-            <ul>
-                <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <li><a href="<?= site_url('reading/' . $layout['bible']['letters_general'][0]['abbr'] . '.1.1'); ?>">大公書信</a>
-            <ul>
-                <? foreach ($layout['bible']['letters_general'] as $item): ?>
-                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-                <? endforeach; ?>
-            </ul>
-        </li>
-        <? foreach ($layout['bible']['revelation'] as $item): ?>
-        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
-        <? endforeach; ?>
-
-    </ul>
-    </nav>
-
-    <? endif; ?>
 
     <div class="row-fluid screen">
 
@@ -457,6 +325,140 @@
             </div>
         </div>
     </div>
+
+    <? if ($static == true) : ?>
+
+    <nav id="panel-nav">
+    <ul>
+        <li class="Label">希伯來聖經 (Tanakh)</li>
+        <li><a href="<?= $layout['bible']['torah'][0]['abbr'] . '.1.1.html'; ?>">訓誨（妥拉）</a>
+            <ul>
+                <? foreach ($layout['bible']['torah'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= $layout['bible']['prophets'][0]['abbr'] . '.1.1.html'; ?>">信息</a>
+            <ul>
+                <? foreach ($layout['bible']['prophets'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= $layout['bible']['writings'][0]['abbr'] . '.1.1.html'; ?>">著作</a>
+            <ul>
+                <? foreach ($layout['bible']['writings'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li class="Label">新約聖經 (B'rit Hadashah)</li>
+        <li><a href="<?= $layout['bible']['goodnews'][0]['abbr'] . '.1.1.html'; ?>">福音</a>
+            <ul>
+                <? foreach ($layout['bible']['goodnews'] as $item): ?>
+                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <? foreach ($layout['bible']['acts'] as $item): ?>
+        <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+        <? endforeach; ?>
+        <li><a href="<?= $layout['bible']['letters_paul_public'][0]['abbr'] . '.1.1.html'; ?>">保羅書信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_paul_public'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1.html'; ?>">保羅私信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
+                <li><a href="<?=$item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= $layout['bible']['letters_general'][0]['abbr'] . '.1.1.html'; ?>">大公書信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_general'] as $item): ?>
+                <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <? foreach ($layout['bible']['revelation'] as $item): ?>
+        <li><a href="<?= $item['abbr'] . '.1.1.html'; ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+        <? endforeach; ?>
+
+    </ul>
+    </nav>
+
+    <? else: ?>
+
+    <nav id="panel-nav">
+    <ul>
+        <li class="Label">希伯來聖經 (Tanakh)</li>
+        <li><a href="<?= site_url('reading/' . $layout['bible']['torah'][0]['abbr'] . '.1.1'); ?>">訓誨（妥拉）</a>
+            <ul>
+                <? foreach ($layout['bible']['torah'] as $item): ?>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= site_url('reading/' . $layout['bible']['prophets'][0]['abbr'] . '.1.1'); ?>">信息</a>
+            <ul>
+                <? foreach ($layout['bible']['prophets'] as $item): ?>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= site_url('reading/' . $layout['bible']['writings'][0]['abbr'] . '.1.1'); ?>">著作</a>
+            <ul>
+                <? foreach ($layout['bible']['writings'] as $item): ?>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li class="Label">新約聖經 (B'rit Hadashah)</li>
+        <li><a href="<?= site_url('reading/' . $layout['bible']['goodnews'][0]['abbr'] . '.1.1'); ?>">福音</a>
+            <ul>
+                <? foreach ($layout['bible']['goodnews'] as $item): ?>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <? foreach ($layout['bible']['acts'] as $item): ?>
+        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+        <? endforeach; ?>
+        <li><a href="<?= site_url('reading/' . $layout['bible']['letters_paul_public'][0]['abbr'] . '.1.1'); ?>">保羅書信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_paul_public'] as $item): ?>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= site_url('reading/' . $layout['bible']['letters_paul_private'][0]['abbr'] . '.1.1'); ?>">保羅私信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_paul_private'] as $item): ?>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="<?= site_url('reading/' . $layout['bible']['letters_general'][0]['abbr'] . '.1.1'); ?>">大公書信</a>
+            <ul>
+                <? foreach ($layout['bible']['letters_general'] as $item): ?>
+                <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+                <? endforeach; ?>
+            </ul>
+        </li>
+        <? foreach ($layout['bible']['revelation'] as $item): ?>
+        <li><a href="<?= site_url('reading/' . $item['abbr'] . '.1.1'); ?>"><?= $item['name'] ?> <?= $item['hebrew'] ?></a></li>
+        <? endforeach; ?>
+
+    </ul>
+    </nav>
+
+    <? endif; ?>
+
+
 </div>
 </body>
 

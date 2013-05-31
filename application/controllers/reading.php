@@ -27,6 +27,7 @@ class Reading extends CI_Controller {
 		}
 
 		$data['info']['book_info'] = $this->bible->book_info($data['info']['book'], $data['info']['chapter']);
+		$data['info']['book_abbr'] = $_serial[0];
 		$data['info']['book_chinese'] = $this->bible->book_name($data['info']['book'], 'chinese');
 		$data['info']['book_hebrew'] = $this->bible->book_name($data['info']['book'], 'hebrew');
 		$data['info']['book_english'] = $this->bible->book_name($data['info']['book'], 'english');
