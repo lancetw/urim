@@ -11,14 +11,12 @@
         <meta name="description" content="即時查詢希伯來原文、希臘原文、編號與解釋" />
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta property="og:image" content="http://lancetw.github.io/urim/img/apple-touch-icon-144x144.png">
+        <link rel="image_src" href="http://lancetw.github.io/urim/img/apple-touch-icon-144x144.png" / >
         <? if ($static == true) : ?>
-        <meta property="og:image" content="../img/apple-touch-icon-144x144.png">
-        <link rel="image_src" href="../img/apple-touch-icon-144x144.png" / >
         <link rel="apple-touch-icon" sizes="144x144" href="../img/apple-touch-icon-144x144.png">
         <link rel="apple-touch-icon-precomposed" href="../img/apple-touch-icon-144x144.png"/>
         <? else: ?>
-        <meta property="og:image" content="<?= base_url('img/apple-touch-icon-144x144.png'); ?>">
-        <link rel="image_src" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>" / >
         <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>">
         <link rel="apple-touch-icon-precomposed" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>"/>
         <? endif; ?>

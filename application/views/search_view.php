@@ -14,14 +14,12 @@
         <meta property="og:title" content="URIM 聖經研讀工具集">
         <meta property="og:type" content="website">
         <meta property="og:url" content="http://lancetw.github.io/urim">
+        <meta property="og:image" content="http://lancetw.github.io/urim/img/apple-touch-icon-144x144.png">
+        <link rel="image_src" href="http://lancetw.github.io/urim/img/apple-touch-icon-144x144.png" / >
         <? if ($static == true) : ?>
-        <meta property="og:image" content="../img/apple-touch-icon-144x144.png">
-        <link rel="image_src" href="../img/apple-touch-icon-144x144.png" / >
         <link rel="apple-touch-icon" sizes="144x144" href="../img/apple-touch-icon-144x144.png">
         <link rel="apple-touch-icon-precomposed" href="../img/apple-touch-icon-144x144.png"/>
         <? else: ?>
-        <meta property="og:image" content="<?= base_url('img/apple-touch-icon-144x144.png'); ?>">
-        <link rel="image_src" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>" / >
         <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>">
         <link rel="apple-touch-icon-precomposed" href="<?= base_url('img/apple-touch-icon-144x144.png'); ?>"/>
         <? endif; ?>
