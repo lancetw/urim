@@ -7,7 +7,7 @@ body {
 
 }
 
-.mmenu.mmenu-horizontal {
+nav {
     display: none;
     visibility: hidden;
 }
