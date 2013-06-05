@@ -306,6 +306,12 @@ $(function() {
         position: 'left'
     });
 
+    $('.brand').click(function() {
+        $('body').animate({
+            scrollTop: 0
+        }, 600);
+    });
+
     var strongs = getParameterByName('strongs');
     $(".the-message a[data-ref='" + strongs + "']").addClass('highlight');
 
