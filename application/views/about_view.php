@@ -5,6 +5,7 @@
         <meta property="og:title" content="URIM 聖經研讀工具集">
         <meta property="og:type" content="website">
         <meta property="og:url" content="http://lancetw.github.io/urim/about.html">
+        <meta property="og:description" content="即時查詢希伯來原文、希臘原文、編號與解釋">
         <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">

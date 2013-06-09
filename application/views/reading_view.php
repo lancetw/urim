@@ -5,6 +5,7 @@
         <meta property="og:title" content="<?= $info['book_chinese'] ?> <?= $info['chapter'] ?> : <?= $info['verse'] ?> | URIM 聖經研讀工具集">
         <meta property="og:type" content="website">
         <meta property="og:url" content="http://lancetw.github.io/urim/<?= $info['book_abbr'] ?>.<?= $info['chapter'] ?>.<?= $info['verse'] ?>.html">
+        <meta property="og:description" content="<? foreach ($word['with_strongs'] as $item): ?> <?= $item['word'] ?><? endforeach; ?>">
         <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Hsin-lin Cheng aka lancetw, lancetw@gmail.com, 2013 Summer">
